@@ -60,8 +60,11 @@
           <p class="drop-main" data-i18n="upload_title">Drop your leaf image here</p>
           <p class="drop-sub" data-i18n="upload_subtitle">or click to browse — JPG, PNG (max 5 MB)</p>
         </div>
-        <input type="file" name="leaf_image" id="leafInput" accept=".jpg,.jpeg,.png" class="file-input" required>
+        <input type="file" name="leaf_image" id="leafInput" accept=".jpg,.jpeg,.png,image/*" class="file-input" required>
       </div>
+
+      <!-- Hidden Mobile Camera Input -->
+      <input type="file" id="mobileCameraInput" accept="image/*" capture="environment" class="hidden">
 
       <!-- Camera Button -->
       <div class="upload-divider"><span data-i18n="or_divider">or</span></div>
@@ -83,6 +86,28 @@
           </button>
         </div>
         <canvas id="captureCanvas" class="hidden"></canvas>
+      </div>
+
+      <!-- Quick Test with Sample Leaves -->
+      <div class="sample-leaves-box">
+        <p class="sample-leaves-title">
+          <i class="bi bi-stars text-green"></i>
+          <span data-i18n="sample_title">Try a Sample Leaf:</span>
+        </p>
+        <div class="sample-leaves-buttons">
+          <button type="button" class="btn-sample-leaf" onclick="loadSampleLeaf('/static/sample_images/tomato_early_blight.jpg', 'Tomato Early Blight')">
+            🍅 <span>Tomato Early Blight</span>
+          </button>
+          <button type="button" class="btn-sample-leaf" onclick="loadSampleLeaf('/static/sample_images/potato_late_blight.jpg', 'Potato Late Blight')">
+            🥔 <span>Potato Late Blight</span>
+          </button>
+          <button type="button" class="btn-sample-leaf" onclick="loadSampleLeaf('/static/sample_images/corn_common_rust.jpg', 'Corn Common Rust')">
+            🌽 <span>Corn Common Rust</span>
+          </button>
+          <button type="button" class="btn-sample-leaf" onclick="loadSampleLeaf('/static/sample_images/healthy_strawberry.jpg', 'Healthy Strawberry')">
+            🍓 <span>Healthy Strawberry</span>
+          </button>
+        </div>
       </div>
 
       <!-- Submit -->

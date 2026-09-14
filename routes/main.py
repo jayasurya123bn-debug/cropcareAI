@@ -63,12 +63,12 @@ def predict_route():
         flash('An unexpected error occurred while processing your image.', 'danger')
         return redirect(url_for('main.index'))
 
-    # ── Run prediction ────────────────────────────────────────────────────
-    result = predict(img_array, lang=lang)
+    # ── Run prediction (pass high-res file path for crystal-clear visual analysis)
+    image_path = os.path.join(upload_folder, filename)
+    result = predict(img_array, image_path=image_path, lang=lang)
 
     # ── Grad-CAM ──────────────────────────────────────────────────────────
     gradcam_filename = None
-    image_path = os.path.join(upload_folder, filename)
     gradcam_path = os.path.join(upload_folder, f"gradcam_{filename}")
 
     gc = generate_gradcam(image_path, result['class_index'], gradcam_path)
@@ -81,7 +81,15 @@ def predict_route():
         crop=result['crop'],
         disease=result['disease'],
         is_healthy=result['is_healthy'],
-        lang=lang
+        lang=lang,
+        botanical_name=result.get('botanical_name'),
+        pathogen_type=result.get('pathogen_type'),
+        causal_agent=result.get('causal_agent'),
+        severity=result.get('severity'),
+        spread_risk=result.get('spread_risk'),
+        symptoms=result.get('symptoms'),
+        environmental_triggers=result.get('environmental_triggers'),
+        immediate_action=result.get('immediate_action'),
     )
 
     # ── Save to database ──────────────────────────────────────────────────
@@ -102,8 +110,19 @@ def predict_route():
     db.session.add(pred)
     db.session.commit()
 
-    # POST/Redirect/GET: redirect to the GET result page so that
-    # language toggles, refreshes, and back-navigation all work correctly.
+    # Cache rich pathology details for this prediction in session
+    session[f'scan_details_{pred.id}'] = {
+        'botanical_name': result.get('botanical_name'),
+        'pathogen_type': result.get('pathogen_type'),
+        'causal_agent': result.get('causal_agent'),
+        'severity': result.get('severity'),
+        'spread_risk': result.get('spread_risk'),
+        'symptoms': result.get('symptoms'),
+        'environmental_triggers': result.get('environmental_triggers'),
+        'immediate_action': result.get('immediate_action'),
+    }
+
+    # POST/Redirect/GET: redirect to the GET result page
     return redirect(url_for('main.result', pred_id=pred.id))
 
 
@@ -132,12 +151,21 @@ def result(pred_id: int):
         'confidence_message': confidence_message(conf_level, lang=lang),
     }
 
+    cached = session.get(f'scan_details_{pred_id}') or {}
     recommendations = get_recommendations(
         pred.class_key or '',
         crop=pred.crop,
         disease=pred.disease,
         is_healthy=pred.is_healthy,
-        lang=lang
+        lang=lang,
+        botanical_name=cached.get('botanical_name'),
+        pathogen_type=cached.get('pathogen_type'),
+        causal_agent=cached.get('causal_agent'),
+        severity=cached.get('severity'),
+        spread_risk=cached.get('spread_risk'),
+        symptoms=cached.get('symptoms'),
+        environmental_triggers=cached.get('environmental_triggers'),
+        immediate_action=cached.get('immediate_action'),
     )
 
     return render_template(

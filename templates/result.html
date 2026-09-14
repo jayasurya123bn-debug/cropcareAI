@@ -103,6 +103,53 @@
           {% endif %}
         </div>
 
+        <!-- Botanical & Leaf Pathology Profile -->
+        <div class="leaf-pathology-card">
+          <h3 class="pathology-card-title">
+            <i class="bi bi-info-square-fill text-green"></i>
+            <span data-i18n="leaf_profile_title">
+              {% if lang == 'ta' %}இலை மற்றும் தாவர விவரக்குறிப்பு{% else %}Botanical &amp; Leaf Pathology Profile{% endif %}
+            </span>
+          </h3>
+
+          <div class="pathology-grid">
+            <div class="pathology-item">
+              <span class="pathology-label"><i class="bi bi-flower1"></i> {% if lang == 'ta' %}தாவரவியல் பெயர்:{% else %}Botanical Name:{% endif %}</span>
+              <span class="pathology-val italic-name">{{ recommendations.botanical_name }}</span>
+            </div>
+
+            <div class="pathology-item">
+              <span class="pathology-label"><i class="bi bi-virus"></i> {% if lang == 'ta' %}தொற்று வகை:{% else %}Pathogen Type:{% endif %}</span>
+              <span class="pathology-val">{{ recommendations.pathogen_type }}</span>
+            </div>
+
+            <div class="pathology-item">
+              <span class="pathology-label"><i class="bi bi-bug-fill"></i> {% if lang == 'ta' %}காரண நுண்ணுயிர்:{% else %}Causal Organism:{% endif %}</span>
+              <span class="pathology-val italic-name">{{ recommendations.causal_agent }}</span>
+            </div>
+
+            <div class="pathology-item">
+              <span class="pathology-label"><i class="bi bi-speedometer2"></i> {% if lang == 'ta' %}பாதிப்பு தீவிரம்:{% else %}Severity Level:{% endif %}</span>
+              <span class="pathology-val badge-severity">{{ recommendations.severity }}</span>
+            </div>
+
+            <div class="pathology-item">
+              <span class="pathology-label"><i class="bi bi-wind"></i> {% if lang == 'ta' %}பரவல் வேகம் / அபாயம்:{% else %}Spread Risk:{% endif %}</span>
+              <span class="pathology-val">{{ recommendations.spread_risk }}</span>
+            </div>
+
+            <div class="pathology-item pathology-item--full">
+              <span class="pathology-label"><i class="bi bi-cloud-sun"></i> {% if lang == 'ta' %}சாதகமான சூழல் / வானிலை:{% else %}Environmental Triggers:{% endif %}</span>
+              <span class="pathology-val">{{ recommendations.environmental_triggers }}</span>
+            </div>
+
+            <div class="pathology-item pathology-item--full highlight-action">
+              <span class="pathology-label"><i class="bi bi-lightning-charge-fill text-warning"></i> {% if lang == 'ta' %}உடனடி நடவடிக்கை (24 மணி நேரம்):{% else %}Immediate 24h Action:{% endif %}</span>
+              <span class="pathology-val text-action-alert">{{ recommendations.immediate_action }}</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Healthy Message -->
         {% if result.is_healthy %}
         <div class="healthy-card">

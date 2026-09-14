@@ -140,27 +140,77 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Camera Capture ────────────────────────────────────────────────────
-  const cameraBtn       = document.getElementById('cameraBtn');
-  const cameraContainer = document.getElementById('cameraContainer');
-  const cameraVideo     = document.getElementById('cameraVideo');
-  const captureBtn      = document.getElementById('captureBtn');
-  const cancelCameraBtn = document.getElementById('cancelCameraBtn');
-  const captureCanvas   = document.getElementById('captureCanvas');
+  // ── Sample Leaf Loader ────────────────────────────────────────────────
+  window.loadSampleLeaf = async (url, label) => {
+    try {
+      const resp = await fetch(url);
+      const blob = await resp.blob();
+      const filename = url.split('/').pop();
+      const file = new File([blob], filename, { type: 'image/jpeg' });
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      if (leafInput) leafInput.files = dt.files;
+      handleFileSelected(file);
+      showAlert(`Loaded sample: ${label}. Click "Detect Disease" to run analysis.`, 'success');
+      const card = document.getElementById('uploadCard');
+      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (err) {
+      console.error('Error loading sample leaf:', err);
+      showAlert('Could not load sample leaf: ' + err.message, 'danger');
+    }
+  };
+
+  // ── Camera Capture (Desktop Webcam + Native Mobile Camera) ─────────────
+  const cameraBtn          = document.getElementById('cameraBtn');
+  const mobileCameraInput  = document.getElementById('mobileCameraInput');
+  const cameraContainer    = document.getElementById('cameraContainer');
+  const cameraVideo        = document.getElementById('cameraVideo');
+  const captureBtn         = document.getElementById('captureBtn');
+  const cancelCameraBtn    = document.getElementById('cancelCameraBtn');
+  const captureCanvas      = document.getElementById('captureCanvas');
 
   let cameraStream = null;
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-  if (cameraBtn && cameraContainer) {
+  if (mobileCameraInput) {
+    mobileCameraInput.addEventListener('change', () => {
+      if (mobileCameraInput.files.length > 0) {
+        const file = mobileCameraInput.files[0];
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        if (leafInput) leafInput.files = dt.files;
+        handleFileSelected(file);
+      }
+    });
+  }
+
+  if (cameraBtn) {
     cameraBtn.addEventListener('click', async () => {
+      if (isMobile && mobileCameraInput) {
+        mobileCameraInput.click();
+        return;
+      }
+
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        if (mobileCameraInput) mobileCameraInput.click();
+        else showAlert('Camera is not supported in this browser.', 'warning');
+        return;
+      }
+
       try {
         cameraStream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: 'environment' }
+          video: { facingMode: { ideal: 'environment' } }
         });
         cameraVideo.srcObject = cameraStream;
         cameraContainer.classList.remove('hidden');
         cameraBtn.classList.add('hidden');
       } catch (err) {
-        showAlert('Camera not available: ' + err.message, 'warning');
+        console.warn('getUserMedia failed, trying mobile fallback:', err);
+        if (mobileCameraInput) {
+          mobileCameraInput.click();
+        } else {
+          showAlert('Camera not available: ' + err.message, 'warning');
+        }
       }
     });
 
@@ -173,18 +223,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (captureBtn) {
       captureBtn.addEventListener('click', () => {
         if (!cameraVideo || !captureCanvas) return;
-        captureCanvas.width  = cameraVideo.videoWidth;
-        captureCanvas.height = cameraVideo.videoHeight;
-        captureCanvas.getContext('2d').drawImage(cameraVideo, 0, 0);
+        captureCanvas.width  = cameraVideo.videoWidth || 640;
+        captureCanvas.height = cameraVideo.videoHeight || 480;
+        const ctx = captureCanvas.getContext('2d');
+        ctx.drawImage(cameraVideo, 0, 0, captureCanvas.width, captureCanvas.height);
 
         captureCanvas.toBlob((blob) => {
-          const file = new File([blob], 'camera_capture.jpg', { type: 'image/jpeg' });
+          if (!blob) {
+            showAlert('Failed to capture image. Please try again.', 'danger');
+            return;
+          }
+          const file = new File([blob], `camera_capture_${Date.now()}.jpg`, { type: 'image/jpeg' });
           const dt = new DataTransfer();
           dt.items.add(file);
-          leafInput.files = dt.files;
+          if (leafInput) leafInput.files = dt.files;
           handleFileSelected(file);
           stopCamera();
-        }, 'image/jpeg', 0.92);
+          showAlert('Photo captured successfully! Ready to detect.', 'success');
+        }, 'image/jpeg', 0.95);
       });
     }
   }
@@ -197,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cameraContainer) cameraContainer.classList.add('hidden');
     if (cameraBtn) cameraBtn.classList.remove('hidden');
   }
+
 
   // ── Alert Helper ──────────────────────────────────────────────────────
   function showAlert(message, type = 'info') {

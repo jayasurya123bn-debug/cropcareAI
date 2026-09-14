@@ -1990,4 +1990,148 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.25; }
   .alerts-feed-card, .schemes-container-card { padding: 1.25rem; border-radius: 18px; }
 }
 
+/* =================================================================
+   Sample Leaf Quick-Test Bar
+   ================================================================= */
+.sample-leaves-box {
+  margin: 1.25rem 0 0.5rem;
+  padding: 1rem 1.15rem;
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px dashed rgba(16, 185, 129, 0.25);
+  border-radius: 14px;
+}
+
+.sample-leaves-title {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.sample-leaves-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.btn-sample-leaf {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #1e293b;
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-sample-leaf:hover {
+  background: #166534;
+  border-color: #22c55e;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* =================================================================
+   Leaf & Pathology Profile Card (Result Page)
+   ================================================================= */
+.leaf-pathology-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.pathology-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--emerald-400);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pathology-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+.pathology-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.pathology-item--full {
+  grid-column: 1 / -1;
+}
+
+.pathology-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.pathology-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  line-height: 1.4;
+}
+
+.italic-name {
+  font-style: italic;
+  color: #a7f3d0;
+}
+
+.badge-severity {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+  width: fit-content;
+}
+
+.highlight-action {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.text-action-alert {
+  color: #fde68a;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .pathology-grid { grid-template-columns: 1fr; }
+}
+
+
 

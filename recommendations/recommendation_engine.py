@@ -68,11 +68,52 @@ CROP_TA: Dict[str, str] = {
     'unknown': 'பயிர்',
 }
 
+# Botanical scientific names
+BOTANICAL_NAMES: Dict[str, str] = {
+    'tomato': 'Solanum lycopersicum',
+    'potato': 'Solanum tuberosum',
+    'corn': 'Zea mays',
+    'corn_(maize)': 'Zea mays',
+    'corn (maize)': 'Zea mays',
+    'apple': 'Malus domestica',
+    'grape': 'Vitis vinifera',
+    'peach': 'Prunus persica',
+    'pepper': 'Capsicum annuum',
+    'pepper,_bell': 'Capsicum annuum',
+    'pepper, bell': 'Capsicum annuum',
+    'bell pepper': 'Capsicum annuum',
+    'chilli': 'Capsicum annuum',
+    'strawberry': 'Fragaria × ananassa',
+    'orange': 'Citrus sinensis',
+    'citrus': 'Citrus sinensis',
+    'lemon': 'Citrus limon',
+    'cherry': 'Prunus avium',
+    'soybean': 'Glycine max',
+    'blueberry': 'Vaccinium corymbosum',
+    'raspberry': 'Rubus idaeus',
+    'squash': 'Cucurbita pepo',
+    'rice': 'Oryza sativa',
+    'paddy': 'Oryza sativa',
+    'wheat': 'Triticum aestivum',
+    'cotton': 'Gossypium hirsutum',
+    'mango': 'Mangifera indica',
+    'banana': 'Musa acuminata',
+    'onion': 'Allium cepa',
+    'garlic': 'Allium sativum',
+    'eggplant': 'Solanum melongena',
+    'brinjal': 'Solanum melongena',
+    'cucumber': 'Cucumis sativus',
+    'mint': 'Mentha spicata',
+    'bean': 'Phaseolus vulgaris',
+    'beans': 'Phaseolus vulgaris',
+}
+
 # Common disease name Tamil translations
 DISEASE_TA: Dict[str, str] = {
     'healthy': 'ஆரோக்கியமானது',
     'rust': 'துரு நோய்',
     'verticillium wilt': 'வெர்ட்டிசிலியம் வாடல் நோய்',
+
     'bacterial wilt': 'பாக்டீரியா வாடல் நோய்',
     'fusarium wilt': 'பியூசாரியம் வாடல் நோய்',
     'early blight': 'ஆரம்ப கருகல் நோய்',
@@ -285,10 +326,18 @@ def _build_6_steps(crop: str, disease: str, is_healthy: bool, lang: str = 'en') 
 
 def get_recommendations(class_key: str, crop: Optional[str] = None,
                         disease: Optional[str] = None, is_healthy: Optional[bool] = None,
-                        lang: str = 'en') -> dict:
+                        lang: str = 'en',
+                        botanical_name: Optional[str] = None,
+                        pathogen_type: Optional[str] = None,
+                        causal_agent: Optional[str] = None,
+                        severity: Optional[str] = None,
+                        spread_risk: Optional[str] = None,
+                        symptoms: Optional[List[str]] = None,
+                        environmental_triggers: Optional[str] = None,
+                        immediate_action: Optional[str] = None) -> dict:
     """
     Return comprehensive recommendations for any crop and disease.
-    Guaranteed to return a rich dictionary and NEVER None.
+    Guaranteed to return a rich dictionary with full botanical & pathology data.
     Supports English ('en') and Tamil ('ta').
     """
     _load_db()
@@ -307,11 +356,22 @@ def get_recommendations(class_key: str, crop: Optional[str] = None,
     if is_healthy is None:
         is_healthy = 'healthy' in (disease or '').lower() or 'healthy' in class_key.lower()
 
-    # ── 1. Look for existing record in database ────────────────────────────
+    # ── 1. Botanical Name ──────────────────────────────────────────────────
+    if not botanical_name:
+        crop_clean = (crop or '').lower().replace(' ', '_').replace(',', '')
+        botanical_name = BOTANICAL_NAMES.get(crop_clean, '')
+        if not botanical_name:
+            for k, bname in BOTANICAL_NAMES.items():
+                if k in crop_clean or crop_clean in k:
+                    botanical_name = bname
+                    break
+        if not botanical_name:
+            botanical_name = f"{crop.capitalize()} sp."
+
+    # ── 2. Look for existing record in database ────────────────────────────
     rec = _disease_db.get(class_key)
 
     if not rec:
-        # Try normalized matching (underscores, casing)
         norm_key = class_key.lower().replace(' ', '_').replace(',', '')
         for k, v in _disease_db.items():
             k_norm = k.lower().replace(' ', '_').replace(',', '')
@@ -320,7 +380,6 @@ def get_recommendations(class_key: str, crop: Optional[str] = None,
                 break
 
     if not rec and crop and disease:
-        # Try crop & disease substring matching
         c_low = crop.lower()
         d_low = disease.lower()
         for k, v in _disease_db.items():
@@ -333,7 +392,7 @@ def get_recommendations(class_key: str, crop: Optional[str] = None,
                 rec = v
                 break
 
-    # ── 2. Determine display names ─────────────────────────────────────────
+    # ── 3. Determine display names ─────────────────────────────────────────
     if rec:
         crop_name = rec.get('crop_ta' if lang == 'ta' else 'crop', crop)
         disease_name = rec.get('disease_name_ta' if lang == 'ta' else 'disease_name', disease)
@@ -342,41 +401,124 @@ def get_recommendations(class_key: str, crop: Optional[str] = None,
         crop_name = _translate_crop(crop) if lang == 'ta' else crop
         disease_name = _translate_disease(disease) if lang == 'ta' else disease
 
-    # ── 3. Extract or synthesize Symptoms ─────────────────────────────────
-    symptoms: List[str] = []
-    if rec:
-        ta_sym = rec.get('symptoms_ta')
-        symptoms = ta_sym if (lang == 'ta' and ta_sym) else rec.get('symptoms', [])
+    # ── 4. Pathogen & Pathology Details ───────────────────────────────────
+    d_lower = (disease or '').lower()
+    if is_healthy:
+        pathogen_type_val = 'Optimal Health' if lang == 'en' else 'பாதிப்பில்லை (சிறந்த நலம்)'
+        causal_agent_val  = 'N/A'
+        severity_val      = 'Healthy' if lang == 'en' else 'ஆரோக்கியமானது'
+        spread_risk_val   = 'None' if lang == 'en' else 'அபாயம் இல்லை'
+    else:
+        # Pathogen type
+        if not pathogen_type:
+            if any(w in d_lower for w in ('bacterial', 'canker')):
+                pathogen_type = 'Bacterial'
+            elif any(w in d_lower for w in ('virus', 'curl', 'mosaic')):
+                pathogen_type = 'Viral'
+            elif any(w in d_lower for w in ('mite', 'aphid', 'borer', 'worm')):
+                pathogen_type = 'Pest / Insect'
+            elif 'late blight' in d_lower:
+                pathogen_type = 'Oomycete'
+            else:
+                pathogen_type = 'Fungal'
 
-    if not symptoms:
+        if lang == 'ta':
+            ptype_map = {
+                'fungal': 'பூஞ்சை தொற்று (Fungal)',
+                'bacterial': 'பாக்டீரியா தொற்று (Bacterial)',
+                'viral': 'வைரஸ் தொற்று (Viral)',
+                'pest': 'பூச்சி / உண்ணி (Pest)',
+                'pest / insect': 'பூச்சி / உண்ணி (Pest)',
+                'oomycete': 'பூஞ்சை நுண்ணுயிர் (Oomycete)',
+                'none': 'பாதிப்பில்லை (None)'
+            }
+            pathogen_type_val = ptype_map.get(pathogen_type.lower(), f'{pathogen_type} தொற்று')
+        else:
+            pathogen_type_val = pathogen_type
+
+        # Causal agent
+        if not causal_agent or causal_agent == 'N/A':
+            if 'early blight' in d_lower:
+                causal_agent_val = 'Alternaria solani'
+            elif 'late blight' in d_lower:
+                causal_agent_val = 'Phytophthora infestans'
+            elif 'rust' in d_lower:
+                causal_agent_val = 'Puccinia sorghi / Uromyces'
+            elif 'scab' in d_lower:
+                causal_agent_val = 'Venturia inaequalis'
+            elif 'black rot' in d_lower:
+                causal_agent_val = 'Guignardia bidwellii'
+            elif 'powdery mildew' in d_lower:
+                causal_agent_val = 'Podosphaera / Erysiphe sp.'
+            elif 'bacterial spot' in d_lower:
+                causal_agent_val = 'Xanthomonas campestris'
+            elif 'mosaic' in d_lower:
+                causal_agent_val = 'Tomato Mosaic Virus (ToMV)'
+            elif 'curl' in d_lower:
+                causal_agent_val = 'Begomovirus / TYLCV'
+            elif 'blast' in d_lower:
+                causal_agent_val = 'Magnaporthe oryzae'
+            elif 'wilt' in d_lower:
+                causal_agent_val = 'Fusarium / Verticillium sp.'
+            else:
+                causal_agent_val = f'{disease} Pathogen'
+        else:
+            causal_agent_val = causal_agent
+
+        # Severity
+        if not severity:
+            severity = 'Severe' if 'late blight' in d_lower or 'blast' in d_lower else 'Moderate'
+        if lang == 'ta':
+            sev_map = {'mild': 'லேசானது (Mild)', 'moderate': 'மிதமானது (Moderate)', 'severe': 'தீவிரமானது (Severe)', 'optimal': 'சிறந்தது (Optimal)'}
+            severity_val = sev_map.get(severity.lower(), severity)
+        else:
+            severity_val = severity
+
+        # Spread risk
+        if not spread_risk:
+            spread_risk = 'High' if 'rust' in d_lower or 'blight' in d_lower or 'blast' in d_lower else 'Moderate'
+        if lang == 'ta':
+            risk_map = {'high': 'அதிக பரவல் அபாயம் (High)', 'moderate': 'மிதமான பரவல் (Moderate)', 'low': 'குறைந்த பரவல் (Low)', 'none': 'அபாயம் இல்லை (None)'}
+            spread_risk_val = risk_map.get(spread_risk.lower(), spread_risk)
+        else:
+            spread_risk_val = spread_risk
+
+    # ── 5. Extract or synthesize Symptoms ─────────────────────────────────
+    active_symptoms = symptoms if symptoms and isinstance(symptoms, list) and len(symptoms) > 0 else None
+    if not active_symptoms:
+        if rec:
+            ta_sym = rec.get('symptoms_ta')
+            active_symptoms = ta_sym if (lang == 'ta' and ta_sym) else rec.get('symptoms', [])
+
+    if not active_symptoms:
         if is_healthy:
             if lang == 'ta':
-                symptoms = [
-                    f"சீரான அடர் பச்சை நிற இலைகள், மஞ்சள் நிற மாற்றங்கள் அல்லது கருகல் இல்லை.",
+                active_symptoms = [
+                    "சீரான அடர் பச்சை நிற இலைகள், மஞ்சள் நிற மாற்றங்கள் அல்லது கருகல் இல்லை.",
                     "பூஞ்சை கொப்புளங்கள், பாக்டீரியா புள்ளிகள் மற்றும் சேதங்கள் இல்லாத மென்மையான இலை பரப்பு.",
                     "வலுவான தண்டு அமைப்பு மற்றும் இயல்பான ஆரோக்கியமான தாவர வளர்ச்சி."
                 ]
             else:
-                symptoms = [
-                    f"Uniform, vibrant green foliage with no signs of chlorosis or discoloration.",
+                active_symptoms = [
+                    "Uniform, vibrant green foliage with no signs of chlorosis or discoloration.",
                     "Smooth and intact leaf cuticle free from fungal pustules, necrotic spots, or lesions.",
                     "Normal turgidity and vigorous vegetative development."
                 ]
         else:
             if lang == 'ta':
-                symptoms = [
-                    f"{crop_name} இலைகளில் {disease_name} நோயின் தெளிவான புள்ளிகள், நிறமாற்றம் அல்லது கருகல் காணப்படுதல்.",
-                    "பாதிக்கப்பட்ட இலை விளிம்புகள் அல்லது நரம்புகளில் திசு சேதம் மற்றும் மஞ்சள் நிற வளையங்கள் தோன்றுதல்.",
+                active_symptoms = [
+                    f"{crop_name} இலைகளில் {disease_name} நோயின் தெளிவான புள்ளிகள் அல்லது நிறமாற்றம் தோன்றுதல்.",
+                    "பாதிக்கப்பட்ட இலை விளிம்புகள் அல்லது நரம்புகளில் திசு சேதம் மற்றும் கருகல் வளையங்கள் ஏற்படுதல்.",
                     "ஒளிச்சேர்க்கை குறைந்து இலைகள் முன்கூட்டியே உதிர்தல் அல்லது வாடிப் போதல்."
                 ]
             else:
-                symptoms = [
-                    f"Distinct lesions, discolored patches, or pustules characteristic of {disease_name} on {crop_name} foliage.",
+                active_symptoms = [
+                    f"Distinct lesions, discolored patches, or pustules characteristic of {disease_name} on foliage.",
                     "Affected leaf margins or veins exhibiting localized tissue necrosis and chlorotic halos.",
-                    "Reduced photosynthetic area leading to premature leaf drop or wilting."
+                    "Reduced photosynthetic leaf area leading to premature wilting."
                 ]
 
-    # ── 4. Extract or synthesize Prevention ───────────────────────────────
+    # ── 6. Prevention ─────────────────────────────────────────────────────
     prevention: List[str] = []
     if rec:
         ta_prev = rec.get('prevention_ta')
@@ -402,7 +544,7 @@ def get_recommendations(class_key: str, crop: Optional[str] = None,
             if lang == 'ta':
                 prevention = [
                     f"நோய் எதிர்ப்பு திறன் கொண்ட சான்றளிக்கப்பட்ட {crop_name} விதைகளை நடவு செய்யுங்கள்.",
-                    "வித்திகள் முளைப்பதை தடுக்க மேல்நோக்கி தண்ணீர் தெளிப்பதைத் தவிர்த்து, சொட்டு நீர்ப்பாசனம் அமைக்கவும்.",
+                    "வித்திகள் பரவுவதைத் தடுக்க மேல்நோக்கி தண்ணீர் தெளிப்பதைத் தவிர்த்து, சொட்டு நீர்ப்பாசனம் அமைக்கவும்.",
                     "செடிகளுக்கு இடையே போதிய இடைவெளி விட்டு நல்ல சூரிய ஒளியும் காற்று சுழற்சியும் உறுதி செய்யவும்.",
                     "ஒவ்வொரு 2-3 ஆண்டுகளுக்கும் மாற்றுப் பயிர் சுழற்சி முறையைப் பின்பற்றவும்."
                 ]
@@ -414,10 +556,23 @@ def get_recommendations(class_key: str, crop: Optional[str] = None,
                     "Rotate crops every 2–3 seasons with unrelated, non-susceptible plant families."
                 ]
 
-    # ── 5. Standardized 6 Steps for treatment / maintenance ───────────────
+    # ── 7. Environmental Triggers & Immediate Action ───────────────────────
+    if not environmental_triggers:
+        if is_healthy:
+            environmental_triggers = "Balanced temperature (20-28°C), good air drainage, and optimal soil moisture." if lang == 'en' else "சமச்சீரான வெப்பநிலை (20-28°C), நல்ல காற்றோட்டம் மற்றும் போதுமான மண் ஈரப்பதம்."
+        else:
+            environmental_triggers = f"Warm temperatures (22–29°C) combined with prolonged leaf wetness, heavy dew, and high humidity (>75%)." if lang == 'en' else "வெப்பமான வானிலை (22–29°C), இலைகளில் அதிகாலை பனி நீர் தேங்குதல் மற்றும் அதிக ஈரப்பதம் (>75%)."
+
+    if not immediate_action:
+        if is_healthy:
+            immediate_action = "Continue regular crop inspection and maintain scheduled drip irrigation." if lang == 'en' else "தொடர்ந்து வழக்கமான கள ஆய்வு செய்து சீரான சொட்டு நீர்ப்பாசனம் வழங்கவும்."
+        else:
+            immediate_action = f"Isolate infected {crop_name} plants, prune severely affected foliage immediately, and avoid overhead watering." if lang == 'en' else f"பாதிக்கப்பட்ட {crop_name} செடிகளை தனிமைப்படுத்தி, கருகிய இலைகளை உடனே கத்தரித்து அப்புறப்படுத்தவும்."
+
+    # ── 8. Standardized 6 Steps for treatment / maintenance ───────────────
     steps = _build_6_steps(crop, disease, is_healthy, lang=lang)
 
-    # ── 6. Extract or synthesize Monitoring ───────────────────────────────
+    # ── 9. Monitoring Routine ─────────────────────────────────────────────
     monitoring: List[str] = []
     if rec:
         ta_mon = rec.get('monitoring_ta')
@@ -451,20 +606,27 @@ def get_recommendations(class_key: str, crop: Optional[str] = None,
                     "Log spray applications and weather conditions to time repeat treatments accurately."
                 ]
 
-    # Management list (for backward compatibility)
     management = [s['desc'] for s in steps]
 
     return {
-        'class_key'    : class_key,
-        'crop'         : crop_name,
-        'disease_name' : disease_name,
-        'is_healthy'   : is_healthy,
-        'symptoms'     : symptoms,
-        'prevention'   : prevention,
-        'steps'        : steps,
-        'management'   : management,
-        'monitoring'   : monitoring,
+        'class_key'             : class_key,
+        'crop'                  : crop_name,
+        'botanical_name'        : botanical_name,
+        'disease_name'          : disease_name,
+        'is_healthy'            : is_healthy,
+        'pathogen_type'         : pathogen_type_val,
+        'causal_agent'          : causal_agent_val,
+        'severity'              : severity_val,
+        'spread_risk'           : spread_risk_val,
+        'symptoms'              : active_symptoms,
+        'prevention'            : prevention,
+        'environmental_triggers': environmental_triggers,
+        'immediate_action'      : immediate_action,
+        'steps'                 : steps,
+        'management'            : management,
+        'monitoring'            : monitoring,
     }
+
 
 
 def list_all_diseases(lang: str = 'en') -> list:
