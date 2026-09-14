@@ -219,3 +219,14 @@ def history():
 @main_bp.route('/about')
 def about():
     return render_template('about.html', lang=get_lang())
+
+
+# ---------------------------------------------------------------------------
+# Community
+# ---------------------------------------------------------------------------
+
+@main_bp.route('/community')
+@main_bp.route('/app/community')
+def community():
+    return render_template('community.html', lang=get_lang())
+

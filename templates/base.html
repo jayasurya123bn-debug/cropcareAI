@@ -37,6 +37,7 @@
 
     <ul class="nav-links" id="navLinks">
       <li><a href="{{ url_for('main.index') }}" class="nav-link {% if request.endpoint == 'main.index' %}active{% endif %}" data-i18n="nav_home">Home</a></li>
+      <li><a href="{{ url_for('main.community') }}" class="nav-link {% if request.endpoint in ('main.community', 'main.app_community') %}active{% endif %}" data-i18n="nav_community">Community</a></li>
       {% if current_user.is_authenticated %}
       <li><a href="{{ url_for('main.dashboard') }}" class="nav-link {% if request.endpoint == 'main.dashboard' %}active{% endif %}" data-i18n="nav_dashboard">Dashboard</a></li>
       <li><a href="{{ url_for('main.history') }}" class="nav-link {% if request.endpoint == 'main.history' %}active{% endif %}" data-i18n="nav_history">History</a></li>

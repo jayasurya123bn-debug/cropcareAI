@@ -1,0 +1,602 @@
+{% extends "base.html" %}
+{% block title %}
+  {% if lang == 'ta' %}சமூகம் — CropCare AI{% else %}Community — CropCare AI{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="community-section">
+  <div class="community-container">
+
+    <!-- Community Header -->
+    <div class="community-header text-center">
+      <h1 class="community-title" data-i18n="comm_title">
+        {% if lang == 'ta' %}சமூகம்{% else %}Community{% endif %}
+      </h1>
+      <p class="community-subtitle" data-i18n="comm_subtitle">
+        {% if lang == 'ta' %}நமது வயல்களைப் பாதுகாப்பாக வைத்திருக்க ஒன்றிணைந்து செயல்படுவோம்.{% else %}Working together to keep our fields safe.{% endif %}
+      </p>
+
+      <!-- Pill Nav Switcher -->
+      <div class="community-pill-bar">
+        <button class="pill-btn active" id="tabAlertsBtn" onclick="switchCommunityTab('alerts')">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+          <span data-i18n="comm_tab_alerts">
+            {% if lang == 'ta' %}வட்டார எச்சரிக்கைகள்{% else %}Regional Alerts{% endif %}
+          </span>
+        </button>
+        <button class="pill-btn" id="tabSchemesBtn" onclick="switchCommunityTab('schemes')">
+          <i class="bi bi-shield-check"></i>
+          <span data-i18n="comm_tab_schemes">
+            {% if lang == 'ta' %}அரசு திட்டங்கள் & மானியங்கள்{% else %}Govt Schemes &amp; Subsidies{% endif %}
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- TAB 1: REGIONAL ALERTS                                       -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <div class="community-tab-pane active" id="paneAlerts">
+
+      <!-- Metrics Summary Bar -->
+      <div class="metrics-grid">
+        <div class="metric-card metric-card--green">
+          <p class="metric-label" data-i18n="comm_stat_farmers">
+            {% if lang == 'ta' %}அருகிலுள்ள விவசாயிகள்{% else %}Active Farmers Nearby{% endif %}
+          </p>
+          <h2 class="metric-value text-green">1,240</h2>
+          <div class="metric-indicator indicator--green"></div>
+        </div>
+        <div class="metric-card metric-card--orange">
+          <p class="metric-label" data-i18n="comm_stat_reports">
+            {% if lang == 'ta' %}இன்றைய பதிவுகள்{% else %}Reports in Region Today{% endif %}
+          </p>
+          <h2 class="metric-value text-orange">85</h2>
+          <div class="metric-indicator indicator--orange"></div>
+        </div>
+        <div class="metric-card metric-card--red">
+          <p class="metric-label" data-i18n="comm_stat_hotspots">
+            {% if lang == 'ta' %}நோய் பாதிப்பு பகுதிகள்{% else %}Disease Hotspots{% endif %}
+          </p>
+          <h2 class="metric-value text-red">3</h2>
+          <div class="metric-indicator indicator--red"></div>
+        </div>
+      </div>
+
+      <!-- Disease Alerts Card -->
+      <div class="community-card alerts-feed-card">
+        <div class="card-header-line">
+          <i class="bi bi-exclamation-triangle-fill text-danger header-icon"></i>
+          <h3 class="card-heading" data-i18n="comm_alerts_heading">
+            {% if lang == 'ta' %}சமூக பயிர் நோய் எச்சரிக்கைகள்{% else %}Community Disease Alerts{% endif %}
+          </h3>
+        </div>
+
+        <div class="alerts-list">
+
+          <!-- Alert 1: Leaf Rust -->
+          <div class="alert-item alert-item--high">
+            <div class="alert-accent-bar bar--red"></div>
+            <div class="alert-main">
+              <div class="alert-meta">
+                <span class="risk-badge badge--red">
+                  {% if lang == 'ta' %}அதிக ஆபத்து{% else %}High RISK{% endif %}
+                </span>
+                <span class="alert-time">&bull; {% if lang == 'ta' %}2 மணி நேரத்திற்கு முன்{% else %}2h ago{% endif %}</span>
+              </div>
+              <h4 class="alert-disease-title">
+                <strong>{% if lang == 'ta' %}இலை துரு நோய் (Leaf Rust){% else %}Leaf Rust{% endif %}</strong>
+                <span>{% if lang == 'ta' %}உங்கள் வட்டாரத்தில் வேகமாக பரவி வருகிறது{% else %}is spreading in your region{% endif %}</span>
+              </h4>
+              <p class="alert-location">
+                <i class="bi bi-geo-alt-fill"></i> Sector 4, North Green
+              </p>
+            </div>
+            <div class="alert-action-side">
+              <div class="reports-count-box">
+                <span class="count-num">24</span>
+                <span class="count-text" data-i18n="comm_reports_nearby">
+                  {% if lang == 'ta' %}அருகிலுள்ள பதிவுகள்{% else %}REPORTS NEARBY{% endif %}
+                </span>
+              </div>
+              <button class="btn btn-action-green" onclick="openGuidanceModal('Leaf Rust', 'High', 'Sector 4, North Green')">
+                <span data-i18n="comm_view_guidance">
+                  {% if lang == 'ta' %}வழிகாட்டுதலைப் பார்{% else %}View Guidance{% endif %}
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Alert 2: Late Blight -->
+          <div class="alert-item alert-item--medium">
+            <div class="alert-accent-bar bar--orange"></div>
+            <div class="alert-main">
+              <div class="alert-meta">
+                <span class="risk-badge badge--orange">
+                  {% if lang == 'ta' %}நடுத்தர ஆபத்து{% else %}Medium RISK{% endif %}
+                </span>
+                <span class="alert-time">&bull; {% if lang == 'ta' %}5 மணி நேரத்திற்கு முன்{% else %}5h ago{% endif %}</span>
+              </div>
+              <h4 class="alert-disease-title">
+                <strong>{% if lang == 'ta' %}பிந்தைய கருகல் நோய் (Late Blight){% else %}Late Blight{% endif %}</strong>
+                <span>{% if lang == 'ta' %}உங்கள் வட்டாரத்தில் வேகமாக பரவி வருகிறது{% else %}is spreading in your region{% endif %}</span>
+              </h4>
+              <p class="alert-location">
+                <i class="bi bi-geo-alt-fill"></i> Blue Valley
+              </p>
+            </div>
+            <div class="alert-action-side">
+              <div class="reports-count-box">
+                <span class="count-num">12</span>
+                <span class="count-text" data-i18n="comm_reports_nearby">
+                  {% if lang == 'ta' %}அருகிலுள்ள பதிவுகள்{% else %}REPORTS NEARBY{% endif %}
+                </span>
+              </div>
+              <button class="btn btn-action-green" onclick="openGuidanceModal('Late Blight', 'Medium', 'Blue Valley')">
+                <span data-i18n="comm_view_guidance">
+                  {% if lang == 'ta' %}வழிகாட்டுதலைப் பார்{% else %}View Guidance{% endif %}
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Alert 3: Paddy Blast -->
+          <div class="alert-item alert-item--high">
+            <div class="alert-accent-bar bar--red"></div>
+            <div class="alert-main">
+              <div class="alert-meta">
+                <span class="risk-badge badge--red">
+                  {% if lang == 'ta' %}அதிக ஆபத்து{% else %}High RISK{% endif %}
+                </span>
+                <span class="alert-time">&bull; {% if lang == 'ta' %}1 மணி நேரத்திற்கு முன்{% else %}1h ago{% endif %}</span>
+              </div>
+              <h4 class="alert-disease-title">
+                <strong>{% if lang == 'ta' %}நெல் குலை நோய் (Paddy Blast){% else %}Paddy Blast{% endif %}</strong>
+                <span>{% if lang == 'ta' %}உங்கள் வட்டாரத்தில் வேகமாக பரவி வருகிறது{% else %}is spreading in your region{% endif %}</span>
+              </h4>
+              <p class="alert-location">
+                <i class="bi bi-geo-alt-fill"></i> Sector 2, South Plain
+              </p>
+            </div>
+            <div class="alert-action-side">
+              <div class="reports-count-box">
+                <span class="count-num">31</span>
+                <span class="count-text" data-i18n="comm_reports_nearby">
+                  {% if lang == 'ta' %}அருகிலுள்ள பதிவுகள்{% else %}REPORTS NEARBY{% endif %}
+                </span>
+              </div>
+              <button class="btn btn-action-green" onclick="openGuidanceModal('Paddy Blast', 'High', 'Sector 2, South Plain')">
+                <span data-i18n="comm_view_guidance">
+                  {% if lang == 'ta' %}வழிகாட்டுதலைப் பார்{% else %}View Guidance{% endif %}
+                </span>
+              </button>
+            </div>
+          </div>
+
+        </div><!-- .alerts-list -->
+      </div><!-- .community-card -->
+
+      <!-- Bottom Row: Community Support (Left) & Yield Forecasting (Right) -->
+      <div class="community-bottom-grid">
+
+        <!-- Left: Community Support -->
+        <div class="community-card support-card">
+          <div class="card-header-line">
+            <i class="bi bi-chat-left-dots-fill text-green header-icon"></i>
+            <h3 class="card-heading" data-i18n="comm_support_heading">
+              {% if lang == 'ta' %}விவசாயிகள் ஆதரவு மன்றம்{% else %}Community Support{% endif %}
+            </h3>
+          </div>
+
+          <!-- Discussion Posts List -->
+          <div class="support-posts" id="supportPostsContainer">
+
+            <div class="support-post-item">
+              <div class="post-avatar">RK</div>
+              <div class="post-body">
+                <div class="post-header-info">
+                  <span class="post-author">Rajesh K.</span>
+                  <span class="post-location">Sector 4 &bull; {% if lang == 'ta' %}3 மணி முன்{% else %}3h ago{% endif %}</span>
+                </div>
+                <p class="post-text">
+                  {% if lang == 'ta' %}
+                  North Green பகுதிக்கு அருகில் நெல் இலைகளில் மஞ்சள் புள்ளிகள் யாருக்காவது தென்படுகிறதா?
+                  {% else %}
+                  Anyone else seeing yellow spots on paddy leaves near North Green?
+                  {% endif %}
+                </p>
+                <div class="post-actions">
+                  <button class="btn-like" onclick="likePost(this)"><i class="bi bi-hand-thumbs-up"></i> <span>12</span></button>
+                  <button class="btn-reply" onclick="focusPostInput()"><i class="bi bi-reply"></i> <span data-i18n="comm_reply">{% if lang == 'ta' %}பதிலளி{% else %}Reply{% endif %}</span></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="support-post-item">
+              <div class="post-avatar">SM</div>
+              <div class="post-body">
+                <div class="post-header-info">
+                  <span class="post-author">Suresh M.</span>
+                  <span class="post-location">Blue Valley &bull; {% if lang == 'ta' %}6 மணி முன்{% else %}6h ago{% endif %}</span>
+                </div>
+                <p class="post-text">
+                  {% if lang == 'ta' %}
+                  இயற்கை வேப்பெண்ணெய் கரைசல் இப்போது தெளித்தேன், பூச்சி மற்றும் ஆரம்ப பூஞ்சை தாக்குதல் கட்டுக்குள் தெரிகிறது.
+                  {% else %}
+                  I just applied Organic Neem Oil, it seems to be helping with the pests.
+                  {% endif %}
+                </p>
+                <div class="post-actions">
+                  <button class="btn-like" onclick="likePost(this)"><i class="bi bi-hand-thumbs-up"></i> <span>8</span></button>
+                  <button class="btn-reply" onclick="focusPostInput()"><i class="bi bi-reply"></i> <span data-i18n="comm_reply">{% if lang == 'ta' %}பதிலளி{% else %}Reply{% endif %}</span></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="support-post-item">
+              <div class="post-avatar">MR</div>
+              <div class="post-body">
+                <div class="post-header-info">
+                  <span class="post-author">Meena R.</span>
+                  <span class="post-location">South Plain &bull; {% if lang == 'ta' %}நேற்று{% else %}Yesterday{% endif %}</span>
+                </div>
+                <p class="post-text">
+                  {% if lang == 'ta' %}
+                  மழை நீர் தேங்காமல் வடிகால் அமைத்த பிறகு தக்காளி தோட்டத்தில் நோய் பரவுவது நின்றுள்ளது.
+                  {% else %}
+                  Cleared field drainage canals yesterday, fungal lesions have stabilized on tomato plot.
+                  {% endif %}
+                </p>
+                <div class="post-actions">
+                  <button class="btn-like" onclick="likePost(this)"><i class="bi bi-hand-thumbs-up"></i> <span>15</span></button>
+                  <button class="btn-reply" onclick="focusPostInput()"><i class="bi bi-reply"></i> <span data-i18n="comm_reply">{% if lang == 'ta' %}பதிலளி{% else %}Reply{% endif %}</span></button>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- .support-posts -->
+
+          <!-- Interactive Post Form -->
+          <form class="new-post-form" id="communityPostForm" onsubmit="handleNewPost(event)">
+            <input type="text" id="postInput" class="post-input"
+                   placeholder="{% if lang == 'ta' %}உங்கள் கள அவதானிப்பைப் பகிரவும் அல்லது விவசாயக் குழுவிடம் கேட்கவும்...{% else %}Share an observation or ask your local farming community...{% endif %}"
+                   required>
+            <button type="submit" class="btn btn-primary btn-post">
+              <i class="bi bi-send-fill"></i>
+              <span data-i18n="comm_btn_post">{% if lang == 'ta' %}பதிவிடுங்கள்{% else %}Post{% endif %}</span>
+            </button>
+          </form>
+
+        </div><!-- .support-card -->
+
+        <!-- Right: Yield Forecasting -->
+        <div class="community-card forecast-card">
+          <div class="forecast-header">
+            <h3 class="forecast-title" data-i18n="comm_forecast_heading">
+              {% if lang == 'ta' %}விளைச்சல் முன்னறிவிப்பு{% else %}Yield Forecasting{% endif %}
+            </h3>
+            <i class="bi bi-graph-up-arrow forecast-icon"></i>
+          </div>
+
+          <p class="forecast-description" data-i18n="comm_forecast_insight">
+            {% if lang == 'ta' %}
+            சாதகமான வானிலை மற்றும் தெற்கு பகுதிகளில் நோய் தாக்கம் குறைவாக உள்ளதால், இந்த பருவத்தில் நெல் விளைச்சல் 15% அதிகரிக்கும் என தரவுகள் தெரிவிக்கின்றன.
+            {% else %}
+            Regional data suggests a 15% increase in Rice yields this season due to favorable weather and low disease impact in the southern quadrants.
+            {% endif %}
+          </p>
+
+          <div class="forecast-confidence-box">
+            <p class="conf-label" data-i18n="comm_conf_score">
+              {% if lang == 'ta' %}நம்பகத்தன்மை மதிப்பீடு{% else %}CONFIDENCE SCORE{% endif %}
+            </p>
+            <div class="conf-metric">
+              <span class="conf-number">88%</span>
+              <div class="conf-badge-pill">
+                <i class="bi bi-patch-check-fill"></i> {% if lang == 'ta' %}அதிக துல்லியம்{% else %}High Accuracy{% endif %}
+              </div>
+            </div>
+            <div class="conf-bar-track">
+              <div class="conf-bar-fill" style="width: 88%"></div>
+            </div>
+          </div>
+
+          <!-- Quick Action -->
+          <a href="{{ url_for('main.index') }}" class="btn btn-forecast-scan">
+            <i class="bi bi-camera-fill"></i>
+            {% if lang == 'ta' %}உங்கள் பயிரை ஸ்கேன் செய்யுங்கள்{% else %}Scan Your Field Now{% endif %}
+          </a>
+        </div><!-- .forecast-card -->
+
+      </div><!-- .community-bottom-grid -->
+
+    </div><!-- #paneAlerts -->
+
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- TAB 2: GOVT SCHEMES & SUBSIDIES                              -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <div class="community-tab-pane" id="paneSchemes">
+
+      <div class="community-card schemes-container-card">
+        <div class="card-header-line">
+          <i class="bi bi-shield-check text-primary header-icon"></i>
+          <h3 class="card-heading" data-i18n="comm_schemes_heading">
+            {% if lang == 'ta' %}அரசு திட்டங்கள் &amp; மானியங்கள்{% else %}Govt Schemes &amp; Subsidies{% endif %}
+          </h3>
+        </div>
+
+        <div class="schemes-grid">
+
+          <!-- Scheme 1: PM Fasal Bima Yojana -->
+          <div class="scheme-item-card">
+            <div class="scheme-badge-row">
+              <span class="scheme-cat-badge badge-blue">
+                {% if lang == 'ta' %}பயிர் காப்பீடு{% else %}INSURANCE CLAIMS{% endif %}
+              </span>
+              <i class="bi bi-shield-check scheme-shield-icon"></i>
+            </div>
+            <h4 class="scheme-name">PM Fasal Bima Yojana</h4>
+            <p class="scheme-desc">
+              {% if lang == 'ta' %}
+              இலை துரு நோய் மற்றும் எதிர்பாராத வானிலை பாதிப்புகளால் ஏற்படும் பயிர் இழப்புகளுக்கு 100% இழப்பீடு பெறுங்கள்.
+              {% else %}
+              Get 100% compensation for crop loss due to regional disease outbreaks like Leaf Rust and unexpected weather.
+              {% endif %}
+            </p>
+            <div class="scheme-footer-row">
+              <span class="scheme-value">
+                {% if lang == 'ta' %}ரூ.50,000 / ஏக்கர் வரை{% else %}Up to ₹50,000/Acre{% endif %}
+              </span>
+              <button class="btn btn-action-green" onclick="openSchemeModal('PM Fasal Bima Yojana', '₹50,000/Acre', 'Insurance Claim for Crop Loss')">
+                <span data-i18n="comm_btn_apply">{% if lang == 'ta' %}விண்ணப்பிக்கவும்{% else %}Apply Now{% endif %}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Scheme 2: Agri-Input Subsidy -->
+          <div class="scheme-item-card">
+            <div class="scheme-badge-row">
+              <span class="scheme-cat-badge badge-blue">
+                {% if lang == 'ta' %}மானிய திட்டங்கள்{% else %}SUBSIDY PROGRAMS{% endif %}
+              </span>
+              <i class="bi bi-shield-check scheme-shield-icon"></i>
+            </div>
+            <h4 class="scheme-name">Agri-Input Subsidy</h4>
+            <p class="scheme-desc">
+              {% if lang == 'ta' %}
+              நோய் பாதித்த பகுதிகளுக்கு பூச்சிக்கொல்லிகள், இயற்கை உரங்கள் மற்றும் சான்றளிக்கப்பட்ட விதைகளுக்கு 50% மானியம்.
+              {% else %}
+              Government provides 50% subsidy on pesticides, bio-fungicides and fertilizers for disease-affected regions.
+              {% endif %}
+            </p>
+            <div class="scheme-footer-row">
+              <span class="scheme-value">
+                {% if lang == 'ta' %}50% உழவுப் பொருட்கள் தள்ளுபடி{% else %}50% Off on Inputs{% endif %}
+              </span>
+              <button class="btn btn-action-green" onclick="openSchemeModal('Agri-Input Subsidy', '50% Discount', 'Fertilizer & Bio-Fungicide Subsidy')">
+                <span data-i18n="comm_btn_apply">{% if lang == 'ta' %}விண்ணப்பிக்கவும்{% else %}Apply Now{% endif %}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Scheme 3: Paramparagat Krishi -->
+          <div class="scheme-item-card">
+            <div class="scheme-badge-row">
+              <span class="scheme-cat-badge badge-blue">
+                {% if lang == 'ta' %}அரசு திட்டங்கள்{% else %}GOVERNMENT SCHEMES{% endif %}
+              </span>
+              <i class="bi bi-shield-check scheme-shield-icon"></i>
+            </div>
+            <h4 class="scheme-name">Paramparagat Krishi</h4>
+            <p class="scheme-desc">
+              {% if lang == 'ta' %}
+              இயற்கை நோய் மேலாண்மை மற்றும் சூழலியல் வேளாண் நடைமுறைகளை பின்பற்றும் விவசாயிகளுக்கு சிறப்பு நிதி உதவி.
+              {% else %}
+              Special grants for farmers adopting organic disease management and sustainable biological control practices.
+              {% endif %}
+            </p>
+            <div class="scheme-footer-row">
+              <span class="scheme-value">
+                {% if lang == 'ta' %}ரூ.20,000 உதவி நிதி{% else %}₹20,000 Support{% endif %}
+              </span>
+              <button class="btn btn-action-green" onclick="openSchemeModal('Paramparagat Krishi Vikas Yojana', '₹20,000 Grant', 'Organic Farming Assistance')">
+                <span data-i18n="comm_btn_apply">{% if lang == 'ta' %}விண்ணப்பிக்கவும்{% else %}Apply Now{% endif %}</span>
+              </button>
+            </div>
+          </div>
+
+        </div><!-- .schemes-grid -->
+      </div><!-- .schemes-container-card -->
+
+    </div><!-- #paneSchemes -->
+
+  </div><!-- .community-container -->
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- GUIDANCE MODAL POPUP (Triggered by "View Guidance")            -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="custom-modal-backdrop hidden" id="guidanceModalBackdrop" onclick="closeGuidanceModal(event)">
+  <div class="custom-modal-card" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title-box">
+        <i class="bi bi-shield-exclamation text-danger modal-header-icon"></i>
+        <div>
+          <h3 class="modal-title" id="modalDiseaseName">Leaf Rust Guidance</h3>
+          <span class="modal-badge badge--red" id="modalRiskBadge">High Risk</span>
+          <span class="modal-subtext" id="modalLocationText">Sector 4, North Green</span>
+        </div>
+      </div>
+      <button class="modal-close-btn" onclick="closeGuidanceModal()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="guidance-step-list">
+        <div class="guidance-step">
+          <div class="step-num">1</div>
+          <div class="step-txt">
+            <strong>{% if lang == 'ta' %}கள ஆய்வு & தனிமைப்படுத்தல்:{% else %}Immediate Scouting &amp; Isolation:{% endif %}</strong>
+            <span>{% if lang == 'ta' %}வயலில் பாதிக்கப்பட்ட செடிகளை கொடியிட்டு குறித்து சுற்றியுள்ள பயிர்களுக்கு பரவாமல் தனிமைப்படுத்தவும்.{% else %}Flag infected plants and establish a containment perimeter around adjacent crop rows.{% endif %}</span>
+          </div>
+        </div>
+        <div class="guidance-step">
+          <div class="step-num">2</div>
+          <div class="step-txt">
+            <strong>{% if lang == 'ta' %}இலை கத்தரிப்பு:{% else %}Sanitary Foliage Pruning:{% endif %}</strong>
+            <span>{% if lang == 'ta' %}கடுமையாக பாதிக்கப்பட்ட இலைகளை வெட்டி பையிலிட்டு வயலுக்கு அப்பால் அப்புறப்படுத்தவும்.{% else %}Remove severely affected lower leaves and safely bag/destroy them far from crop fields.{% endif %}</span>
+          </div>
+        </div>
+        <div class="guidance-step">
+          <div class="step-num">3</div>
+          <div class="step-txt">
+            <strong>{% if lang == 'ta' %}பூஞ்சைக்கொல்லி தெளிப்பு:{% else %}Targeted Bio-Fungicide Spray:{% endif %}</strong>
+            <span>{% if lang == 'ta' %}அங்கீகரிக்கப்பட்ட செம்பு அல்லது இயற்கை வேப்பெண்ணெய் கரைசலை அதிகாலையில் இலைகளின் இருபுறமும் தெளிக்கவும்.{% else %}Apply copper-based or neem oil spray early morning, ensuring complete underside coverage.{% endif %}</span>
+          </div>
+        </div>
+        <div class="guidance-step">
+          <div class="step-num">4</div>
+          <div class="step-txt">
+            <strong>{% if lang == 'ta' %}கருவிகள் தூய்மை:{% else %}Sterilization of Tools:{% endif %}</strong>
+            <span>{% if lang == 'ta' %}கத்தரிப்பு கருவிகளை 70% ஆல்கஹால் கரைசலில் நனைத்து கிருமி நீக்கம் செய்யவும்.{% else %}Disinfect all pruning shears and equipment with 70% alcohol or bleach solution.{% endif %}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="{{ url_for('main.index') }}" class="btn btn-primary btn-block">
+        <i class="bi bi-camera"></i>
+        {% if lang == 'ta' %}உங்கள் இலை மாதிரியை ஸ்கேன் செய்யுங்கள்{% else %}Scan Your Leaf to Confirm{% endif %}
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- SCHEME MODAL POPUP (Triggered by "Apply Now")                  -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="custom-modal-backdrop hidden" id="schemeModalBackdrop" onclick="closeSchemeModal(event)">
+  <div class="custom-modal-card" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title-box">
+        <i class="bi bi-bank2 text-primary modal-header-icon"></i>
+        <div>
+          <h3 class="modal-title" id="modalSchemeTitle">PM Fasal Bima Yojana</h3>
+          <span class="modal-badge badge--blue" id="modalSchemeBenefit">Up to ₹50,000/Acre</span>
+        </div>
+      </div>
+      <button class="modal-close-btn" onclick="closeSchemeModal()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="scheme-details-content">
+        <h5 class="section-subhead">
+          <i class="bi bi-card-checklist text-green"></i>
+          {% if lang == 'ta' %}விண்ணப்பிக்க தேவையான ஆவணங்கள்:{% else %}Eligibility &amp; Required Documents:{% endif %}
+        </h5>
+        <ul class="scheme-req-list">
+          <li><i class="bi bi-check-circle-fill text-green"></i> {% if lang == 'ta' %}விவசாயி ஆதார் அட்டை & நில பட்டா / குத்தகை ஆவணம்{% else %}Farmer Aadhaar Card &amp; Land Ownership / Tenancy Records{% endif %}</li>
+          <li><i class="bi bi-check-circle-fill text-green"></i> {% if lang == 'ta' %}வங்கி கணக்கு புத்தகம் (Aadhaar இணைக்கப்பட்டது){% else %}Active Bank Passbook (Aadhaar linked){% endif %}</li>
+          <li><i class="bi bi-check-circle-fill text-green"></i> {% if lang == 'ta' %}பயிர் விதைப்பு சான்றிதழ் / CropCare AI நோய் அறிக்கை{% else %}Sowing Certificate or CropCare AI Disease Detection Report{% endif %}</li>
+        </ul>
+        <div class="notice-info-box">
+          <i class="bi bi-info-circle-fill text-blue"></i>
+          <span>{% if lang == 'ta' %}அருகிலுள்ள வேளாண் விரிவாக்க மையம் (CSC/e-Seva) மூலமாகவும் நேரடியாக விண்ணப்பிக்கலாம்.{% else %}You can also submit your claim at your nearest Agricultural Extension Office (CSC/e-Seva center).{% endif %}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-primary btn-block" onclick="alert('Application details copied! Redirecting to the official portal...')">
+        <i class="bi bi-box-arrow-up-right"></i>
+        {% if lang == 'ta' %}அரசு போர்ட்டலுக்குச் செல்லுங்கள்{% else %}Proceed to Official Portal{% endif %}
+      </button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function switchCommunityTab(tab) {
+  const alertsBtn = document.getElementById('tabAlertsBtn');
+  const schemesBtn = document.getElementById('tabSchemesBtn');
+  const paneAlerts = document.getElementById('paneAlerts');
+  const paneSchemes = document.getElementById('paneSchemes');
+
+  if (tab === 'alerts') {
+    alertsBtn.classList.add('active');
+    schemesBtn.classList.remove('active');
+    paneAlerts.classList.add('active');
+    paneSchemes.classList.remove('active');
+  } else {
+    schemesBtn.classList.add('active');
+    alertsBtn.classList.remove('active');
+    paneSchemes.classList.add('active');
+    paneAlerts.classList.remove('active');
+  }
+}
+
+function openGuidanceModal(disease, risk, location) {
+  document.getElementById('modalDiseaseName').textContent = disease + ' Guidance';
+  document.getElementById('modalRiskBadge').textContent = risk + ' Risk';
+  document.getElementById('modalLocationText').textContent = location;
+  document.getElementById('guidanceModalBackdrop').classList.remove('hidden');
+}
+
+function closeGuidanceModal() {
+  document.getElementById('guidanceModalBackdrop').classList.add('hidden');
+}
+
+function openSchemeModal(title, benefit, category) {
+  document.getElementById('modalSchemeTitle').textContent = title;
+  document.getElementById('modalSchemeBenefit').textContent = benefit;
+  document.getElementById('schemeModalBackdrop').classList.remove('hidden');
+}
+
+function closeSchemeModal() {
+  document.getElementById('schemeModalBackdrop').classList.add('hidden');
+}
+
+function likePost(btn) {
+  const span = btn.querySelector('span');
+  let count = parseInt(span.textContent, 10);
+  span.textContent = count + 1;
+  btn.style.color = 'var(--emerald-400)';
+}
+
+function focusPostInput() {
+  const inp = document.getElementById('postInput');
+  inp.focus();
+  inp.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function handleNewPost(e) {
+  e.preventDefault();
+  const input = document.getElementById('postInput');
+  const text = input.value.trim();
+  if (!text) return;
+
+  const container = document.getElementById('supportPostsContainer');
+  const newPost = document.createElement('div');
+  newPost.className = 'support-post-item animate-pop';
+  newPost.innerHTML = `
+    <div class="post-avatar" style="background: linear-gradient(135deg, #10b981, #059669)">YOU</div>
+    <div class="post-body">
+      <div class="post-header-info">
+        <span class="post-author">You (Local Farmer)</span>
+        <span class="post-location">Just now</span>
+      </div>
+      <p class="post-text">${text}</p>
+      <div class="post-actions">
+        <button class="btn-like" onclick="likePost(this)"><i class="bi bi-hand-thumbs-up"></i> <span>1</span></button>
+        <button class="btn-reply" onclick="focusPostInput()"><i class="bi bi-reply"></i> Reply</button>
+      </div>
+    </div>
+  `;
+  container.prepend(newPost);
+  input.value = '';
+}
+</script>
+{% endblock %}

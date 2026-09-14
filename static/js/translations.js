@@ -6,7 +6,7 @@
 const TRANSLATIONS = {
   en: {
     // Nav
-    nav_home: 'Home', nav_dashboard: 'Dashboard', nav_history: 'History',
+    nav_home: 'Home', nav_community: 'Community', nav_dashboard: 'Dashboard', nav_history: 'History',
     nav_about: 'About', nav_login: 'Login', nav_signup: 'Sign Up',
 
     // Hero
@@ -88,11 +88,32 @@ const TRANSLATIONS = {
     // History
     history_title: 'Prediction History',
     no_history: 'No prediction history yet.', btn_start: 'Start Scanning',
+
+    // Community
+    comm_title: 'Community',
+    comm_subtitle: 'Working together to keep our fields safe.',
+    comm_tab_alerts: 'Regional Alerts',
+    comm_tab_schemes: 'Govt Schemes & Subsidies',
+    comm_stat_farmers: 'Active Farmers Nearby',
+    comm_stat_reports: 'Reports in Region Today',
+    comm_stat_hotspots: 'Disease Hotspots',
+    comm_alerts_heading: 'Community Disease Alerts',
+    comm_view_guidance: 'View Guidance',
+    comm_reports_nearby: 'REPORTS NEARBY',
+    comm_support_heading: 'Community Support',
+    comm_reply: 'Reply',
+    comm_post_placeholder: 'Share an observation or ask your local farming community...',
+    comm_btn_post: 'Post to Community',
+    comm_forecast_heading: 'Yield Forecasting',
+    comm_forecast_insight: 'Regional data suggests a 15% increase in Rice yields this season due to favorable weather and low disease impact in the southern quadrants.',
+    comm_conf_score: 'CONFIDENCE SCORE',
+    comm_schemes_heading: 'Govt Schemes & Subsidies',
+    comm_btn_apply: 'Apply Now',
   },
 
   ta: {
     // Nav
-    nav_home: 'முகப்பு', nav_dashboard: 'டாஷ்போர்டு', nav_history: 'வரலாறு',
+    nav_home: 'முகப்பு', nav_community: 'சமூகம்', nav_dashboard: 'டாஷ்போர்டு', nav_history: 'வரலாறு',
     nav_about: 'பற்றி', nav_login: 'உள்நுழைவு', nav_signup: 'பதிவு செய்',
 
     // Hero
@@ -174,6 +195,27 @@ const TRANSLATIONS = {
     // History
     history_title: 'முன்கணிப்பு வரலாறு',
     no_history: 'இன்னும் முன்கணிப்பு வரலாறு இல்லை.', btn_start: 'ஸ்கேன் தொடங்கவும்',
+
+    // Community
+    comm_title: 'சமூகம்',
+    comm_subtitle: 'நமது வயல்களைப் பாதுகாப்பாக வைத்திருக்க ஒன்றிணைந்து செயல்படுவோம்.',
+    comm_tab_alerts: 'வட்டார எச்சரிக்கைகள்',
+    comm_tab_schemes: 'அரசு திட்டங்கள் & மானியங்கள்',
+    comm_stat_farmers: 'அருகிலுள்ள விவசாயிகள்',
+    comm_stat_reports: 'இன்றைய பதிவுகள்',
+    comm_stat_hotspots: 'நோய் பாதிப்பு பகுதிகள்',
+    comm_alerts_heading: 'சமூக பயிர் நோய் எச்சரிக்கைகள்',
+    comm_view_guidance: 'வழிகாட்டுதலைப் பார்',
+    comm_reports_nearby: 'அருகிலுள்ள பதிவுகள்',
+    comm_support_heading: 'விவசாயிகள் ஆதரவு மன்றம்',
+    comm_reply: 'பதிலளி',
+    comm_post_placeholder: 'உங்கள் கள அவதானிப்பைப் பகிரவும் அல்லது விவசாயக் குழுவிடம் கேட்கவும்...',
+    comm_btn_post: 'சமூகத்தில் பதிவிடுங்கள்',
+    comm_forecast_heading: 'விளைச்சல் முன்னறிவிப்பு',
+    comm_forecast_insight: 'சாதகமான வானிலை மற்றும் தெற்கு பகுதிகளில் நோய் தாக்கம் குறைவாக உள்ளதால், இந்த பருவத்தில் நெல் விளைச்சல் 15% அதிகரிக்கும் என தரவுகள் தெரிவிக்கின்றன.',
+    comm_conf_score: 'நம்பகத்தன்மை மதிப்பீடு',
+    comm_schemes_heading: 'அரசு திட்டங்கள் & மானியங்கள்',
+    comm_btn_apply: 'விண்ணப்பிக்கவும்',
   }
 };
 
