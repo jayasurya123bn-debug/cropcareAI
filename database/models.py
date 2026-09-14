@@ -58,41 +58,43 @@ class Prediction(db.Model):
     """Stores each crop disease prediction scan."""
     __tablename__ = 'predictions'
 
-    id               = db.Column(db.Integer, primary_key=True)
-    user_id          = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
-    image_filename   = db.Column(db.String(256), nullable=False)
-    gradcam_filename = db.Column(db.String(256), nullable=True)
-    crop             = db.Column(db.String(80), nullable=False)
-    disease          = db.Column(db.String(120), nullable=False)
-    class_key        = db.Column(db.String(150), nullable=True)
-    confidence       = db.Column(db.Float, nullable=False)
-    confidence_level = db.Column(db.String(16), nullable=True)   # high | medium | low
-    is_healthy       = db.Column(db.Boolean, default=False)
-    status           = db.Column(db.String(32), nullable=True)    # disease_detected | healthy | low_confidence
-    language         = db.Column(db.String(4), default='en')
-    demo_mode        = db.Column(db.Boolean, default=False)
-    created_at       = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+    id                 = db.Column(db.Integer, primary_key=True)
+    user_id            = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    image_filename     = db.Column(db.String(256), nullable=False)
+    original_filename  = db.Column(db.String(256), nullable=True)
+    gradcam_filename   = db.Column(db.String(256), nullable=True)
+    crop               = db.Column(db.String(80), nullable=False)
+    disease            = db.Column(db.String(120), nullable=False)
+    class_key          = db.Column(db.String(150), nullable=True)
+    confidence         = db.Column(db.Float, nullable=False)
+    confidence_level   = db.Column(db.String(16), nullable=True)   # high | medium | low
+    is_healthy         = db.Column(db.Boolean, default=False)
+    status             = db.Column(db.String(32), nullable=True)    # disease_detected | healthy | low_confidence
+    language           = db.Column(db.String(4), default='en')
+    demo_mode          = db.Column(db.Boolean, default=False)
+    created_at         = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), index=True)
 
     def confidence_pct(self) -> float:
         return round(self.confidence * 100, 2)
 
     def to_dict(self) -> dict:
         return {
-            'id'              : self.id,
-            'user_id'         : self.user_id,
-            'image_filename'  : self.image_filename,
-            'gradcam_filename': self.gradcam_filename,
-            'crop'            : self.crop,
-            'disease'         : self.disease,
-            'class_key'       : self.class_key,
-            'confidence'      : self.confidence,
-            'confidence_pct'  : self.confidence_pct(),
-            'confidence_level': self.confidence_level,
-            'is_healthy'      : self.is_healthy,
-            'status'          : self.status,
-            'language'        : self.language,
-            'demo_mode'       : self.demo_mode,
-            'created_at'      : self.created_at.isoformat() if self.created_at else None,
+            'id'                : self.id,
+            'user_id'           : self.user_id,
+            'image_filename'    : self.image_filename,
+            'original_filename' : self.original_filename,
+            'gradcam_filename'  : self.gradcam_filename,
+            'crop'              : self.crop,
+            'disease'           : self.disease,
+            'class_key'         : self.class_key,
+            'confidence'        : self.confidence,
+            'confidence_pct'    : self.confidence_pct(),
+            'confidence_level'  : self.confidence_level,
+            'is_healthy'        : self.is_healthy,
+            'status'            : self.status,
+            'language'          : self.language,
+            'demo_mode'         : self.demo_mode,
+            'created_at'        : self.created_at.isoformat() if self.created_at else None,
         }
 
     def __repr__(self):

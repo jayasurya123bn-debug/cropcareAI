@@ -50,6 +50,7 @@ def predict_route():
 
     # ── Validate & save upload ────────────────────────────────────────────
     file = request.files.get('leaf_image')
+    original_filename = file.filename if file else None
     try:
         filename, img_array = process_upload(
             file, upload_folder,
@@ -94,18 +95,19 @@ def predict_route():
 
     # ── Save to database ──────────────────────────────────────────────────
     pred = Prediction(
-        user_id          = current_user.id if current_user.is_authenticated else None,
-        image_filename   = filename,
-        gradcam_filename = gradcam_filename,
-        crop             = result['crop'],
-        disease          = result['disease'],
-        class_key        = result['class_key'],
-        confidence       = result['confidence'],
-        confidence_level = result['confidence_level'],
-        is_healthy       = result['is_healthy'],
-        status           = result['status'],
-        language         = lang,
-        demo_mode        = result.get('demo_mode', False),
+        user_id            = current_user.id if current_user.is_authenticated else None,
+        image_filename     = filename,
+        original_filename  = original_filename,
+        gradcam_filename   = gradcam_filename,
+        crop               = result['crop'],
+        disease            = result['disease'],
+        class_key          = result['class_key'],
+        confidence         = result['confidence'],
+        confidence_level   = result['confidence_level'],
+        is_healthy         = result['is_healthy'],
+        status             = result['status'],
+        language           = lang,
+        demo_mode          = result.get('demo_mode', False),
     )
     db.session.add(pred)
     db.session.commit()
@@ -170,12 +172,13 @@ def result(pred_id: int):
 
     return render_template(
         'result.html',
-        lang            = lang,
-        result          = result,
-        recommendations = recommendations,
-        prediction_id   = pred.id,
-        image_filename  = pred.image_filename,
-        gradcam_filename= pred.gradcam_filename,
+        lang             = lang,
+        result           = result,
+        recommendations  = recommendations,
+        prediction_id    = pred.id,
+        image_filename   = pred.image_filename,
+        original_filename= pred.original_filename,
+        gradcam_filename = pred.gradcam_filename,
     )
 
 

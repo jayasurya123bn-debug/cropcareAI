@@ -45,6 +45,7 @@ def api_predict():
     upload_folder = current_app.config['UPLOAD_FOLDER']
 
     file = request.files.get('leaf_image')
+    original_filename = file.filename if file else None
     if not file:
         return error('No image file uploaded. Use field name: leaf_image', 400)
 
@@ -72,40 +73,54 @@ def api_predict():
 
     # Save prediction
     pred = Prediction(
-        user_id          = current_user.id if current_user.is_authenticated else None,
-        image_filename   = filename,
-        gradcam_filename = gradcam_filename,
-        crop             = result['crop'],
-        disease          = result['disease'],
-        class_key        = result['class_key'],
-        confidence       = result['confidence'],
-        confidence_level = result['confidence_level'],
-        is_healthy       = result['is_healthy'],
-        status           = result['status'],
-        language         = lang,
-        demo_mode        = result.get('demo_mode', False),
+        user_id            = current_user.id if current_user.is_authenticated else None,
+        image_filename     = filename,
+        original_filename  = original_filename,
+        gradcam_filename   = gradcam_filename,
+        crop               = result['crop'],
+        disease            = result['disease'],
+        class_key          = result['class_key'],
+        confidence         = result['confidence'],
+        confidence_level   = result['confidence_level'],
+        is_healthy         = result['is_healthy'],
+        status             = result['status'],
+        language           = lang,
+        demo_mode          = result.get('demo_mode', False),
     )
     db.session.add(pred)
     db.session.commit()
 
     return success({
-        'prediction_id'  : pred.id,
-        'crop'           : result['crop'],
-        'disease'        : result['disease'],
-        'class_key'      : result['class_key'],
-        'confidence'     : result['confidence_pct'],
+        'prediction_id'   : pred.id,
+        'crop'            : result['crop'],
+        'disease'         : result['disease'],
+        'class_key'       : result['class_key'],
+        'confidence'      : result['confidence_pct'],
+        'confidence_raw'  : result['confidence'],
         'confidence_level': result['confidence_level'],
-        'is_healthy'     : result['is_healthy'],
-        'status'         : result['status'],
-        'demo_mode'      : result.get('demo_mode', False),
-        'recommendations': {
-            'symptoms'  : recommendations.get('symptoms', []),
-            'prevention': recommendations.get('prevention', []),
-            'management': recommendations.get('management', []),
-            'monitoring': recommendations.get('monitoring', []),
+        'is_healthy'      : result['is_healthy'],
+        'status'          : result['status'],
+        'demo_mode'       : result.get('demo_mode', False),
+        'recommendations' : {
+            'crop'                  : recommendations.get('crop'),
+            'botanical_name'        : recommendations.get('botanical_name'),
+            'disease_name'          : recommendations.get('disease_name'),
+            'is_healthy'            : recommendations.get('is_healthy'),
+            'pathogen_type'         : recommendations.get('pathogen_type'),
+            'causal_agent'          : recommendations.get('causal_agent'),
+            'severity'              : recommendations.get('severity'),
+            'spread_risk'           : recommendations.get('spread_risk'),
+            'symptoms'              : recommendations.get('symptoms', []),
+            'prevention'            : recommendations.get('prevention', []),
+            'management'            : recommendations.get('management', []),
+            'monitoring'            : recommendations.get('monitoring', []),
+            'environmental_triggers': recommendations.get('environmental_triggers'),
+            'immediate_action'      : recommendations.get('immediate_action'),
+            'steps'                 : recommendations.get('steps', []),
         },
-        'image_url'  : f'/static/uploads/{filename}',
-        'gradcam_url': f'/static/uploads/{gradcam_filename}' if gradcam_filename else None,
+        'image_url'       : f'/static/uploads/{filename}',
+        'original_filename': original_filename,
+        'gradcam_url'     : f'/static/uploads/{gradcam_filename}' if gradcam_filename else None,
     })
 
 

@@ -12,11 +12,37 @@
       <h1 class="result-heading" data-i18n="result_title">
         {% if lang == 'ta' %}நோய் கண்டறிதல் முடிவு{% else %}Disease Detection Result{% endif %}
       </h1>
-      {% if result.demo_mode %}
-      <span class="badge badge--warning">
-        <i class="bi bi-info-circle"></i> {% if lang == 'ta' %}டெமோ பயன்முறை{% else %}Demo Mode{% endif %}
-      </span>
-      {% endif %}
+      <div class="result-meta">
+        {% if original_filename %}
+        <span class="meta-item">
+          <i class="bi bi-file-image"></i>
+          <span data-i18n="original_file">{% if lang == 'ta' %}அசல் கோப்பு: {% else %}Original File: {% endif %}</span>
+          <strong>{{ original_filename }}</strong>
+        </span>
+        {% endif %}
+        <span class="meta-item">
+          <i class="bi bi-tag"></i>
+          <span data-i18n="class_key">{% if lang == 'ta' %}வகுப்பு: {% else %}Class Key: {% endif %}</span>
+          <code>{{ result.class_key or 'N/A' }}</code>
+        </span>
+        <span class="meta-item">
+          <i class="bi bi-gem"></i>
+          <span data-i18n="raw_confidence">{% if lang == 'ta' %}நம்பகத்தன்மை: {% else %}Raw Confidence: {% endif %}</span>
+          <strong>{{ '%.4f'|format(result.confidence) }}</strong>
+        </span>
+        <span class="meta-item">
+          <i class="bi bi-flag"></i>
+          <span data-i18n="status">{% if lang == 'ta' %}நிலை: {% else %}Status: {% endif %}</span>
+          <span class="badge badge--{{ 'success' if result.status == 'healthy' else 'danger' if result.status == 'disease_detected' else 'warning' }}">
+            {{ result.status|replace('_', ' ')|title }}
+          </span>
+        </span>
+        {% if result.demo_mode %}
+        <span class="badge badge--warning">
+          <i class="bi bi-info-circle"></i> {% if lang == 'ta' %}டெமோ பயன்முறை{% else %}Demo Mode{% endif %}
+        </span>
+        {% endif %}
+      </div>
     </div>
 
     <div class="result-grid">
@@ -146,6 +172,15 @@
             <div class="pathology-item pathology-item--full highlight-action">
               <span class="pathology-label"><i class="bi bi-lightning-charge-fill text-warning"></i> {% if lang == 'ta' %}உடனடி நடவடிக்கை (24 மணி நேரம்):{% else %}Immediate 24h Action:{% endif %}</span>
               <span class="pathology-val text-action-alert">{{ recommendations.immediate_action }}</span>
+            </div>
+
+            <div class="pathology-item pathology-item--full">
+              <span class="pathology-label"><i class="bi bi-list-ul"></i> {% if lang == 'ta' %}அறிகுறிகள்:{% else %}Symptoms Observed:{% endif %}</span>
+              <ul class="pathology-symptoms">
+                {% for s in recommendations.symptoms %}
+                <li>{{ s }}</li>
+                {% endfor %}
+              </ul>
             </div>
           </div>
         </div>
