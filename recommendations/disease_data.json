@@ -1,0 +1,1398 @@
+[
+  {
+    "class_key": "Apple___Apple_scab",
+    "disease_name": "Apple Scab",
+    "disease_name_ta": "ஆப்பிள் ஸ்கேப்",
+    "crop": "Apple",
+    "crop_ta": "ஆப்பிள்",
+    "is_healthy": false,
+    "symptoms": [
+      "Olive-green to brown velvety spots on leaves",
+      "Lesions may have a yellow halo around them",
+      "Infected leaves may curl and drop early",
+      "Dark, corky, rough spots on fruit surface",
+      "Severely infected fruit may crack"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் ஆலிவ்-பச்சை முதல் பழுப்பு நிற மஞ்சள் புள்ளிகள்",
+      "புண்களைச் சுற்றி மஞ்சள் அரியம் காணப்படலாம்",
+      "பாதிக்கப்பட்ட இலைகள் சுருண்டு முன்கூட்டியே உதிரலாம்",
+      "பழத்தின் மேற்பரப்பில் இருண்ட, கார்க்கி, கரடுமுரடான புள்ளிகள்",
+      "கடுமையாக பாதிக்கப்பட்ட பழங்கள் வெடிக்கலாம்"
+    ],
+    "prevention": [
+      "Plant disease-resistant apple varieties",
+      "Ensure good air circulation by proper pruning",
+      "Remove and destroy fallen leaves and infected plant material",
+      "Avoid overhead irrigation; use drip irrigation",
+      "Apply preventive fungicide sprays during wet periods"
+    ],
+    "prevention_ta": [
+      "நோய் எதிர்ப்பு ஆப்பிள் ரகங்களை நடவு செய்யுங்கள்",
+      "சரியான கத்தரிப்பு மூலம் நல்ல காற்று சுழற்சியை உறுதிப்படுத்துங்கள்",
+      "உதிர்ந்த இலைகளையும் பாதிக்கப்பட்ட தாவர பொருட்களையும் அகற்றி அழியுங்கள்",
+      "மேல்நோக்கிய நீர்ப்பாசனத்தைத் தவிர்க்கவும்; சொட்டு நீர்ப்பாசனம் பயன்படுத்தவும்",
+      "ஈர காலங்களில் தடுப்பு பூஞ்சைக்கொல்லி தெளிப்புகளை பயன்படுத்துங்கள்"
+    ],
+    "management": [
+      "Apply copper-based or approved fungicide sprays as per local agricultural extension advice",
+      "Follow locally approved pesticide labels and dosage instructions strictly",
+      "Remove heavily infected branches",
+      "Keep an orchard sanitation routine throughout the season",
+      "Consult your local agricultural extension officer for approved fungicide programs"
+    ],
+    "management_ta": [
+      "உள்ளூர் வேளாண் நீட்டிப்பு ஆலோசனையின்படி செம்பு அடிப்படையிலான பூஞ்சைக்கொல்லி தெளிப்புகளை பயன்படுத்துங்கள்",
+      "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள்கள் மற்றும் அளவு வழிமுறைகளை கண்டிப்பாக பின்பற்றுங்கள்",
+      "கடுமையாக பாதிக்கப்பட்ட கிளைகளை அகற்றுங்கள்",
+      "சீசன் முழுவதும் தோட்ட சுகாதார வழக்கத்தை பின்பற்றுங்கள்",
+      "அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி திட்டங்களுக்கு உங்கள் உள்ளூர் வேளாண் நீட்டிப்பு அதிகாரியை அணுகுங்கள்"
+    ],
+    "monitoring": [
+      "Scout orchards regularly, especially after rainfall",
+      "Monitor weather conditions for extended wet periods (>6 hours leaf wetness)",
+      "Check new leaf growth closely in spring",
+      "Record spray timings and disease observations"
+    ],
+    "monitoring_ta": [
+      "குறிப்பாக மழைக்குப் பிறகு தோட்டங்களை தொடர்ந்து கண்காணிக்கவும்",
+      "நீட்டிக்கப்பட்ட ஈர காலங்களுக்கான வானிலை நிலைமைகளை கண்காணிக்கவும்",
+      "இளவேனிலில் புதிய இலை வளர்ச்சியை நெருக்கமாக சரிபார்க்கவும்",
+      "தெளிப்பு நேரங்கள் மற்றும் நோய் கண்காணிப்புகளை பதிவு செய்யுங்கள்"
+    ]
+  },
+  {
+    "class_key": "Apple___Black_rot",
+    "disease_name": "Black Rot",
+    "disease_name_ta": "கருப்பு அழுகல்",
+    "crop": "Apple",
+    "crop_ta": "ஆப்பிள்",
+    "is_healthy": false,
+    "symptoms": [
+      "Purple spots on leaves that enlarge and turn brown",
+      "\"Frog-eye\" leaf spots — brown center with purple border",
+      "Dark, sunken lesions on fruit that expand in rings",
+      "Infected fruit may mummify and remain on tree",
+      "Cankers on limbs and branches"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் ஊதா புள்ளிகள் பெரிதாகி பழுப்பு நிறமாக மாறும்",
+      "\"தவளை கண்\" இலை புள்ளிகள் — ஊதா எல்லையுடன் பழுப்பு மையம்",
+      "பழத்தில் வளையங்களில் விரியும் இருண்ட, மூழ்கிய புண்கள்",
+      "பாதிக்கப்பட்ட பழங்கள் மம்மிஃபை ஆகி மரத்தில் தங்கலாம்",
+      "கைகள் மற்றும் கிளைகளில் புண்கள்"
+    ],
+    "prevention": [
+      "Prune out dead and cankered wood",
+      "Remove mummified fruits from tree and ground",
+      "Avoid wounding trees during cultivation",
+      "Plant resistant varieties when available",
+      "Apply dormant-season fungicide sprays"
+    ],
+    "prevention_ta": [
+      "இறந்த மற்றும் புண்ணுள்ள மரத்தை கத்தரிக்கவும்",
+      "மரம் மற்றும் தரையிலிருந்து மம்மிஃபை செய்யப்பட்ட பழங்களை அகற்றுங்கள்",
+      "சாகுபடியின்போது மரங்களை காயப்படுத்துவதை தவிர்க்கவும்",
+      "கிடைக்கும்போது எதிர்ப்பு ரகங்களை நடவு செய்யுங்கள்",
+      "செயலற்ற சீசன் பூஞ்சைக்கொல்லி தெளிப்புகளை பயன்படுத்துங்கள்"
+    ],
+    "management": [
+      "Remove all infected plant material and dispose of it away from the orchard",
+      "Apply fungicides at appropriate growth stages per local agricultural guidance",
+      "Follow locally approved pesticide product labels for rates and timings",
+      "Consult an agricultural extension officer for a full disease management program"
+    ],
+    "management_ta": [
+      "அனைத்து பாதிக்கப்பட்ட தாவர பொருட்களையும் அகற்றி தோட்டத்திலிருந்து விலக்கி அப்புறப்படுத்துங்கள்",
+      "உள்ளூர் வேளாண் வழிகாட்டுதலின்படி சரியான வளர்ச்சி நிலைகளில் பூஞ்சைக்கொல்லிகளை பயன்படுத்துங்கள்",
+      "விகிதங்கள் மற்றும் நேரங்களுக்கு உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி தயாரிப்பு லேபிள்களை பின்பற்றுங்கள்",
+      "முழுமையான நோய் மேலாண்மை திட்டத்திற்கு வேளாண் நீட்டிப்பு அதிகாரியை அணுகுங்கள்"
+    ],
+    "monitoring": [
+      "Inspect trees for cankers in early spring before leaf emergence",
+      "Check fruit for symptoms during the growing season",
+      "Monitor weather conditions (warm, wet weather promotes disease)"
+    ],
+    "monitoring_ta": [
+      "இலை முளைப்பதற்கு முன்பு இளவேனிலில் புண்களுக்கு மரங்களை ஆய்வு செய்யுங்கள்",
+      "வளரும் சீசனில் அறிகுறிகளுக்கு பழத்தை சரிபார்க்கவும்",
+      "வானிலை நிலைமைகளை கண்காணிக்கவும் (வெப்பமான, ஈர வானிலை நோயை ஊக்குவிக்கிறது)"
+    ]
+  },
+  {
+    "class_key": "Apple___Cedar_apple_rust",
+    "disease_name": "Cedar Apple Rust",
+    "disease_name_ta": "சேதர் ஆப்பிள் துரு",
+    "crop": "Apple",
+    "crop_ta": "ஆப்பிள்",
+    "is_healthy": false,
+    "symptoms": [
+      "Bright orange-yellow spots on upper leaf surface",
+      "Tube-like structures on lower leaf surface",
+      "Spots may have a red border",
+      "Infected leaves may drop prematurely",
+      "Fruit infection causes distortion and cracking"
+    ],
+    "symptoms_ta": [
+      "இலையின் மேல் பரப்பில் பிரகாசமான ஆரஞ்சு-மஞ்சள் புள்ளிகள்",
+      "இலையின் கீழ் பரப்பில் குழாய் போன்ற கட்டமைப்புகள்",
+      "புள்ளிகளில் சிவப்பு எல்லை இருக்கலாம்",
+      "பாதிக்கப்பட்ட இலைகள் முன்கூட்டியே உதிரலாம்",
+      "பழ தொற்று சிதைவு மற்றும் வெடிப்பை ஏற்படுத்துகிறது"
+    ],
+    "prevention": [
+      "Remove nearby eastern red cedar or juniper trees if feasible",
+      "Plant rust-resistant apple varieties",
+      "Apply preventive fungicide at early growth stages",
+      "Monitor for galls on cedar/juniper trees in late winter"
+    ],
+    "prevention_ta": [
+      "சாத்தியமென்றால் அருகிலுள்ள கிழக்கு சிவப்பு கேதுரு அல்லது ஜூனிபர் மரங்களை அகற்றுங்கள்",
+      "துரு எதிர்ப்பு ஆப்பிள் ரகங்களை நடவு செய்யுங்கள்",
+      "ஆரம்ப வளர்ச்சி நிலைகளில் தடுப்பு பூஞ்சைக்கொல்லி பயன்படுத்துங்கள்",
+      "குளிர்காலத்தின் கடைசியில் கேதுரு/ஜூனிபர் மரங்களில் கட்டிகளுக்கு கண்காணிக்கவும்"
+    ],
+    "management": [
+      "Fungicide applications at pink bud stage through petal fall per local guidelines",
+      "Follow locally approved agricultural labels for all chemical treatments",
+      "Consult your local agricultural extension service for a spray schedule"
+    ],
+    "management_ta": [
+      "உள்ளூர் வழிகாட்டுதல்களின்படி இதழ் உதிர்வு வரை இளஞ்சிவப்பு மொட்டு நிலையில் பூஞ்சைக்கொல்லி பயன்படுத்துங்கள்",
+      "அனைத்து இரசாயன சிகிச்சைகளுக்கும் உள்ளூரில் அங்கீகரிக்கப்பட்ட வேளாண் லேபிள்களை பின்பற்றுங்கள்",
+      "ஒரு தெளிப்பு அட்டவணைக்கு உங்கள் உள்ளூர் வேளாண் நீட்டிப்பு சேவையை அணுகுங்கள்"
+    ],
+    "monitoring": [
+      "Look for orange galls on cedar/juniper in late winter/early spring",
+      "Scout apple leaves for early spots after wet weather",
+      "Track infection periods using weather data"
+    ],
+    "monitoring_ta": [
+      "குளிர்காலத்தின் கடைசியில்/இளவேனிலின் தொடக்கத்தில் கேதுரு/ஜூனிபரில் ஆரஞ்சு கட்டிகளை தேடுங்கள்",
+      "ஈர வானிலைக்குப் பிறகு ஆரம்ப புள்ளிகளுக்கு ஆப்பிள் இலைகளை ஆய்வு செய்யுங்கள்",
+      "வானிலை தரவைப் பயன்படுத்தி தொற்று காலங்களை கண்காணிக்கவும்"
+    ]
+  },
+  {
+    "class_key": "Apple___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Apple",
+    "crop_ta": "ஆப்பிள்",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms detected. The leaf appears healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் எதுவும் கண்டறியப்படவில்லை. இலை ஆரோக்கியமாக தெரிகிறது."],
+    "prevention": [
+      "Continue regular monitoring and good agricultural practices",
+      "Maintain proper fertilization and irrigation schedules",
+      "Practice crop rotation where applicable",
+      "Keep the orchard clean of fallen debris"
+    ],
+    "prevention_ta": [
+      "தொடர்ந்து கண்காணிப்பு மற்றும் நல்ல வேளாண் நடைமுறைகளை பின்பற்றுங்கள்",
+      "சரியான உர மற்றும் நீர்ப்பாசன அட்டவணைகளை பராமரிக்கவும்",
+      "பொருந்தும் இடத்தில் பயிர் சுழற்சியை பயிற்சி செய்யுங்கள்",
+      "உதிர்ந்த குப்பைகளிலிருந்து தோட்டத்தை சுத்தமாக வைக்கவும்"
+    ],
+    "management": ["No disease management required. Maintain current practices."],
+    "management_ta": ["நோய் மேலாண்மை தேவையில்லை. தற்போதைய நடைமுறைகளை தொடருங்கள்."],
+    "monitoring": [
+      "Continue to scout regularly for early signs of any disease",
+      "Monitor for pest activity",
+      "Check soil health and nutrient levels periodically"
+    ],
+    "monitoring_ta": [
+      "எந்த நோயின் ஆரம்ப அறிகுறிகளுக்கும் தொடர்ந்து ஆய்வு செய்யுங்கள்",
+      "பூச்சி நடவடிக்கைகளை கண்காணிக்கவும்",
+      "மண் ஆரோக்கியம் மற்றும் ஊட்டச்சத்து அளவுகளை அவ்வப்போது சரிபார்க்கவும்"
+    ]
+  },
+  {
+    "class_key": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "disease_name": "Gray Leaf Spot",
+    "disease_name_ta": "சாம்பல் இலை புள்ளி",
+    "crop": "Corn (Maize)",
+    "crop_ta": "மக்காச்சோளம்",
+    "is_healthy": false,
+    "symptoms": [
+      "Long, narrow, tan to gray lesions on leaves",
+      "Lesions run parallel to leaf veins",
+      "Lesions may have yellow halos",
+      "Severe infection causes blighting of entire leaves",
+      "Premature death of leaves in severe cases"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் நீண்ட, குறுகிய, கருங்காவி முதல் சாம்பல் நிற புண்கள்",
+      "புண்கள் இலை நரம்புகளுக்கு இணையாக செல்கின்றன",
+      "புண்களில் மஞ்சள் அரியம் இருக்கலாம்",
+      "கடுமையான தொற்று முழு இலைகளையும் கருகிவிடுகிறது",
+      "கடுமையான சந்தர்ப்பங்களில் இலைகளின் முன்கூட்டிய மரணம்"
+    ],
+    "prevention": [
+      "Plant resistant corn hybrids",
+      "Practice crop rotation (avoid planting corn after corn)",
+      "Till crop residue to reduce fungal inoculum",
+      "Ensure proper plant spacing for air circulation",
+      "Avoid excessive nitrogen fertilization"
+    ],
+    "prevention_ta": [
+      "எதிர்ப்பு சோள கலப்பினங்களை நடவு செய்யுங்கள்",
+      "பயிர் சுழற்சியை பயிற்சி செய்யுங்கள் (சோளத்திற்குப் பிறகு சோளம் நடுவதை தவிர்க்கவும்)",
+      "பூஞ்சை இனக்கலப்பை குறைக்க பயிர் எச்சங்களை உழுங்கள்",
+      "காற்று சுழற்சிக்கு சரியான தாவர இடைவெளியை உறுதிப்படுத்துங்கள்",
+      "அதிகப்படியான நைட்ரஜன் உரமிடலை தவிர்க்கவும்"
+    ],
+    "management": [
+      "Apply fungicides at early disease stages per local agricultural recommendations",
+      "Follow locally approved pesticide labels for dosage and timing",
+      "Consult your local agricultural extension officer for crop-specific guidance"
+    ],
+    "management_ta": [
+      "உள்ளூர் வேளாண் பரிந்துரைகளின்படி ஆரம்ப நோய் நிலைகளில் பூஞ்சைக்கொல்லிகளை பயன்படுத்துங்கள்",
+      "அளவு மற்றும் நேரத்திற்கு உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள்களை பின்பற்றுங்கள்",
+      "பயிர்-குறிப்பிட்ட வழிகாட்டுதலுக்கு உங்கள் உள்ளூர் வேளாண் நீட்டிப்பு அதிகாரியை அணுகுங்கள்"
+    ],
+    "monitoring": [
+      "Scout fields regularly, especially during humid weather",
+      "Check lower leaves first — disease typically starts there",
+      "Note the severity and progression rate"
+    ],
+    "monitoring_ta": [
+      "குறிப்பாக ஈர வானிலையில் வயல்களை தொடர்ந்து ஆய்வு செய்யுங்கள்",
+      "கீழ் இலைகளை முதலில் சரிபார்க்கவும் — நோய் பொதுவாக அங்கே தொடங்குகிறது",
+      "தீவிரம் மற்றும் முன்னேற்றத்தின் வீதத்தை கவனிக்கவும்"
+    ]
+  },
+  {
+    "class_key": "Corn_(maize)___Common_rust_",
+    "disease_name": "Common Rust",
+    "disease_name_ta": "பொது துரு",
+    "crop": "Corn (Maize)",
+    "crop_ta": "மக்காச்சோளம்",
+    "is_healthy": false,
+    "symptoms": [
+      "Small, circular to elongated brown pustules on both leaf surfaces",
+      "Pustules are brick-red to brown in color",
+      "Pustules may rupture and release powdery spores",
+      "Yellow halos may surround pustules",
+      "Severe infection may cause leaf death"
+    ],
+    "symptoms_ta": [
+      "இலையின் இரு பரப்புகளிலும் சிறிய, வட்டமான முதல் நீட்டிக்கப்பட்ட பழுப்பு புடைப்புகள்",
+      "புடைப்புகள் செங்கல்-சிவப்பு முதல் பழுப்பு நிறத்தில் உள்ளன",
+      "புடைப்புகள் வெடித்து பொடி நுண்ணுயிர்களை வெளியிடலாம்",
+      "புடைப்புகளைச் சுற்றி மஞ்சள் அரியம் இருக்கலாம்",
+      "கடுமையான தொற்று இலை மரணத்தை ஏற்படுத்தலாம்"
+    ],
+    "prevention": [
+      "Plant rust-resistant corn hybrids",
+      "Ensure proper plant density",
+      "Practice crop rotation",
+      "Monitor weather conditions — cool temperatures and high humidity favor rust"
+    ],
+    "prevention_ta": [
+      "துரு எதிர்ப்பு சோள கலப்பினங்களை நடவு செய்யுங்கள்",
+      "சரியான தாவர அடர்த்தியை உறுதிப்படுத்துங்கள்",
+      "பயிர் சுழற்சியை பயிற்சி செய்யுங்கள்",
+      "வானிலை நிலைமைகளை கண்காணிக்கவும் — குளிர் வெப்பநிலை மற்றும் அதிக ஈரப்பதம் துருவை சாதகமாக்கும்"
+    ],
+    "management": [
+      "Apply fungicide at early pustule stage if economically justified",
+      "Follow locally approved product labels for all treatments",
+      "Seek guidance from local agricultural extension services"
+    ],
+    "management_ta": [
+      "பொருளாதார ரீதியாக நியாயமெனில் ஆரம்ப புடைப்பு நிலையில் பூஞ்சைக்கொல்லி பயன்படுத்துங்கள்",
+      "அனைத்து சிகிச்சைகளுக்கும் உள்ளூரில் அங்கீகரிக்கப்பட்ட தயாரிப்பு லேபிள்களை பின்பற்றுங்கள்",
+      "உள்ளூர் வேளாண் நீட்டிப்பு சேவைகளிடம் வழிகாட்டுதல் பெறுங்கள்"
+    ],
+    "monitoring": [
+      "Scout fields starting at seedling stage",
+      "Pay attention to lower leaf canopy where rust often begins",
+      "Track weather forecasts for conditions favorable to rust"
+    ],
+    "monitoring_ta": [
+      "கன்று நிலை தொடங்கி வயல்களை ஆய்வு செய்யுங்கள்",
+      "துரு பொதுவாக தொடங்கும் கீழ் இலை கவானத்தில் கவனம் செலுத்துங்கள்",
+      "துருவுக்கு சாதகமான நிலைமைகளுக்கான வானிலை முன்னறிவிப்புகளை கண்காணிக்கவும்"
+    ]
+  },
+  {
+    "class_key": "Corn_(maize)___Northern_Leaf_Blight",
+    "disease_name": "Northern Leaf Blight",
+    "disease_name_ta": "வடக்கு இலை கருகல்",
+    "crop": "Corn (Maize)",
+    "crop_ta": "மக்காச்சோளம்",
+    "is_healthy": false,
+    "symptoms": [
+      "Long, cigar-shaped grayish-green to tan lesions on leaves",
+      "Lesions typically 1–6 inches long",
+      "Lesions may appear water-soaked initially",
+      "Severe infection can kill leaves before grain fill",
+      "Black sooty fungal growth may appear on lesions"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் நீண்ட, சிகார் வடிவ சாம்பல்-பச்சை முதல் கருங்காவி நிற புண்கள்",
+      "புண்கள் பொதுவாக 1–6 அங்குலம் நீளம்",
+      "புண்கள் ஆரம்பத்தில் நீரில் ஊறியதாக தோன்றலாம்",
+      "கடுமையான தொற்று தானியம் நிரப்பும் முன்பே இலைகளை கொல்லலாம்",
+      "புண்களில் கருப்பு வெண்மையான பூஞ்சை வளர்ச்சி தோன்றலாம்"
+    ],
+    "prevention": [
+      "Plant resistant hybrids",
+      "Rotate crops — avoid corn after corn",
+      "Till infected crop residue",
+      "Maintain proper plant populations"
+    ],
+    "prevention_ta": [
+      "எதிர்ப்பு கலப்பினங்களை நடவு செய்யுங்கள்",
+      "பயிர்களை சுழற்றுங்கள் — சோளத்திற்குப் பிறகு சோளம் தவிர்க்கவும்",
+      "பாதிக்கப்பட்ட பயிர் எச்சங்களை உழுங்கள்",
+      "சரியான தாவர மக்கள்தொகையை பராமரிக்கவும்"
+    ],
+    "management": [
+      "Fungicide applications may be warranted at early infection stages — follow local extension advice",
+      "Use locally approved fungicide products per label instructions",
+      "Consult agricultural extension for economically justified thresholds"
+    ],
+    "management_ta": [
+      "ஆரம்ப தொற்று நிலைகளில் பூஞ்சைக்கொல்லி பயன்பாடுகள் நியாயமாக இருக்கலாம் — உள்ளூர் நீட்டிப்பு ஆலோசனையை பின்பற்றுங்கள்",
+      "லேபிள் வழிமுறைகளின்படி உள்ளூரில் அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி தயாரிப்புகளை பயன்படுத்துங்கள்",
+      "பொருளாதார ரீதியாக நியாயமான வரம்புகளுக்கு வேளாண் நீட்டிப்பை அணுகுங்கள்"
+    ],
+    "monitoring": [
+      "Scout from V6 stage onward",
+      "Check lower leaves first for early lesions",
+      "Disease progresses rapidly under cool, humid conditions"
+    ],
+    "monitoring_ta": [
+      "V6 நிலையிலிருந்து ஆய்வு செய்யுங்கள்",
+      "ஆரம்ப புண்களுக்கு கீழ் இலைகளை முதலில் சரிபார்க்கவும்",
+      "குளிர், ஈர நிலைமைகளில் நோய் வேகமாக முன்னேறுகிறது"
+    ]
+  },
+  {
+    "class_key": "Corn_(maize)___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Corn (Maize)",
+    "crop_ta": "மக்காச்சோளம்",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms detected. The plant appears healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் எதுவும் கண்டறியப்படவில்லை. தாவரம் ஆரோக்கியமாக தெரிகிறது."],
+    "prevention": ["Continue current good agricultural practices.", "Monitor regularly."],
+    "prevention_ta": ["தற்போதைய நல்ல வேளாண் நடைமுறைகளை தொடருங்கள்.", "தொடர்ந்து கண்காணிக்கவும்."],
+    "management": ["No action required."],
+    "management_ta": ["எந்த நடவடிக்கையும் தேவையில்லை."],
+    "monitoring": ["Regular scouting for pests and diseases.", "Check nutrient status."],
+    "monitoring_ta": ["பூச்சிகள் மற்றும் நோய்களுக்கு வழக்கமான ஆய்வு.", "ஊட்டச்சத்து நிலையை சரிபார்க்கவும்."]
+  },
+  {
+    "class_key": "Grape___Black_rot",
+    "disease_name": "Black Rot",
+    "disease_name_ta": "கருப்பு அழுகல்",
+    "crop": "Grape",
+    "crop_ta": "திராட்சை",
+    "is_healthy": false,
+    "symptoms": [
+      "Small, reddish-brown circular spots on leaves",
+      "Spots develop black, pimple-like fruiting bodies",
+      "Infected berries turn brown then black and shrivel into hard mummies",
+      "Dark lesions on stems and tendrils",
+      "Infected berries may drop or remain attached"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் சிறிய, சிவப்பு-பழுப்பு நிற வட்ட புள்ளிகள்",
+      "புள்ளிகள் கருப்பு, பிம்பிள் போன்ற பழ உடல்களை உருவாக்குகின்றன",
+      "பாதிக்கப்பட்ட பழங்கள் பழுப்பு நிறமாகி பின்னர் கருப்பாகி கடினமான மம்மிகளாக சுருங்குகின்றன",
+      "தண்டுகள் மற்றும் கொடிகளில் இருண்ட புண்கள்",
+      "பாதிக்கப்பட்ட பழங்கள் உதிரலாம் அல்லது இணைக்கப்பட்டிருக்கலாம்"
+    ],
+    "prevention": [
+      "Remove and destroy mummified berries and infected canes",
+      "Practice good canopy management and pruning for air circulation",
+      "Avoid wetting foliage when irrigating",
+      "Apply preventive fungicide sprays starting at bud break"
+    ],
+    "prevention_ta": [
+      "மம்மிஃபை செய்யப்பட்ட பழங்களையும் பாதிக்கப்பட்ட கோல்களையும் அகற்றி அழியுங்கள்",
+      "காற்று சுழற்சிக்கு நல்ல கவான மேலாண்மை மற்றும் கத்தரிப்பை பயிற்சி செய்யுங்கள்",
+      "நீர்ப்பாசனம் செய்யும்போது இலைகளை நனைப்பதை தவிர்க்கவும்",
+      "மொட்டு உடைக்கும் தொடக்கத்திலிருந்து தடுப்பு பூஞ்சைக்கொல்லி தெளிப்புகளை பயன்படுத்துங்கள்"
+    ],
+    "management": [
+      "Apply fungicides at critical growth stages per local extension recommendations",
+      "Remove infected material promptly from the vineyard",
+      "Follow locally approved pesticide labels strictly"
+    ],
+    "management_ta": [
+      "உள்ளூர் நீட்டிப்பு பரிந்துரைகளின்படி முக்கியமான வளர்ச்சி நிலைகளில் பூஞ்சைக்கொல்லிகளை பயன்படுத்துங்கள்",
+      "திராட்சைத் தோட்டத்திலிருந்து பாதிக்கப்பட்ட பொருளை உடனடியாக அகற்றுங்கள்",
+      "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள்களை கண்டிப்பாக பின்பற்றுங்கள்"
+    ],
+    "monitoring": [
+      "Begin scouting at bud break",
+      "Pay close attention to berries at fruit-set stage",
+      "Monitor closely after rainy periods"
+    ],
+    "monitoring_ta": [
+      "மொட்டு உடைக்கும்போது ஆய்வை தொடங்குங்கள்",
+      "பழம் அமைக்கும் நிலையில் பழங்களில் நெருக்கமாக கவனிக்கவும்",
+      "மழை காலங்களுக்குப் பிறகு நெருக்கமாக கண்காணிக்கவும்"
+    ]
+  },
+  {
+    "class_key": "Grape___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Grape",
+    "crop_ta": "திராட்சை",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms. Vine appears healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் இல்லை. கொடி ஆரோக்கியமாக தெரிகிறது."],
+    "prevention": ["Maintain regular monitoring and good canopy management."],
+    "prevention_ta": ["வழக்கமான கண்காணிப்பு மற்றும் நல்ல கவான மேலாண்மையை பராமரிக்கவும்."],
+    "management": ["No action required."],
+    "management_ta": ["எந்த நடவடிக்கையும் தேவையில்லை."],
+    "monitoring": ["Continue regular scouting throughout the season."],
+    "monitoring_ta": ["சீசன் முழுவதும் வழக்கமான ஆய்வை தொடருங்கள்."]
+  },
+  {
+    "class_key": "Potato___Early_blight",
+    "disease_name": "Early Blight",
+    "disease_name_ta": "ஆரம்ப கருகல்",
+    "crop": "Potato",
+    "crop_ta": "உருளைக்கிழங்கு",
+    "is_healthy": false,
+    "symptoms": [
+      "Dark brown spots with concentric rings (target-board pattern) on older leaves",
+      "Yellow halo around the lesions",
+      "Lesions often begin on lower, older leaves",
+      "Severe infection causes defoliation",
+      "Tubers may show shallow dark lesions"
+    ],
+    "symptoms_ta": [
+      "பழைய இலைகளில் சுயவட்ட வளையங்களுடன் (இலக்கு பலகை வடிவம்) இருண்ட பழுப்பு புள்ளிகள்",
+      "புண்களைச் சுற்றி மஞ்சள் அரியம்",
+      "புண்கள் பொதுவாக கீழ், பழைய இலைகளில் தொடங்குகின்றன",
+      "கடுமையான தொற்று இலையுதிர்வை ஏற்படுத்துகிறது",
+      "கிழங்குகளில் ஆழமற்ற இருண்ட புண்கள் காணப்படலாம்"
+    ],
+    "prevention": [
+      "Plant certified disease-free seed tubers",
+      "Practice 3-year crop rotation",
+      "Maintain adequate plant nutrition",
+      "Destroy infected crop residue",
+      "Avoid overhead irrigation; irrigate in the morning"
+    ],
+    "prevention_ta": [
+      "சான்றளிக்கப்பட்ட நோயற்ற விதை கிழங்குகளை நடவு செய்யுங்கள்",
+      "3-ஆண்டு பயிர் சுழற்சியை பயிற்சி செய்யுங்கள்",
+      "போதுமான தாவர ஊட்டச்சத்தை பராமரிக்கவும்",
+      "பாதிக்கப்பட்ட பயிர் எச்சங்களை அழியுங்கள்",
+      "மேல்நோக்கிய நீர்ப்பாசனத்தை தவிர்க்கவும்; காலையில் நீர் பாய்ச்சுங்கள்"
+    ],
+    "management": [
+      "Apply approved fungicide sprays at first sign of disease",
+      "Follow locally approved pesticide label recommendations strictly",
+      "Consult local agricultural extension for a spray program"
+    ],
+    "management_ta": [
+      "நோயின் முதல் அறிகுறியில் அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி தெளிப்புகளை பயன்படுத்துங்கள்",
+      "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் பரிந்துரைகளை கண்டிப்பாக பின்பற்றுங்கள்",
+      "ஒரு தெளிப்பு திட்டத்திற்கு உள்ளூர் வேளாண் நீட்டிப்பை அணுகுங்கள்"
+    ],
+    "monitoring": [
+      "Scout fields weekly during warm, wet weather",
+      "Inspect lower leaves first",
+      "Track disease severity to time fungicide applications"
+    ],
+    "monitoring_ta": [
+      "வெப்பமான, ஈர வானிலையில் வாராந்திர வயல் ஆய்வு",
+      "கீழ் இலைகளை முதலில் ஆய்வு செய்யுங்கள்",
+      "பூஞ்சைக்கொல்லி பயன்பாடுகளை நேரமளிக்க நோயின் தீவிரத்தை கண்காணிக்கவும்"
+    ]
+  },
+  {
+    "class_key": "Potato___Late_blight",
+    "disease_name": "Late Blight",
+    "disease_name_ta": "தாமத கருகல்",
+    "crop": "Potato",
+    "crop_ta": "உருளைக்கிழங்கு",
+    "is_healthy": false,
+    "symptoms": [
+      "Water-soaked, pale green lesions that turn dark brown/black",
+      "White fuzzy fungal growth on underside of leaves in humid conditions",
+      "Lesions have irregular margins",
+      "Lesions spread rapidly across the leaf",
+      "Infected tubers show brown rotting flesh beneath skin"
+    ],
+    "symptoms_ta": [
+      "நீரில் ஊறிய, இளம் பச்சை புண்கள் இருண்ட பழுப்பு/கருப்பு நிறமாக மாறும்",
+      "ஈர நிலைமைகளில் இலையின் கீழ்ப்பகுதியில் வெள்ளை பஞ்சு போன்ற பூஞ்சை வளர்ச்சி",
+      "புண்களில் ஒழுங்கற்ற விளிம்புகள் உள்ளன",
+      "புண்கள் இலை முழுவதும் வேகமாக பரவுகின்றன",
+      "பாதிக்கப்பட்ட கிழங்குகள் தோலின் கீழ் பழுப்பு நிற அழுகிய சதையை காட்டுகின்றன"
+    ],
+    "prevention": [
+      "Use certified disease-free seed potatoes",
+      "Plant resistant varieties where available",
+      "Avoid overhead irrigation",
+      "Destroy volunteer plants and infected plant material",
+      "Do not plant in fields with a history of late blight without preventive measures"
+    ],
+    "prevention_ta": [
+      "சான்றளிக்கப்பட்ட நோயற்ற விதை உருளைக்கிழங்குகளை பயன்படுத்துங்கள்",
+      "கிடைக்கும் இடத்தில் எதிர்ப்பு ரகங்களை நடவு செய்யுங்கள்",
+      "மேல்நோக்கிய நீர்ப்பாசனத்தை தவிர்க்கவும்",
+      "தன்னிச்சையான தாவரங்களையும் பாதிக்கப்பட்ட தாவர பொருட்களையும் அழியுங்கள்",
+      "தடுப்பு நடவடிக்கைகள் இல்லாமல் தாமத கருகல் வரலாறு உள்ள வயல்களில் நடவு செய்யாதீர்கள்"
+    ],
+    "management": [
+      "Late blight is a serious disease — act immediately at first sign",
+      "Apply approved fungicide sprays following local agricultural extension guidance",
+      "Remove and destroy infected plant material",
+      "Follow all label instructions for any chemical treatments",
+      "Contact local agricultural extension urgently for crop-specific spray recommendations"
+    ],
+    "management_ta": [
+      "தாமத கருகல் ஒரு தீவிர நோய் — முதல் அறிகுறியில் உடனடியாக செயல்படுங்கள்",
+      "உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலைப் பின்பற்றி அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி தெளிப்புகளை பயன்படுத்துங்கள்",
+      "பாதிக்கப்பட்ட தாவர பொருட்களை அகற்றி அழியுங்கள்",
+      "எந்த இரசாயன சிகிச்சைகளுக்கும் அனைத்து லேபிள் வழிமுறைகளையும் பின்பற்றுங்கள்",
+      "பயிர்-குறிப்பிட்ட தெளிப்பு பரிந்துரைகளுக்கு உள்ளூர் வேளாண் நீட்டிப்பை அவசரமாக தொடர்பு கொள்ளுங்கள்"
+    ],
+    "monitoring": [
+      "Scout fields daily during cool, humid weather (15–20°C, >90% humidity)",
+      "Check the underside of leaves for white sporulation",
+      "Use disease forecasting models if available",
+      "Act within 24-48 hours of first symptom appearance"
+    ],
+    "monitoring_ta": [
+      "குளிர், ஈர வானிலையில் (15–20°C, >90% ஈரப்பதம்) தினசரி வயல் ஆய்வு",
+      "வெள்ளை நுண்ணுயிர்களுக்கு இலையின் கீழ்ப்பகுதியை சரிபார்க்கவும்",
+      "கிடைக்கும்போது நோய் முன்னறிவிப்பு மாதிரிகளை பயன்படுத்துங்கள்",
+      "முதல் அறிகுறி தோற்றத்திலிருந்து 24-48 மணி நேரத்திற்குள் செயல்படுங்கள்"
+    ]
+  },
+  {
+    "class_key": "Potato___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Potato",
+    "crop_ta": "உருளைக்கிழங்கு",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms detected. Plant appears healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் இல்லை. தாவரம் ஆரோக்கியமாக தெரிகிறது."],
+    "prevention": ["Continue good agricultural practices and regular monitoring."],
+    "prevention_ta": ["நல்ல வேளாண் நடைமுறைகள் மற்றும் வழக்கமான கண்காணிப்பை தொடருங்கள்."],
+    "management": ["No action required."],
+    "management_ta": ["எந்த நடவடிக்கையும் தேவையில்லை."],
+    "monitoring": ["Scout regularly for early disease/pest signs."],
+    "monitoring_ta": ["ஆரம்ப நோய்/பூச்சி அறிகுறிகளுக்கு தொடர்ந்து ஆய்வு செய்யுங்கள்."]
+  },
+  {
+    "class_key": "Tomato___Bacterial_spot",
+    "disease_name": "Bacterial Spot",
+    "disease_name_ta": "பாக்டீரியா புள்ளி",
+    "crop": "Tomato",
+    "crop_ta": "தக்காளி",
+    "is_healthy": false,
+    "symptoms": [
+      "Small, water-soaked spots on leaves that turn brown with yellow halos",
+      "Spots may coalesce causing large dead areas",
+      "Fruit shows small, raised, rough spots that become corky",
+      "Severely infected leaves drop, causing defoliation",
+      "Young seedlings may be killed by the disease"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் சிறிய, நீரில் ஊறிய புள்ளிகள் மஞ்சள் அரியத்துடன் பழுப்பு நிறமாக மாறும்",
+      "புள்ளிகள் ஒன்றிணைந்து பெரிய இறந்த பகுதிகளை ஏற்படுத்தலாம்",
+      "பழம் சிறிய, உயர்ந்த, கரடுமுரடான புள்ளிகளை காட்டுகிறது, அவை கார்க்கியாக மாறும்",
+      "கடுமையாக பாதிக்கப்பட்ட இலைகள் உதிர்ந்து இலையுதிர்வை ஏற்படுத்துகின்றன",
+      "இளம் நாற்றுகள் நோயால் கொல்லப்படலாம்"
+    ],
+    "prevention": [
+      "Use certified disease-free seed and transplants",
+      "Avoid working in fields when plants are wet",
+      "Practice crop rotation (avoid solanaceous crops in succession)",
+      "Remove and destroy infected plant material",
+      "Use drip irrigation to avoid wetting foliage"
+    ],
+    "prevention_ta": [
+      "சான்றளிக்கப்பட்ட நோயற்ற விதை மற்றும் மாற்றுத் தாவரங்களை பயன்படுத்துங்கள்",
+      "தாவரங்கள் ஈரமாக இருக்கும்போது வயல்களில் வேலை செய்வதை தவிர்க்கவும்",
+      "பயிர் சுழற்சியை பயிற்சி செய்யுங்கள் (தொடர்ச்சியாக சோலனேசியஸ் பயிர்களை தவிர்க்கவும்)",
+      "பாதிக்கப்பட்ட தாவர பொருட்களை அகற்றி அழியுங்கள்",
+      "இலைகளை நனைப்பதை தவிர்க்க சொட்டு நீர்ப்பாசனம் பயன்படுத்துங்கள்"
+    ],
+    "management": [
+      "Apply copper-based bactericides per local agricultural extension guidance",
+      "Follow locally approved pesticide label instructions for all treatments",
+      "Consult local agricultural extension for a management program"
+    ],
+    "management_ta": [
+      "உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலின்படி செம்பு அடிப்படையிலான பாக்டீரியாக்கொல்லிகளை பயன்படுத்துங்கள்",
+      "அனைத்து சிகிச்சைகளுக்கும் உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் வழிமுறைகளை பின்பற்றுங்கள்",
+      "மேலாண்மை திட்டத்திற்கு உள்ளூர் வேளாண் நீட்டிப்பை அணுகுங்கள்"
+    ],
+    "monitoring": [
+      "Scout fields twice weekly during warm, wet weather",
+      "Inspect young leaves and fruit for early symptoms",
+      "Monitor for weed hosts that may harbor the pathogen"
+    ],
+    "monitoring_ta": [
+      "வெப்பமான, ஈர வானிலையில் வாரம் இரண்டு முறை வயல் ஆய்வு",
+      "ஆரம்ப அறிகுறிகளுக்கு இளம் இலைகளையும் பழத்தையும் ஆய்வு செய்யுங்கள்",
+      "நோய்க்கிருமியை ஒட்டுண்ணியாக கொண்டிருக்கும் களை தாவர இனங்களை கண்காணிக்கவும்"
+    ]
+  },
+  {
+    "class_key": "Tomato___Early_blight",
+    "disease_name": "Early Blight",
+    "disease_name_ta": "ஆரம்ப கருகல்",
+    "crop": "Tomato",
+    "crop_ta": "தக்காளி",
+    "is_healthy": false,
+    "symptoms": [
+      "Dark brown lesions with concentric rings (bull's-eye pattern) on older leaves",
+      "Yellow halo surrounding the lesions",
+      "Lesions begin on lower, older leaves first",
+      "Severe infection causes premature defoliation",
+      "Stem lesions (collar rot) may occur near soil level"
+    ],
+    "symptoms_ta": [
+      "பழைய இலைகளில் சுயவட்ட வளையங்களுடன் (காளை கண் வடிவம்) இருண்ட பழுப்பு புண்கள்",
+      "புண்களைச் சுற்றி மஞ்சள் அரியம்",
+      "புண்கள் முதலில் கீழ், பழைய இலைகளில் தொடங்குகின்றன",
+      "கடுமையான தொற்று முன்கூட்டிய இலையுதிர்வை ஏற்படுத்துகிறது",
+      "மண் மட்டத்திற்கு அருகில் தண்டு புண்கள் (கழுத்து அழுகல்) ஏற்படலாம்"
+    ],
+    "prevention": [
+      "Use disease-free certified seed or transplants",
+      "Practice 2-3 year crop rotation",
+      "Remove lower infected leaves promptly",
+      "Stake and prune plants to improve air circulation",
+      "Mulch around plants to reduce soil splash"
+    ],
+    "prevention_ta": [
+      "நோயற்ற சான்றளிக்கப்பட்ட விதை அல்லது மாற்றுத் தாவரங்களை பயன்படுத்துங்கள்",
+      "2-3 ஆண்டு பயிர் சுழற்சியை பயிற்சி செய்யுங்கள்",
+      "பாதிக்கப்பட்ட கீழ் இலைகளை உடனடியாக அகற்றுங்கள்",
+      "காற்று சுழற்சியை மேம்படுத்த தாவரங்களை குச்சி கட்டி கத்தரிக்கவும்",
+      "மண் தெளிப்பை குறைக்க தாவரங்களைச் சுற்றி மல்ச் பரப்புங்கள்"
+    ],
+    "management": [
+      "Apply approved fungicides at first disease sign following local extension advice",
+      "Follow locally approved pesticide product labels for all treatments",
+      "Ensure good plant nutrition — stressed plants are more susceptible"
+    ],
+    "management_ta": [
+      "உள்ளூர் நீட்டிப்பு ஆலோசனையைப் பின்பற்றி முதல் நோய் அறிகுறியில் அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லிகளை பயன்படுத்துங்கள்",
+      "அனைத்து சிகிச்சைகளுக்கும் உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி தயாரிப்பு லேபிள்களை பின்பற்றுங்கள்",
+      "நல்ல தாவர ஊட்டச்சத்தை உறுதிப்படுத்துங்கள் — அழுத்தத்தில் உள்ள தாவரங்கள் அதிக ஆபத்தில் உள்ளன"
+    ],
+    "monitoring": [
+      "Scout fields twice per week",
+      "Inspect lower leaves closely",
+      "Disease is more severe following wet weather and warm temperatures"
+    ],
+    "monitoring_ta": [
+      "வாரம் இரண்டு முறை வயல் ஆய்வு",
+      "கீழ் இலைகளை நெருக்கமாக ஆய்வு செய்யுங்கள்",
+      "ஈர வானிலை மற்றும் வெப்ப வெப்பநிலைகளுக்குப் பிறகு நோய் அதிக தீவிரமாக இருக்கும்"
+    ]
+  },
+  {
+    "class_key": "Tomato___Late_blight",
+    "disease_name": "Late Blight",
+    "disease_name_ta": "தாமத கருகல்",
+    "crop": "Tomato",
+    "crop_ta": "தக்காளி",
+    "is_healthy": false,
+    "symptoms": [
+      "Large, irregular, water-soaked lesions on leaves that turn dark brown",
+      "White-gray fuzzy growth on underside of leaves in humid conditions",
+      "Lesions spread rapidly across the plant",
+      "Fruit shows large, brown, greasy-looking lesions",
+      "Entire plant can collapse in severe outbreaks"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் பெரிய, ஒழுங்கற்ற, நீரில் ஊறிய புண்கள் இருண்ட பழுப்பு நிறமாக மாறும்",
+      "ஈர நிலைமைகளில் இலையின் கீழ்ப்பகுதியில் வெள்ளை-சாம்பல் பஞ்சு வளர்ச்சி",
+      "புண்கள் தாவரம் முழுவதும் வேகமாக பரவுகின்றன",
+      "பழம் பெரிய, பழுப்பு, கொழுப்பு தோற்றமுள்ள புண்களை காட்டுகிறது",
+      "கடுமையான வெடிப்புகளில் முழு தாவரமும் சரிந்துவிடலாம்"
+    ],
+    "prevention": [
+      "Avoid overhead irrigation",
+      "Ensure good air circulation through proper spacing and staking",
+      "Remove and destroy infected plants immediately",
+      "Do not compost infected plant material",
+      "Plant resistant varieties where available"
+    ],
+    "prevention_ta": [
+      "மேல்நோக்கிய நீர்ப்பாசனத்தை தவிர்க்கவும்",
+      "சரியான இடைவெளி மற்றும் குச்சி கட்டுவதன் மூலம் நல்ல காற்று சுழற்சியை உறுதிப்படுத்துங்கள்",
+      "பாதிக்கப்பட்ட தாவரங்களை உடனடியாக அகற்றி அழியுங்கள்",
+      "பாதிக்கப்பட்ட தாவர பொருட்களை உரமாக மாற்றாதீர்கள்",
+      "கிடைக்கும் இடத்தில் எதிர்ப்பு ரகங்களை நடவு செய்யுங்கள்"
+    ],
+    "management": [
+      "Act immediately — late blight spreads very rapidly",
+      "Apply approved fungicide sprays following local agricultural extension guidance",
+      "Remove and destroy infected plants — do not leave in the field",
+      "Follow all locally approved pesticide label instructions",
+      "Contact local agricultural extension urgently for emergency spray recommendations"
+    ],
+    "management_ta": [
+      "உடனடியாக செயல்படுங்கள் — தாமத கருகல் மிக வேகமாக பரவுகிறது",
+      "உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலைப் பின்பற்றி அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி தெளிப்புகளை பயன்படுத்துங்கள்",
+      "பாதிக்கப்பட்ட தாவரங்களை அகற்றி அழியுங்கள் — வயலில் விடாதீர்கள்",
+      "உள்ளூரில் அங்கீகரிக்கப்பட்ட அனைத்து பூச்சிக்கொல்லி லேபிள் வழிமுறைகளையும் பின்பற்றுங்கள்",
+      "அவசர தெளிப்பு பரிந்துரைகளுக்கு உள்ளூர் வேளாண் நீட்டிப்பை அவசரமாக தொடர்பு கொள்ளுங்கள்"
+    ],
+    "monitoring": [
+      "Scout fields daily during high-risk periods (cool nights, warm days, high humidity)",
+      "Check lower leaves and stems for first symptoms",
+      "Use late blight forecasting services if available",
+      "Respond within 24 hours of first symptom detection"
+    ],
+    "monitoring_ta": [
+      "அதிக ஆபத்து காலங்களில் (குளிர் இரவுகள், வெப்ப பகல்கள், அதிக ஈரப்பதம்) தினசரி வயல் ஆய்வு",
+      "முதல் அறிகுறிகளுக்கு கீழ் இலைகளையும் தண்டுகளையும் சரிபார்க்கவும்",
+      "கிடைக்கும்போது தாமத கருகல் முன்னறிவிப்பு சேவைகளை பயன்படுத்துங்கள்",
+      "முதல் அறிகுறி கண்டறிதலில் இருந்து 24 மணி நேரத்திற்குள் செயல்படுங்கள்"
+    ]
+  },
+  {
+    "class_key": "Tomato___Leaf_Mold",
+    "disease_name": "Leaf Mold",
+    "disease_name_ta": "இலை அச்சு",
+    "crop": "Tomato",
+    "crop_ta": "தக்காளி",
+    "is_healthy": false,
+    "symptoms": [
+      "Yellow spots on upper leaf surface",
+      "Olive-green to brown velvety mold on lower leaf surface",
+      "Leaves curl upward and die in severe cases",
+      "Reduced fruit quality and yield"
+    ],
+    "symptoms_ta": [
+      "இலையின் மேல் பரப்பில் மஞ்சள் புள்ளிகள்",
+      "இலையின் கீழ் பரப்பில் ஆலிவ்-பச்சை முதல் பழுப்பு நிற மென்மையான அச்சு",
+      "கடுமையான சந்தர்ப்பங்களில் இலைகள் மேல்நோக்கி சுருண்டு இறந்துவிடும்",
+      "பழத்தின் தரம் மற்றும் மகசூல் குறைவு"
+    ],
+    "prevention": [
+      "Ensure good greenhouse/field ventilation",
+      "Avoid overhead watering",
+      "Remove infected leaves promptly",
+      "Reduce humidity through proper plant spacing"
+    ],
+    "prevention_ta": [
+      "நல்ல கிரீன்ஹவுஸ்/வயல் காற்றோட்டத்தை உறுதிப்படுத்துங்கள்",
+      "மேல்நோக்கிய நீர்ப்பாசனத்தை தவிர்க்கவும்",
+      "பாதிக்கப்பட்ட இலைகளை உடனடியாக அகற்றுங்கள்",
+      "சரியான தாவர இடைவெளி மூலம் ஈரப்பதத்தை குறையுங்கள்"
+    ],
+    "management": [
+      "Apply approved fungicide sprays per local agricultural extension guidance",
+      "Improve ventilation in greenhouse settings",
+      "Follow locally approved pesticide label instructions"
+    ],
+    "management_ta": [
+      "உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலின்படி அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி தெளிப்புகளை பயன்படுத்துங்கள்",
+      "கிரீன்ஹவுஸ் அமைப்புகளில் காற்றோட்டத்தை மேம்படுத்துங்கள்",
+      "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் வழிமுறைகளை பின்பற்றுங்கள்"
+    ],
+    "monitoring": [
+      "Check lower leaf surfaces for velvety mold growth",
+      "Monitor humidity levels in greenhouses",
+      "Scout weekly during warm, humid conditions"
+    ],
+    "monitoring_ta": [
+      "மென்மையான அச்சு வளர்ச்சிக்கு கீழ் இலை பரப்புகளை சரிபார்க்கவும்",
+      "கிரீன்ஹவுஸ்களில் ஈரப்பத அளவுகளை கண்காணிக்கவும்",
+      "வெப்பமான, ஈர நிலைமைகளில் வாராந்திர ஆய்வு"
+    ]
+  },
+  {
+    "class_key": "Tomato___Septoria_leaf_spot",
+    "disease_name": "Septoria Leaf Spot",
+    "disease_name_ta": "செப்டோரியா இலை புள்ளி",
+    "crop": "Tomato",
+    "crop_ta": "தக்காளி",
+    "is_healthy": false,
+    "symptoms": [
+      "Numerous small, circular spots with white/gray centers and dark borders on leaves",
+      "Tiny black dots (pycnidia) visible in the center of spots",
+      "Lower leaves affected first",
+      "Severe infection causes complete defoliation"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் வெள்ளை/சாம்பல் மையங்கள் மற்றும் இருண்ட எல்லைகளுடன் ஏராளமான சிறிய, வட்டமான புள்ளிகள்",
+      "புள்ளிகளின் மையத்தில் காணக்கூடிய சிறிய கருப்பு புள்ளிகள் (பைக்னிடியா)",
+      "கீழ் இலைகள் முதலில் பாதிக்கப்படும்",
+      "கடுமையான தொற்று முழுமையான இலையுதிர்வை ஏற்படுத்துகிறது"
+    ],
+    "prevention": [
+      "Use disease-free transplants",
+      "Practice crop rotation",
+      "Remove infected lower leaves",
+      "Avoid wetting foliage",
+      "Mulch to reduce soil splash"
+    ],
+    "prevention_ta": [
+      "நோயற்ற மாற்றுத் தாவரங்களை பயன்படுத்துங்கள்",
+      "பயிர் சுழற்சியை பயிற்சி செய்யுங்கள்",
+      "பாதிக்கப்பட்ட கீழ் இலைகளை அகற்றுங்கள்",
+      "இலைகளை நனைப்பதை தவிர்க்கவும்",
+      "மண் தெளிப்பை குறைக்க மல்ச் பயன்படுத்துங்கள்"
+    ],
+    "management": [
+      "Apply approved fungicide per local extension advice at first sign of disease",
+      "Follow locally approved pesticide label instructions"
+    ],
+    "management_ta": [
+      "நோயின் முதல் அறிகுறியில் உள்ளூர் நீட்டிப்பு ஆலோசனையின்படி அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி பயன்படுத்துங்கள்",
+      "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் வழிமுறைகளை பின்பற்றுங்கள்"
+    ],
+    "monitoring": [
+      "Check lower leaf surfaces twice weekly",
+      "Disease spreads rapidly under wet conditions",
+      "Track defoliation rate to gauge severity"
+    ],
+    "monitoring_ta": [
+      "வாரம் இரண்டு முறை கீழ் இலை பரப்புகளை சரிபார்க்கவும்",
+      "ஈர நிலைமைகளில் நோய் வேகமாக பரவுகிறது",
+      "தீவிரத்தை அளவிட இலையுதிர் விகிதத்தை கண்காணிக்கவும்"
+    ]
+  },
+  {
+    "class_key": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "disease_name": "Spider Mites (Two-Spotted)",
+    "disease_name_ta": "சிலந்தி பூச்சிகள் (இரண்டு-புள்ளி)",
+    "crop": "Tomato",
+    "crop_ta": "தக்காளி",
+    "is_healthy": false,
+    "symptoms": [
+      "Fine stippling or yellow spots on upper leaf surface",
+      "Webbing on underside of leaves",
+      "Leaves turn bronze/yellow and dry out",
+      "Heavy infestations cause premature leaf drop",
+      "Mites visible as tiny moving dots under magnification"
+    ],
+    "symptoms_ta": [
+      "இலையின் மேல் பரப்பில் நுண்ணிய புள்ளியிடல் அல்லது மஞ்சள் புள்ளிகள்",
+      "இலையின் கீழ்ப்பகுதியில் சிலந்தி வலை",
+      "இலைகள் வெண்கலம்/மஞ்சள் நிறமாகி வறண்டுவிடும்",
+      "கடுமையான தொற்று முன்கூட்டிய இலை உதிர்வை ஏற்படுத்துகிறது",
+      "பூச்சிகள் பெரிதாக்கும்போது சிறிய நகரும் புள்ளிகளாக காணலாம்"
+    ],
+    "prevention": [
+      "Maintain adequate soil moisture — water-stressed plants are more susceptible",
+      "Avoid excessive nitrogen fertilization",
+      "Control dust on leaf surfaces",
+      "Encourage natural predators (predatory mites, ladybirds)"
+    ],
+    "prevention_ta": [
+      "போதுமான மண் ஈரப்பதத்தை பராமரிக்கவும் — நீர் அழுத்தத்தில் உள்ள தாவரங்கள் அதிக ஆபத்தில் உள்ளன",
+      "அதிகப்படியான நைட்ரஜன் உரமிடலை தவிர்க்கவும்",
+      "இலை பரப்புகளில் தூசியை கட்டுப்படுத்துங்கள்",
+      "இயற்கையான இரை விலங்குகளை (இரை பூச்சிகள், சொண்டு வண்டுகள்) ஊக்குவிக்கவும்"
+    ],
+    "management": [
+      "Apply approved miticide/acaricide per local agricultural extension guidance",
+      "Rotate chemical classes to avoid resistance",
+      "Follow locally approved pesticide label instructions strictly"
+    ],
+    "management_ta": [
+      "உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலின்படி அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி பயன்படுத்துங்கள்",
+      "எதிர்ப்பை தவிர்க்க இரசாயன வகுப்புகளை சுழற்றுங்கள்",
+      "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் வழிமுறைகளை கண்டிப்பாக பின்பற்றுங்கள்"
+    ],
+    "monitoring": [
+      "Inspect underside of leaves with a hand lens",
+      "Monitor especially during hot, dry weather",
+      "Check for webbing as an early indicator"
+    ],
+    "monitoring_ta": [
+      "கை லென்ஸ் மூலம் இலையின் கீழ்ப்பகுதியை ஆய்வு செய்யுங்கள்",
+      "குறிப்பாக வெப்பமான, வறண்ட வானிலையில் கண்காணிக்கவும்",
+      "ஆரம்ப குறிகாட்டியாக சிலந்தி வலைக்கு கவனிக்கவும்"
+    ]
+  },
+  {
+    "class_key": "Tomato___Target_Spot",
+    "disease_name": "Target Spot",
+    "disease_name_ta": "இலக்கு புள்ளி",
+    "crop": "Tomato",
+    "crop_ta": "தக்காளி",
+    "is_healthy": false,
+    "symptoms": [
+      "Brown, circular lesions with concentric rings on leaves",
+      "Lesions have yellow halos",
+      "Lesions coalesce causing large dead areas",
+      "Fruit shows circular lesions that may become sunken",
+      "Lower leaves are typically affected first"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் சுயவட்ட வளையங்களுடன் பழுப்பு, வட்டமான புண்கள்",
+      "புண்களில் மஞ்சள் அரியம்",
+      "புண்கள் ஒன்றிணைந்து பெரிய இறந்த பகுதிகளை ஏற்படுத்துகின்றன",
+      "பழம் வட்ட வடிவ புண்களை காட்டுகிறது, அவை மூழ்கலாம்",
+      "கீழ் இலைகள் பொதுவாக முதலில் பாதிக்கப்படும்"
+    ],
+    "prevention": [
+      "Use crop rotation", "Improve air circulation", "Remove infected leaves", "Avoid overhead irrigation"
+    ],
+    "prevention_ta": [
+      "பயிர் சுழற்சி பயன்படுத்துங்கள்", "காற்று சுழற்சியை மேம்படுத்துங்கள்", "பாதிக்கப்பட்ட இலைகளை அகற்றுங்கள்", "மேல்நோக்கிய நீர்ப்பாசனத்தை தவிர்க்கவும்"
+    ],
+    "management": [
+      "Apply approved fungicide per local agricultural extension guidance",
+      "Follow locally approved pesticide label instructions"
+    ],
+    "management_ta": [
+      "உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலின்படி அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி பயன்படுத்துங்கள்",
+      "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் வழிமுறைகளை பின்பற்றுங்கள்"
+    ],
+    "monitoring": ["Scout weekly, especially lower leaves.", "Disease favors warm, wet conditions."],
+    "monitoring_ta": ["வாராந்திர ஆய்வு, குறிப்பாக கீழ் இலைகள்.", "நோய் வெப்பமான, ஈர நிலைமைகளை விரும்புகிறது."]
+  },
+  {
+    "class_key": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "disease_name": "Yellow Leaf Curl Virus",
+    "disease_name_ta": "மஞ்சள் இலை சுருள் வைரஸ்",
+    "crop": "Tomato",
+    "crop_ta": "தக்காளி",
+    "is_healthy": false,
+    "symptoms": [
+      "Leaves curl upward and inward",
+      "Yellowing (chlorosis) of leaf edges",
+      "Stunted plant growth",
+      "Reduced flower and fruit set",
+      "Transmitted by whiteflies (Bemisia tabaci)"
+    ],
+    "symptoms_ta": [
+      "இலைகள் மேல்நோக்கி மற்றும் உட்புறமாக சுருளும்",
+      "இலை விளிம்புகளின் மஞ்சள் நிறமாதல் (குளோரோசிஸ்)",
+      "தடைப்பட்ட தாவர வளர்ச்சி",
+      "குறைந்த மலர் மற்றும் பழம் அமைக்கும் திறன்",
+      "வெள்ளை ஈக்களால் (Bemisia tabaci) பரவுகிறது"
+    ],
+    "prevention": [
+      "Control whitefly populations using approved insecticides/repellents",
+      "Use reflective mulches to deter whiteflies",
+      "Plant virus-resistant tomato varieties",
+      "Remove and destroy infected plants immediately to prevent spread",
+      "Use yellow sticky traps to monitor and reduce whitefly populations"
+    ],
+    "prevention_ta": [
+      "அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லிகள்/விரட்டிகள் பயன்படுத்தி வெள்ளை ஈ மக்கள்தொகையை கட்டுப்படுத்துங்கள்",
+      "வெள்ளை ஈக்களை விரட்ட பிரதிபலிப்பு மல்ச்கள் பயன்படுத்துங்கள்",
+      "வைரஸ் எதிர்ப்பு தக்காளி ரகங்களை நடவு செய்யுங்கள்",
+      "பரவலை தடுக்க பாதிக்கப்பட்ட தாவரங்களை உடனடியாக அகற்றி அழியுங்கள்",
+      "வெள்ளை ஈ மக்கள்தொகையை கண்காணிக்கவும் குறைக்கவும் மஞ்சள் ஒட்டு பொறிகள் பயன்படுத்துங்கள்"
+    ],
+    "management": [
+      "There is no cure for virus-infected plants — remove and destroy them",
+      "Manage whitefly vectors with approved insecticides per local guidelines",
+      "Follow locally approved pesticide label instructions",
+      "Consult your local agricultural extension officer for integrated pest management"
+    ],
+    "management_ta": [
+      "வைரஸ் தாக்கிய தாவரங்களுக்கு எந்த மருந்தும் இல்லை — அவற்றை அகற்றி அழியுங்கள்",
+      "உள்ளூர் வழிகாட்டுதல்களின்படி அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லிகள் மூலம் வெள்ளை ஈ வாகனங்களை நிர்வகிக்கவும்",
+      "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் வழிமுறைகளை பின்பற்றுங்கள்",
+      "ஒருங்கிணைந்த பூச்சி மேலாண்மைக்கு உங்கள் உள்ளூர் வேளாண் நீட்டிப்பு அதிகாரியை அணுகுங்கள்"
+    ],
+    "monitoring": [
+      "Monitor whitefly populations regularly with sticky traps",
+      "Scout for early virus symptoms (leaf curl, yellowing) weekly",
+      "Act quickly to remove infected plants before disease spreads"
+    ],
+    "monitoring_ta": [
+      "ஒட்டு பொறிகள் மூலம் வெள்ளை ஈ மக்கள்தொகையை தொடர்ந்து கண்காணிக்கவும்",
+      "ஆரம்ப வைரஸ் அறிகுறிகளுக்கு (இலை சுருள், மஞ்சள் நிறம்) வாராந்திர ஆய்வு",
+      "நோய் பரவுவதற்கு முன்பு பாதிக்கப்பட்ட தாவரங்களை அகற்ற விரைவாக செயல்படுங்கள்"
+    ]
+  },
+  {
+    "class_key": "Tomato___Tomato_mosaic_virus",
+    "disease_name": "Tomato Mosaic Virus",
+    "disease_name_ta": "தக்காளி தாம்ர வைரஸ்",
+    "crop": "Tomato",
+    "crop_ta": "தக்காளி",
+    "is_healthy": false,
+    "symptoms": [
+      "Mosaic pattern of light and dark green on leaves",
+      "Leaf distortion and curling",
+      "Stunted plant growth",
+      "Reduced fruit size and quality",
+      "Fruit may show yellowish rings or blotches"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் வெளிர் மற்றும் இருண்ட பச்சையின் தாம்ர வடிவம்",
+      "இலை சிதைவு மற்றும் சுருள்",
+      "தடைப்பட்ட தாவர வளர்ச்சி",
+      "பழத்தின் அளவு மற்றும் தரம் குறைவு",
+      "பழம் மஞ்சளிப்பு வளையங்கள் அல்லது புள்ளிகளை காட்டலாம்"
+    ],
+    "prevention": [
+      "Wash hands and tools before working with plants",
+      "Avoid smoking near tomato plants (tobacco can carry the virus)",
+      "Use certified virus-free transplants",
+      "Control aphid vectors",
+      "Remove and destroy infected plants immediately"
+    ],
+    "prevention_ta": [
+      "தாவரங்களுடன் வேலை செய்வதற்கு முன்பு கைகளையும் கருவிகளையும் கழுவுங்கள்",
+      "தக்காளி தாவரங்களுக்கு அருகில் புகைபிடிப்பதை தவிர்க்கவும் (புகையிலை வைரஸை கொண்டிருக்கலாம்)",
+      "சான்றளிக்கப்பட்ட வைரஸ்-இல்லாத மாற்றுத் தாவரங்களை பயன்படுத்துங்கள்",
+      "அஃபிட் வாகனங்களை கட்டுப்படுத்துங்கள்",
+      "பாதிக்கப்பட்ட தாவரங்களை உடனடியாக அகற்றி அழியுங்கள்"
+    ],
+    "management": [
+      "No chemical cure exists for viral infections — prevention is key",
+      "Remove infected plants from the field",
+      "Disinfect tools between plants with a dilute bleach or alcohol solution",
+      "Control aphid vectors with approved insecticides per local guidelines"
+    ],
+    "management_ta": [
+      "வைரஸ் தொற்றுகளுக்கு இரசாயன மருந்து இல்லை — தடுப்பு முக்கியம்",
+      "வயலிலிருந்து பாதிக்கப்பட்ட தாவரங்களை அகற்றுங்கள்",
+      "தாவரங்களுக்கு இடையில் நீர்க்கப்பட்ட ப்ளீச் அல்லது ஆல்கஹால் கரைசல் மூலம் கருவிகளை கிருமி நீக்கம் செய்யுங்கள்",
+      "உள்ளூர் வழிகாட்டுதல்களின்படி அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லிகள் மூலம் அஃபிட் வாகனங்களை கட்டுப்படுத்துங்கள்"
+    ],
+    "monitoring": ["Scout weekly for mosaic patterns and distorted leaves.", "Monitor for aphid vectors."],
+    "monitoring_ta": ["தாம்ர வடிவங்கள் மற்றும் சிதைந்த இலைகளுக்கு வாராந்திர ஆய்வு.", "அஃபிட் வாகனங்களை கண்காணிக்கவும்."]
+  },
+  {
+    "class_key": "Tomato___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Tomato",
+    "crop_ta": "தக்காளி",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms detected. The tomato plant appears healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் இல்லை. தக்காளி தாவரம் ஆரோக்கியமாக தெரிகிறது."],
+    "prevention": ["Continue regular monitoring, good irrigation, and proper fertilization."],
+    "prevention_ta": ["வழக்கமான கண்காணிப்பு, நல்ல நீர்ப்பாசனம் மற்றும் சரியான உரமிடலை தொடருங்கள்."],
+    "management": ["No action required. Maintain current practices."],
+    "management_ta": ["எந்த நடவடிக்கையும் தேவையில்லை. தற்போதைய நடைமுறைகளை பராமரிக்கவும்."],
+    "monitoring": ["Scout regularly for early signs of disease or pest infestation."],
+    "monitoring_ta": ["நோய் அல்லது பூச்சி தாக்குதலின் ஆரம்ப அறிகுறிகளுக்கு தொடர்ந்து ஆய்வு செய்யுங்கள்."]
+  },
+  {
+    "class_key": "Pepper,_bell___Bacterial_spot",
+    "disease_name": "Bacterial Spot",
+    "disease_name_ta": "பாக்டீரியா புள்ளி",
+    "crop": "Pepper (Bell)",
+    "crop_ta": "மிளகாய் (மணி)",
+    "is_healthy": false,
+    "symptoms": [
+      "Small, water-soaked spots on leaves that turn brown with yellow halos",
+      "Spots may coalesce causing large dead areas",
+      "Fruit shows small, raised, rough spots",
+      "Defoliation in severe cases"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் சிறிய, நீரில் ஊறிய புள்ளிகள் மஞ்சள் அரியத்துடன் பழுப்பு நிறமாக மாறும்",
+      "புள்ளிகள் ஒன்றிணைந்து பெரிய இறந்த பகுதிகளை ஏற்படுத்தலாம்",
+      "பழம் சிறிய, உயர்ந்த, கரடுமுரடான புள்ளிகளை காட்டுகிறது",
+      "கடுமையான சந்தர்ப்பங்களில் இலையுதிர்வு"
+    ],
+    "prevention": ["Use certified disease-free transplants", "Avoid overhead irrigation", "Practice crop rotation"],
+    "prevention_ta": ["சான்றளிக்கப்பட்ட நோயற்ற மாற்றுத் தாவரங்களை பயன்படுத்துங்கள்", "மேல்நோக்கிய நீர்ப்பாசனத்தை தவிர்க்கவும்", "பயிர் சுழற்சியை பயிற்சி செய்யுங்கள்"],
+    "management": ["Apply copper-based bactericides per local agricultural extension guidance", "Follow locally approved pesticide labels"],
+    "management_ta": ["உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலின்படி செம்பு அடிப்படையிலான பாக்டீரியாக்கொல்லிகளை பயன்படுத்துங்கள்", "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள்களை பின்பற்றுங்கள்"],
+    "monitoring": ["Scout twice weekly during warm, wet weather"],
+    "monitoring_ta": ["வெப்பமான, ஈர வானிலையில் வாரம் இரண்டு முறை ஆய்வு"]
+  },
+  {
+    "class_key": "Pepper,_bell___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Pepper (Bell)",
+    "crop_ta": "மிளகாய் (மணி)",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms. Plant appears healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் இல்லை. தாவரம் ஆரோக்கியமாக தெரிகிறது."],
+    "prevention": ["Maintain regular monitoring and good agricultural practices."],
+    "prevention_ta": ["வழக்கமான கண்காணிப்பு மற்றும் நல்ல வேளாண் நடைமுறைகளை பராமரிக்கவும்."],
+    "management": ["No action required."],
+    "management_ta": ["எந்த நடவடிக்கையும் தேவையில்லை."],
+    "monitoring": ["Continue regular scouting."],
+    "monitoring_ta": ["வழக்கமான ஆய்வை தொடருங்கள்."]
+  },
+  {
+    "class_key": "Strawberry___Leaf_scorch",
+    "disease_name": "Leaf Scorch",
+    "disease_name_ta": "இலை கருகல்",
+    "crop": "Strawberry",
+    "crop_ta": "ஸ்ட்ராபெர்ரி",
+    "is_healthy": false,
+    "symptoms": [
+      "Small, irregular purple to red spots on leaves",
+      "Spots develop gray or tan centers",
+      "Severe infection causes leaf tissue to turn brown and dry (scorched appearance)",
+      "Leaves may die and drop"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் சிறிய, ஒழுங்கற்ற ஊதா முதல் சிவப்பு புள்ளிகள்",
+      "புள்ளிகள் சாம்பல் அல்லது கருங்காவி மையங்களை உருவாக்குகின்றன",
+      "கடுமையான தொற்று இலை திசுக்கள் பழுப்பாகி உலர்ந்துவிடும் (கருகிய தோற்றம்)",
+      "இலைகள் இறந்து உதிரலாம்"
+    ],
+    "prevention": ["Plant resistant varieties", "Remove infected leaves", "Avoid overhead irrigation", "Practice good field sanitation"],
+    "prevention_ta": ["எதிர்ப்பு ரகங்களை நடவு செய்யுங்கள்", "பாதிக்கப்பட்ட இலைகளை அகற்றுங்கள்", "மேல்நோக்கிய நீர்ப்பாசனத்தை தவிர்க்கவும்", "நல்ல வயல் சுகாதார நடைமுறைகளை பின்பற்றுங்கள்"],
+    "management": ["Apply approved fungicide per local agricultural extension guidance", "Follow locally approved pesticide label instructions"],
+    "management_ta": ["உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலின்படி அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி பயன்படுத்துங்கள்", "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் வழிமுறைகளை பின்பற்றுங்கள்"],
+    "monitoring": ["Scout weekly for purple spots", "Inspect new growth closely"],
+    "monitoring_ta": ["ஊதா புள்ளிகளுக்கு வாராந்திர ஆய்வு", "புதிய வளர்ச்சியை நெருக்கமாக ஆய்வு செய்யுங்கள்"]
+  },
+  {
+    "class_key": "Strawberry___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Strawberry",
+    "crop_ta": "ஸ்ட்ராபெர்ரி",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms. Plant appears healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் இல்லை. தாவரம் ஆரோக்கியமாக தெரிகிறது."],
+    "prevention": ["Maintain regular monitoring and good agricultural practices."],
+    "prevention_ta": ["வழக்கமான கண்காணிப்பு மற்றும் நல்ல வேளாண் நடைமுறைகளை பராமரிக்கவும்."],
+    "management": ["No action required."],
+    "management_ta": ["எந்த நடவடிக்கையும் தேவையில்லை."],
+    "monitoring": ["Continue regular scouting."],
+    "monitoring_ta": ["வழக்கமான ஆய்வை தொடருங்கள்."]
+  },
+  {
+    "class_key": "Squash___Powdery_mildew",
+    "disease_name": "Powdery Mildew",
+    "disease_name_ta": "தூள் மில்டு",
+    "crop": "Squash",
+    "crop_ta": "சுரைக்காய்",
+    "is_healthy": false,
+    "symptoms": [
+      "White powdery fungal growth on upper leaf surfaces",
+      "Affected leaves may yellow and die",
+      "Powdery coating can also appear on stems",
+      "Infected plants may have reduced vigor and yield"
+    ],
+    "symptoms_ta": [
+      "இலையின் மேல் பரப்பில் வெள்ளை தூள் போன்ற பூஞ்சை வளர்ச்சி",
+      "பாதிக்கப்பட்ட இலைகள் மஞ்சள் நிறமாகி இறந்துவிடலாம்",
+      "தூள் பூச்சு தண்டுகளிலும் தோன்றலாம்",
+      "பாதிக்கப்பட்ட தாவரங்கள் குறைந்த வலிமை மற்றும் மகசூலை கொண்டிருக்கலாம்"
+    ],
+    "prevention": ["Plant resistant varieties", "Ensure good air circulation", "Avoid excessive nitrogen", "Water at base of plants"],
+    "prevention_ta": ["எதிர்ப்பு ரகங்களை நடவு செய்யுங்கள்", "நல்ல காற்று சுழற்சியை உறுதிப்படுத்துங்கள்", "அதிகப்படியான நைட்ரஜனை தவிர்க்கவும்", "தாவரங்களின் அடிவாரத்தில் தண்ணீர் ஊற்றுங்கள்"],
+    "management": ["Apply approved fungicide or biofungicide per local agricultural extension guidance", "Follow locally approved pesticide label instructions"],
+    "management_ta": ["உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலின்படி அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி அல்லது உயிரி பூஞ்சைக்கொல்லி பயன்படுத்துங்கள்", "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் வழிமுறைகளை பின்பற்றுங்கள்"],
+    "monitoring": ["Check upper leaf surfaces for white powder weekly", "Disease spreads rapidly during dry, warm weather"],
+    "monitoring_ta": ["வாராந்திர வெள்ளை தூளுக்கு இலையின் மேல் பரப்புகளை சரிபார்க்கவும்", "வறண்ட, வெப்ப வானிலையில் நோய் வேகமாக பரவுகிறது"]
+  },
+  {
+    "class_key": "Peach___Bacterial_spot",
+    "disease_name": "Bacterial Spot",
+    "disease_name_ta": "பாக்டீரியா புள்ளி",
+    "crop": "Peach",
+    "crop_ta": "பீச்",
+    "is_healthy": false,
+    "symptoms": [
+      "Small, water-soaked lesions on leaves that turn purplish-brown",
+      "Lesions may fall out leaving a 'shot-hole' appearance",
+      "Dark, sunken lesions on fruit",
+      "Fruit may crack near lesions",
+      "Twig cankers may develop"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் சிறிய, நீரில் ஊறிய புண்கள் ஊதா-பழுப்பு நிறமாக மாறும்",
+      "புண்கள் உதிர்ந்து 'துவக்க துளை' தோற்றத்தை விட்டுச் செல்லலாம்",
+      "பழத்தில் இருண்ட, மூழ்கிய புண்கள்",
+      "புண்களுக்கு அருகில் பழம் வெடிக்கலாம்",
+      "கிளை புண்கள் உருவாகலாம்"
+    ],
+    "prevention": ["Plant resistant varieties", "Prune for air circulation", "Avoid overhead irrigation", "Remove infected wood"],
+    "prevention_ta": ["எதிர்ப்பு ரகங்களை நடவு செய்யுங்கள்", "காற்று சுழற்சிக்கு கத்தரிக்கவும்", "மேல்நோக்கிய நீர்ப்பாசனத்தை தவிர்க்கவும்", "பாதிக்கப்பட்ட மரத்தை அகற்றுங்கள்"],
+    "management": ["Apply copper-based bactericide at dormant season and key growth stages per local guidelines", "Follow locally approved pesticide labels"],
+    "management_ta": ["உள்ளூர் வழிகாட்டுதல்களின்படி செயலற்ற சீசன் மற்றும் முக்கிய வளர்ச்சி நிலைகளில் செம்பு அடிப்படையிலான பாக்டீரியாக்கொல்லி பயன்படுத்துங்கள்", "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள்களை பின்பற்றுங்கள்"],
+    "monitoring": ["Scout leaves and fruit regularly", "Disease favors warm, wet weather"],
+    "monitoring_ta": ["இலைகளையும் பழத்தையும் தொடர்ந்து ஆய்வு செய்யுங்கள்", "நோய் வெப்பமான, ஈர வானிலையை விரும்புகிறது"]
+  },
+  {
+    "class_key": "Peach___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Peach",
+    "crop_ta": "பீச்",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms. Tree appears healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் இல்லை. மரம் ஆரோக்கியமாக தெரிகிறது."],
+    "prevention": ["Regular monitoring and good orchard management."],
+    "prevention_ta": ["வழக்கமான கண்காணிப்பு மற்றும் நல்ல தோட்ட மேலாண்மை."],
+    "management": ["No action required."],
+    "management_ta": ["எந்த நடவடிக்கையும் தேவையில்லை."],
+    "monitoring": ["Regular scouting for pests and diseases."],
+    "monitoring_ta": ["பூச்சிகள் மற்றும் நோய்களுக்கு வழக்கமான ஆய்வு."]
+  },
+  {
+    "class_key": "Cherry_(including_sour)___Powdery_mildew",
+    "disease_name": "Powdery Mildew",
+    "disease_name_ta": "தூள் மில்டு",
+    "crop": "Cherry",
+    "crop_ta": "செர்ரி",
+    "is_healthy": false,
+    "symptoms": [
+      "White powdery coating on leaves and young shoots",
+      "Infected leaves may curl and distort",
+      "Fruit surface may show powdery coating",
+      "Severe infection reduces fruit quality"
+    ],
+    "symptoms_ta": [
+      "இலைகள் மற்றும் இளம் தளிர்களில் வெள்ளை தூள் பூச்சு",
+      "பாதிக்கப்பட்ட இலைகள் சுருண்டு சிதைந்துவிடலாம்",
+      "பழத்தின் மேற்பரப்பில் தூள் பூச்சு தோன்றலாம்",
+      "கடுமையான தொற்று பழத்தின் தரத்தை குறைக்கும்"
+    ],
+    "prevention": ["Plant resistant varieties", "Ensure good air circulation", "Avoid excessive nitrogen"],
+    "prevention_ta": ["எதிர்ப்பு ரகங்களை நடவு செய்யுங்கள்", "நல்ல காற்று சுழற்சியை உறுதிப்படுத்துங்கள்", "அதிகப்படியான நைட்ரஜனை தவிர்க்கவும்"],
+    "management": ["Apply approved fungicide per local agricultural extension guidance", "Follow locally approved pesticide label instructions"],
+    "management_ta": ["உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலின்படி அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி பயன்படுத்துங்கள்", "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் வழிமுறைகளை பின்பற்றுங்கள்"],
+    "monitoring": ["Scout new growth weekly for white powder"],
+    "monitoring_ta": ["வெள்ளை தூளுக்கு வாராந்திர புதிய வளர்ச்சி ஆய்வு"]
+  },
+  {
+    "class_key": "Cherry_(including_sour)___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Cherry",
+    "crop_ta": "செர்ரி",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms. Tree appears healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் இல்லை. மரம் ஆரோக்கியமாக தெரிகிறது."],
+    "prevention": ["Maintain regular monitoring and good orchard management."],
+    "prevention_ta": ["வழக்கமான கண்காணிப்பு மற்றும் நல்ல தோட்ட மேலாண்மையை பராமரிக்கவும்."],
+    "management": ["No action required."],
+    "management_ta": ["எந்த நடவடிக்கையும் தேவையில்லை."],
+    "monitoring": ["Continue regular scouting."],
+    "monitoring_ta": ["வழக்கமான ஆய்வை தொடருங்கள்."]
+  },
+  {
+    "class_key": "Soybean___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Soybean",
+    "crop_ta": "சோயாபீன்",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms. Crop appears healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் இல்லை. பயிர் ஆரோக்கியமாக தெரிகிறது."],
+    "prevention": ["Maintain regular monitoring and good agronomic practices."],
+    "prevention_ta": ["வழக்கமான கண்காணிப்பு மற்றும் நல்ல வேளாண் நடைமுறைகளை பராமரிக்கவும்."],
+    "management": ["No action required."],
+    "management_ta": ["எந்த நடவடிக்கையும் தேவையில்லை."],
+    "monitoring": ["Scout regularly for pests and diseases."],
+    "monitoring_ta": ["பூச்சிகள் மற்றும் நோய்களுக்கு தொடர்ந்து ஆய்வு செய்யுங்கள்."]
+  },
+  {
+    "class_key": "Raspberry___healthy",
+    "disease_name": "Healthy",
+    "disease_name_ta": "ஆரோக்கியமானது",
+    "crop": "Raspberry",
+    "crop_ta": "ராஸ்பெர்ரி",
+    "is_healthy": true,
+    "symptoms": ["No disease symptoms. Canes appear healthy."],
+    "symptoms_ta": ["நோய் அறிகுறிகள் இல்லை. கோல்கள் ஆரோக்கியமாக தெரிகிறன."],
+    "prevention": ["Regular monitoring and good cane management."],
+    "prevention_ta": ["வழக்கமான கண்காணிப்பு மற்றும் நல்ல கோல் மேலாண்மை."],
+    "management": ["No action required."],
+    "management_ta": ["எந்த நடவடிக்கையும் தேவையில்லை."],
+    "monitoring": ["Scout for disease and pests regularly."],
+    "monitoring_ta": ["நோய் மற்றும் பூச்சிகளுக்கு தொடர்ந்து ஆய்வு செய்யுங்கள்."]
+  },
+  {
+    "class_key": "Grape___Esca_(Black_Measles)",
+    "disease_name": "Esca (Black Measles)",
+    "disease_name_ta": "எஸ்கா (கருப்பு தட்டம்மை)",
+    "crop": "Grape",
+    "crop_ta": "திராட்சை",
+    "is_healthy": false,
+    "symptoms": [
+      "Interveinal chlorosis (yellowing between leaf veins)",
+      "Brown-red discoloration between leaf veins",
+      "Affected berries show dark spots or 'measles' pattern",
+      "Sudden wilting of entire shoots (apoplexy) may occur",
+      "Internal wood discoloration in cross-sections"
+    ],
+    "symptoms_ta": [
+      "நரம்புகளுக்கிடையேயான குளோரோசிஸ் (இலை நரம்புகளுக்கு இடையே மஞ்சள் நிறமாதல்)",
+      "இலை நரம்புகளுக்கிடையே பழுப்பு-சிவப்பு நிறமாதல்",
+      "பாதிக்கப்பட்ட பழங்கள் இருண்ட புள்ளிகள் அல்லது 'தட்டம்மை' வடிவத்தை காட்டுகின்றன",
+      "முழு தளிர்களின் திடீர் வாடல் (அபோப்ளெக்ஸி) ஏற்படலாம்",
+      "குறுக்கு வெட்டுகளில் உள் மர நிறமாதல்"
+    ],
+    "prevention": ["Protect pruning wounds with approved wound sealants", "Prune during dry weather", "Avoid large pruning wounds", "Remove infected wood promptly"],
+    "prevention_ta": ["அங்கீகரிக்கப்பட்ட புண் முத்திரைகள் மூலம் கத்தரிப்பு புண்களை பாதுகாக்கவும்", "வறண்ட வானிலையில் கத்தரிக்கவும்", "பெரிய கத்தரிப்பு புண்களை தவிர்க்கவும்", "பாதிக்கப்பட்ட மரத்தை உடனடியாக அகற்றுங்கள்"],
+    "management": ["No fully effective cure; management focuses on prevention", "Remove infected vines or canes", "Consult local agricultural extension for management options"],
+    "management_ta": ["முழுமையான பயனுள்ள மருந்து இல்லை; மேலாண்மை தடுப்பில் கவனம் செலுத்துகிறது", "பாதிக்கப்பட்ட திராட்சை செடிகள் அல்லது கோல்களை அகற்றுங்கள்", "மேலாண்மை விருப்பங்களுக்கு உள்ளூர் வேளாண் நீட்டிப்பை அணுகுங்கள்"],
+    "monitoring": ["Scout for leaf symptoms throughout the season", "Check for apoplexy (sudden shoot death) in summer"],
+    "monitoring_ta": ["சீசன் முழுவதும் இலை அறிகுறிகளுக்கு ஆய்வு செய்யுங்கள்", "கோடையில் அபோப்ளெக்ஸி (திடீர் தளிர் மரணம்) சரிபார்க்கவும்"]
+  },
+  {
+    "class_key": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "disease_name": "Leaf Blight (Isariopsis Leaf Spot)",
+    "disease_name_ta": "இலை கருகல் (இசாரியோப்சிஸ் இலை புள்ளி)",
+    "crop": "Grape",
+    "crop_ta": "திராட்சை",
+    "is_healthy": false,
+    "symptoms": [
+      "Irregular, angular spots on leaves",
+      "Spots are dark brown to black",
+      "White to gray sporulation on underside of spots",
+      "Severe infection causes premature defoliation"
+    ],
+    "symptoms_ta": [
+      "இலைகளில் ஒழுங்கற்ற, கோண புள்ளிகள்",
+      "புள்ளிகள் இருண்ட பழுப்பு முதல் கருப்பு நிறத்தில் உள்ளன",
+      "புள்ளிகளின் கீழ்ப்பகுதியில் வெள்ளை முதல் சாம்பல் நுண்ணுயிர்கள்",
+      "கடுமையான தொற்று முன்கூட்டிய இலையுதிர்வை ஏற்படுத்துகிறது"
+    ],
+    "prevention": ["Ensure good canopy ventilation", "Practice proper pruning", "Remove infected plant material"],
+    "prevention_ta": ["நல்ல கவான காற்றோட்டத்தை உறுதிப்படுத்துங்கள்", "சரியான கத்தரிப்பை பயிற்சி செய்யுங்கள்", "பாதிக்கப்பட்ட தாவர பொருட்களை அகற்றுங்கள்"],
+    "management": ["Apply approved fungicide per local agricultural extension guidance", "Follow locally approved pesticide label instructions"],
+    "management_ta": ["உள்ளூர் வேளாண் நீட்டிப்பு வழிகாட்டுதலின்படி அங்கீகரிக்கப்பட்ட பூஞ்சைக்கொல்லி பயன்படுத்துங்கள்", "உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள் வழிமுறைகளை பின்பற்றுங்கள்"],
+    "monitoring": ["Scout regularly, especially during warm, wet conditions"],
+    "monitoring_ta": ["குறிப்பாக வெப்பமான, ஈர நிலைமைகளில் தொடர்ந்து ஆய்வு செய்யுங்கள்"]
+  },
+  {
+    "class_key": "Orange___Haunglongbing_(Citrus_greening)",
+    "disease_name": "Huanglongbing (Citrus Greening)",
+    "disease_name_ta": "ஹுவாங்லோங்பிங் (சிட்ரஸ் பச்சைப்படுதல்)",
+    "crop": "Orange (Citrus)",
+    "crop_ta": "ஆரஞ்சு (சிட்ரஸ்)",
+    "is_healthy": false,
+    "symptoms": [
+      "Asymmetric or blotchy yellowing of leaves (yellow dragon disease)",
+      "Mottled leaves with asymmetric patterns",
+      "Stunted shoots and small leaves",
+      "Fruits remain green, are small, misshapen, and bitter",
+      "Transmitted by the Asian citrus psyllid insect"
+    ],
+    "symptoms_ta": [
+      "இலைகளின் சமச்சீரற்ற அல்லது புள்ளி மஞ்சள் நிறமாதல் (மஞ்சள் டிராகன் நோய்)",
+      "சமச்சீரற்ற வடிவங்களுடன் மொட்டு இலைகள்",
+      "தடைப்பட்ட தளிர்கள் மற்றும் சிறிய இலைகள்",
+      "பழங்கள் பச்சையாக இருக்கும், சிறிய, வடிவமற்ற மற்றும் கசப்பான",
+      "ஆசிய சிட்ரஸ் சைலிட் பூச்சியால் பரவுகிறது"
+    ],
+    "prevention": ["Use certified disease-free nursery stock", "Control Asian citrus psyllid vectors with approved insecticides", "Remove and destroy infected trees", "Report suspected HLB to local agricultural authorities immediately"],
+    "prevention_ta": ["சான்றளிக்கப்பட்ட நோயற்ற நர்சரி பொருட்களை பயன்படுத்துங்கள்", "அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லிகள் மூலம் ஆசிய சிட்ரஸ் சைலிட் வாகனங்களை கட்டுப்படுத்துங்கள்", "பாதிக்கப்பட்ட மரங்களை அகற்றி அழியுங்கள்", "சந்தேகிக்கப்படும் HLB ஐ உடனடியாக உள்ளூர் வேளாண் அதிகாரிகளுக்கு தெரிவிக்கவும்"],
+    "management": ["HLB has no cure — infected trees must be removed and destroyed", "Contact local agricultural authorities immediately if HLB is suspected", "Strictly manage psyllid vector populations", "Follow all locally approved management guidelines"],
+    "management_ta": ["HLB க்கு மருந்து இல்லை — பாதிக்கப்பட்ட மரங்களை அகற்றி அழிக்க வேண்டும்", "HLB சந்தேகிக்கப்பட்டால் உடனடியாக உள்ளூர் வேளாண் அதிகாரிகளை தொடர்பு கொள்ளுங்கள்", "சைலிட் வாகன மக்கள்தொகையை கண்டிப்பாக நிர்வகிக்கவும்", "உள்ளூரில் அங்கீகரிக்கப்பட்ட அனைத்து மேலாண்மை வழிகாட்டுதல்களையும் பின்பற்றுங்கள்"],
+    "monitoring": ["Scout for asymmetric leaf yellowing regularly", "Inspect fruit at harvest for greening symptoms", "Monitor for Asian citrus psyllid populations"],
+    "monitoring_ta": ["சமச்சீரற்ற இலை மஞ்சள் நிறமாதலுக்கு தொடர்ந்து ஆய்வு செய்யுங்கள்", "அறுவடையில் பழத்தை பச்சை அறிகுறிகளுக்கு ஆய்வு செய்யுங்கள்", "ஆசிய சிட்ரஸ் சைலிட் மக்கள்தொகையை கண்காணிக்கவும்"]
+  }
+]

@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %}About — CropCare AI{% endblock %}
+{% block content %}
+<section class="about-section">
+  <div class="about-container">
+    <div class="about-hero">
+      <h1>About CropCare AI</h1>
+      <p class="about-lead">An AI-powered crop disease detection and smart agricultural recommendation system.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <i class="bi bi-mortarboard-fill about-icon"></i>
+        <h3>Project</h3>
+        <p>AI-Based Crop Disease Detection and Smart Recommendation System using Google Gemini AI — trained knowledge from the PlantVillage dataset covering 38 disease classes across 14 crop species.</p>
+      </div>
+      <div class="about-card">
+        <i class="bi bi-database-fill about-icon"></i>
+        <h3>Dataset</h3>
+        <p>Built on the PlantVillage Dataset — 54,306 images covering 14 crop species and 38 classes (26 diseases + 12 healthy variants). Reference: Hughes &amp; Salathé, 2015.</p>
+      </div>
+      <div class="about-card">
+        <i class="bi bi-translate about-icon"></i>
+        <h3>Bilingual Support</h3>
+        <p>Full English and Tamil (தமிழ்) language support — including disease names, symptoms, prevention, step-by-step treatment, and management recommendations.</p>
+      </div>
+      <div class="about-card">
+        <i class="bi bi-eye-fill about-icon"></i>
+        <h3>Gemini AI</h3>
+        <p>Uses Google Gemini AI for real-time plant disease detection from leaf images — providing instant, accurate crop and disease identification with confidence scores.</p>
+      </div>
+    </div>
+
+    <div class="tech-section">
+      <h2>Technology Stack</h2>
+      <div class="tech-badges">
+        {% for tech in ['Python 3', 'Google Gemini AI', 'Flask', 'SQLite', 'SQLAlchemy', 'Pillow', 'NumPy', 'Bootstrap Icons'] %}
+        <span class="tech-badge">{{ tech }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="about-how-section">
+      <h2>How CropCare AI Works</h2>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <div>
+            <h4>Upload Leaf Image</h4>
+            <p>Take a clear close-up photo of the affected leaf and upload it using the camera or file picker.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <div>
+            <h4>Gemini AI Analysis</h4>
+            <p>The image is sent to Google Gemini AI which identifies the crop species, disease, and confidence level.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <div>
+            <h4>Disease Report</h4>
+            <p>Receive a full disease report including symptoms, prevention tips, and a 6-step treatment guide.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">4</div>
+          <div>
+            <h4>Take Action</h4>
+            <p>Follow the step-by-step treatment instructions in English or Tamil to treat and save your crop.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer-section">
+      <h2>⚠️ Disclaimer</h2>
+      <div class="disclaimer-box disclaimer-box--large">
+        <p>CropCare AI is an <strong>educational and informational tool</strong>. It is designed to assist farmers in identifying potential crop diseases. It does NOT replace professional agricultural advice.</p>
+        <ul>
+          <li>Always consult a qualified agricultural extension officer for chemical treatment decisions.</li>
+          <li>Follow <strong>locally approved pesticide labels</strong> for all dosage and application instructions.</li>
+          <li>AI predictions carry uncertainty — use them as a starting point, not a final diagnosis.</li>
+          <li>Do not apply any pesticide or treatment based solely on this application's output.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="citation-section">
+      <h2>Dataset Reference</h2>
+      <div class="citation-box">
+        <p>Hughes, D., Salathé, M. (2015). <em>An open access repository of images on plant health to enable the development of mobile disease diagnostics.</em> arXiv:1511.08060. PlantVillage Dataset — 54,306 plant leaf images across 38 disease classes.</p>
+      </div>
+    </div>
+
+    <div class="citation-section" style="margin-top:1rem;">
+      <h2>Copyright</h2>
+      <div class="citation-box">
+        <p>&copy; 2026 CropCare AI &mdash; AI-Based Crop Disease Detection &amp; Smart Recommendation System. All rights reserved.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.about-how-section { margin: 2.5rem 0; }
+.about-how-section h2 { font-size:1.4rem; font-weight:700; color:var(--text-primary); margin-bottom:1.5rem; }
+.how-steps { display:flex; flex-direction:column; gap:1rem; }
+.how-step {
+  display:flex; align-items:flex-start; gap:1.25rem;
+  background:var(--bg-card); border:1px solid rgba(16,185,129,0.12);
+  border-radius:1rem; padding:1.25rem 1.5rem;
+  transition: transform 0.2s ease;
+}
+.how-step:hover { transform: translateX(4px); border-color:rgba(16,185,129,0.3); }
+.how-step-num {
+  width:2.5rem; height:2.5rem; border-radius:50%;
+  background:linear-gradient(135deg,var(--emerald-500),var(--green-600));
+  color:white; font-weight:800; font-size:1.1rem;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+}
+.how-step h4 { font-size:0.95rem; font-weight:700; color:var(--emerald-400); margin:0 0 0.3rem; text-transform:uppercase; letter-spacing:0.03em; }
+.how-step p  { font-size:0.88rem; color:var(--text-secondary); margin:0; line-height:1.5; }
+</style>
+{% endblock %}

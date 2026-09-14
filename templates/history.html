@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Prediction History — CropCare AI{% endblock %}
+{% block content %}
+<section class="history-section">
+  <div class="dash-container">
+    <div class="dash-header">
+      <h1 data-i18n="history_title">Prediction History</h1>
+      <a href="{{ url_for('main.index') }}" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> <span data-i18n="btn_new_scan">New Scan</span>
+      </a>
+    </div>
+
+    {% if preds.items %}
+    <div class="table-responsive history-table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th data-i18n="th_image">Image</th>
+            <th data-i18n="th_crop">Crop</th>
+            <th data-i18n="th_disease">Disease</th>
+            <th data-i18n="th_confidence">Confidence</th>
+            <th data-i18n="th_status">Status</th>
+            <th data-i18n="th_date">Date & Time</th>
+            <th data-i18n="th_action">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in preds.items %}
+          <tr class="history-row">
+            <td>
+              <img src="{{ url_for('static', filename='uploads/' + p.image_filename) }}"
+                   alt="Leaf thumbnail" class="history-thumb" loading="lazy"
+                   onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 50 50%22><text y=%2235%22 font-size=%2230%22>🌿</text></svg>'">
+            </td>
+            <td><strong>{{ p.crop }}</strong></td>
+            <td>{{ p.disease }}</td>
+            <td>
+              <span class="conf-badge badge--{{ p.confidence_level or 'medium' }}">
+                {{ p.confidence_pct() }}%
+              </span>
+            </td>
+            <td>
+              {% if p.is_healthy %}
+              <span class="badge badge--success"><i class="bi bi-check-circle"></i> Healthy</span>
+              {% else %}
+              <span class="badge badge--danger"><i class="bi bi-virus2"></i> Disease</span>
+              {% endif %}
+              {% if p.demo_mode %}
+              <span class="badge badge--warning ms-1">Demo</span>
+              {% endif %}
+            </td>
+            <td class="date-cell">
+              {{ p.created_at.strftime('%d %b %Y, %I:%M %p') if p.created_at else '—' }}
+            </td>
+            <td>
+              <a href="{{ url_for('main.result', pred_id=p.id) }}" class="btn-icon" title="View Details">
+                <i class="bi bi-eye"></i>
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    {% if preds.pages > 1 %}
+    <div class="pagination">
+      {% if preds.has_prev %}
+      <a href="{{ url_for('main.history', page=preds.prev_num) }}" class="page-btn">
+        <i class="bi bi-chevron-left"></i>
+      </a>
+      {% endif %}
+      {% for page_num in preds.iter_pages(left_edge=2, right_edge=2, left_current=2, right_current=2) %}
+        {% if page_num %}
+        <a href="{{ url_for('main.history', page=page_num) }}"
+           class="page-btn {% if page_num == preds.page %}page-btn--active{% endif %}">
+          {{ page_num }}
+        </a>
+        {% else %}
+        <span class="page-ellipsis">…</span>
+        {% endif %}
+      {% endfor %}
+      {% if preds.has_next %}
+      <a href="{{ url_for('main.history', page=preds.next_num) }}" class="page-btn">
+        <i class="bi bi-chevron-right"></i>
+      </a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% else %}
+    <div class="empty-state">
+      <i class="bi bi-camera2"></i>
+      <p data-i18n="no_history">No prediction history yet.</p>
+      <a href="{{ url_for('main.index') }}" class="btn btn-primary" data-i18n="btn_start">Start Scanning</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %}CropCare AI — Detect Crop Disease Instantly{% endblock %}
+
+{% block content %}
+<!-- ── Hero Section ────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span data-i18n="hero_badge">AI-Powered Plant Analysis</span>
+    </div>
+    <h1 class="hero-title" data-i18n="hero_title">
+      Detect Crop Disease<br><span class="gradient-text">Instantly with AI</span>
+    </h1>
+    <p class="hero-subtitle" data-i18n="hero_subtitle">
+      Upload a leaf photo. Our deep-learning model identifies the disease and gives you actionable recommendations in seconds.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">38</span>
+        <span class="stat-label" data-i18n="stat_classes">Disease Classes</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <span class="stat-number">54K+</span>
+        <span class="stat-label" data-i18n="stat_images">Training Images</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <span class="stat-number">14</span>
+        <span class="stat-label" data-i18n="stat_crops">Crop Types</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Card -->
+  <div class="upload-card" id="uploadCard">
+    {% if not model_ready %}
+    <div class="demo-banner">
+      <i class="bi bi-info-circle"></i>
+      <span data-i18n="demo_mode_notice">Demo Mode — Train the model first for real predictions.</span>
+    </div>
+    {% endif %}
+
+    <form id="uploadForm" action="{{ url_for('main.predict_route') }}" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="lang" value="{{ current_lang }}">
+
+      <!-- Drop Zone -->
+      <div class="drop-zone" id="dropZone" tabindex="0" role="button" aria-label="Upload leaf image">
+        <div class="drop-zone-icon" id="dropIcon">
+          <i class="bi bi-leaf"></i>
+        </div>
+        <img src="" alt="Leaf preview" class="drop-preview hidden" id="imagePreview">
+        <div class="drop-text" id="dropText">
+          <p class="drop-main" data-i18n="upload_title">Drop your leaf image here</p>
+          <p class="drop-sub" data-i18n="upload_subtitle">or click to browse — JPG, PNG (max 5 MB)</p>
+        </div>
+        <input type="file" name="leaf_image" id="leafInput" accept=".jpg,.jpeg,.png" class="file-input" required>
+      </div>
+
+      <!-- Camera Button -->
+      <div class="upload-divider"><span data-i18n="or_divider">or</span></div>
+
+      <button type="button" class="btn btn-camera" id="cameraBtn">
+        <i class="bi bi-camera-fill"></i>
+        <span data-i18n="btn_camera">Take Photo</span>
+      </button>
+
+      <!-- Camera preview (hidden until used) -->
+      <div class="camera-container hidden" id="cameraContainer">
+        <video id="cameraVideo" autoplay playsinline></video>
+        <div class="camera-controls">
+          <button type="button" class="btn btn-capture" id="captureBtn">
+            <i class="bi bi-record-circle"></i> <span data-i18n="btn_capture">Capture</span>
+          </button>
+          <button type="button" class="btn btn-ghost" id="cancelCameraBtn">
+            <i class="bi bi-x-circle"></i> <span data-i18n="btn_cancel">Cancel</span>
+          </button>
+        </div>
+        <canvas id="captureCanvas" class="hidden"></canvas>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-detect" id="detectBtn" disabled>
+        <i class="bi bi-search-heart"></i>
+        <span data-i18n="btn_detect">Detect Disease</span>
+        <span class="btn-spinner hidden" id="detectSpinner"><i class="bi bi-arrow-repeat spin"></i></span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ── Supported Crops ─────────────────────────────────────────────────── -->
+<section class="crops-section">
+  <div class="section-container">
+    <h2 class="section-title" data-i18n="crops_title">Supported Crops</h2>
+    <p class="section-subtitle" data-i18n="crops_subtitle">Trained on the PlantVillage dataset across 14 crop species</p>
+    <div class="crops-grid">
+      {% for crop in [
+        ('🍅','Tomato','தக்காளி'),('🥔','Potato','உருளை'),('🌽','Corn','சோளம்'),
+        ('🍎','Apple','ஆப்பிள்'),('🍇','Grape','திராட்சை'),('🍑','Peach','பீச்'),
+        ('🫑','Pepper','மிளகாய்'),('🍓','Strawberry','ஸ்ட்ராபெர்ரி'),
+        ('🍊','Orange','ஆரஞ்சு'),('🌸','Cherry','செர்ரி'),
+        ('🫘','Soybean','சோயா'),('🫐','Blueberry','ப்ளூபெர்ரி'),
+        ('🌿','Raspberry','ராஸ்பெர்ரி'),('🥬','Squash','சுரைக்காய்')
+      ] %}
+      <div class="crop-card">
+        <span class="crop-emoji">{{ crop[0] }}</span>
+        <span class="crop-name">{% if current_lang == 'ta' %}{{ crop[2] }}{% else %}{{ crop[1] }}{% endif %}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ── How It Works ────────────────────────────────────────────────────── -->
+<section class="how-section">
+  <div class="section-container">
+    <h2 class="section-title" data-i18n="how_title">How It Works</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon"><i class="bi bi-upload"></i></div>
+        <h3 data-i18n="step1_title">Upload Leaf</h3>
+        <p data-i18n="step1_desc">Take a clear close-up photo of the affected leaf and upload it.</p>
+      </div>
+      <div class="step-arrow"><i class="bi bi-arrow-right"></i></div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon"><i class="bi bi-cpu"></i></div>
+        <h3 data-i18n="step2_title">AI Analysis</h3>
+        <p data-i18n="step2_desc">Our MobileNetV2 deep-learning model analyzes the image instantly.</p>
+      </div>
+      <div class="step-arrow"><i class="bi bi-arrow-right"></i></div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon"><i class="bi bi-clipboard2-check"></i></div>
+        <h3 data-i18n="step3_title">Get Results</h3>
+        <p data-i18n="step3_desc">Receive disease name, confidence, symptoms, and smart recommendations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

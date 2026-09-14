@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Predictions — Admin — CropCare AI{% endblock %}
+{% block content %}
+<section class="admin-section">
+  <div class="dash-container">
+    <div class="admin-header">
+      <h1><i class="bi bi-camera2"></i> All Predictions</h1>
+      <div class="admin-nav">
+        <a href="{{ url_for('admin.index') }}" class="admin-tab">Overview</a>
+        <a href="{{ url_for('admin.users') }}" class="admin-tab">Users</a>
+        <a href="{{ url_for('admin.predictions') }}" class="admin-tab active">Predictions</a>
+        <a href="{{ url_for('admin.disease_editor') }}" class="admin-tab">Diseases</a>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead><tr><th>#</th><th>User</th><th>Crop</th><th>Disease</th><th>Confidence</th><th>Status</th><th>Date</th><th></th></tr></thead>
+        <tbody>
+          {% for p in preds.items %}
+          <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.user.name if p.user else 'Guest' }}</td>
+            <td>{{ p.crop }}</td>
+            <td>{{ p.disease }}</td>
+            <td><span class="conf-badge badge--{{ p.confidence_level }}">{{ p.confidence_pct() }}%</span></td>
+            <td>{% if p.is_healthy %}<span class="badge badge--success">Healthy</span>{% else %}<span class="badge badge--danger">Disease</span>{% endif %}</td>
+            <td class="date-cell">{{ p.created_at.strftime('%d %b %Y') if p.created_at else '—' }}</td>
+            <td><a href="{{ url_for('main.result', pred_id=p.id) }}" class="btn-icon"><i class="bi bi-eye"></i></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% if preds.pages > 1 %}
+    <div class="pagination">
+      {% if preds.has_prev %}<a href="{{ url_for('admin.predictions', page=preds.prev_num) }}" class="page-btn"><i class="bi bi-chevron-left"></i></a>{% endif %}
+      {% for p in preds.iter_pages() %}{% if p %}<a href="{{ url_for('admin.predictions', page=p) }}" class="page-btn {% if p == preds.page %}page-btn--active{% endif %}">{{ p }}</a>{% else %}<span class="page-ellipsis">…</span>{% endif %}{% endfor %}
+      {% if preds.has_next %}<a href="{{ url_for('admin.predictions', page=preds.next_num) }}" class="page-btn"><i class="bi bi-chevron-right"></i></a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

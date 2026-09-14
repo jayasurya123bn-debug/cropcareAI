@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — CropCare AI{% endblock %}
+{% block content %}
+<section class="dashboard-section">
+  <div class="dash-container">
+    <div class="dash-header">
+      <h1 data-i18n="dash_title">Dashboard</h1>
+      <p class="dash-welcome">Welcome back, <strong>{{ current_user.name }}</strong></p>
+      <a href="{{ url_for('main.index') }}" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> <span data-i18n="btn_new_scan">New Scan</span>
+      </a>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <div class="stat-card stat-card--blue">
+        <div class="stat-card-icon"><i class="bi bi-camera2"></i></div>
+        <div class="stat-card-body">
+          <p class="stat-card-label" data-i18n="stat_total">Total Scans</p>
+          <h2 class="stat-card-value">{{ total_scans }}</h2>
+        </div>
+      </div>
+      <div class="stat-card stat-card--red">
+        <div class="stat-card-icon"><i class="bi bi-virus2"></i></div>
+        <div class="stat-card-body">
+          <p class="stat-card-label" data-i18n="stat_detected">Diseases Detected</p>
+          <h2 class="stat-card-value">{{ disease_count }}</h2>
+        </div>
+      </div>
+      <div class="stat-card stat-card--green">
+        <div class="stat-card-icon"><i class="bi bi-leaf"></i></div>
+        <div class="stat-card-body">
+          <p class="stat-card-label" data-i18n="stat_healthy">Healthy Leaves</p>
+          <h2 class="stat-card-value">{{ healthy_count }}</h2>
+        </div>
+      </div>
+      <div class="stat-card stat-card--purple">
+        <div class="stat-card-icon"><i class="bi bi-graph-up"></i></div>
+        <div class="stat-card-body">
+          <p class="stat-card-label" data-i18n="stat_avg_conf">Avg. Confidence</p>
+          <h2 class="stat-card-value">{{ avg_confidence }}%</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-charts-grid">
+      <!-- Confidence Chart -->
+      <div class="chart-card">
+        <h3 data-i18n="chart_confidence">Prediction Confidence Over Time</h3>
+        <canvas id="confidenceChart" height="200"></canvas>
+      </div>
+      <!-- Disease Breakdown -->
+      <div class="chart-card">
+        <h3 data-i18n="chart_breakdown">Disease Breakdown</h3>
+        <canvas id="donutChart" height="200"></canvas>
+      </div>
+    </div>
+
+    <!-- Top Diseases -->
+    {% if top_diseases %}
+    <div class="top-diseases-card">
+      <h3 data-i18n="top_diseases">Most Detected Diseases</h3>
+      <div class="top-list">
+        {% for disease, count in top_diseases %}
+        <div class="top-item">
+          <span class="top-name">{{ disease }}</span>
+          <div class="top-bar-track">
+            <div class="top-bar-fill" style="width: {{ (count / top_diseases[0][1] * 100)|int }}%"></div>
+          </div>
+          <span class="top-count">{{ count }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Recent Predictions -->
+    <div class="recent-card">
+      <div class="recent-header">
+        <h3 data-i18n="recent_preds">Recent Predictions</h3>
+        <a href="{{ url_for('main.history') }}" class="link-sm" data-i18n="view_all">View All</a>
+      </div>
+      {% if recent %}
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th data-i18n="th_crop">Crop</th>
+              <th data-i18n="th_disease">Disease</th>
+              <th data-i18n="th_confidence">Confidence</th>
+              <th data-i18n="th_status">Status</th>
+              <th data-i18n="th_date">Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in recent %}
+            <tr>
+              <td>{{ p.crop }}</td>
+              <td>{{ p.disease }}</td>
+              <td>
+                <span class="conf-badge badge--{{ p.confidence_level }}">{{ p.confidence_pct() }}%</span>
+              </td>
+              <td>
+                {% if p.is_healthy %}
+                <span class="badge badge--success"><i class="bi bi-check-circle"></i> Healthy</span>
+                {% else %}
+                <span class="badge badge--danger"><i class="bi bi-virus2"></i> Disease</span>
+                {% endif %}
+              </td>
+              <td class="date-cell">{{ p.created_at.strftime('%d %b %Y') if p.created_at else '—' }}</td>
+              <td><a href="{{ url_for('main.result', pred_id=p.id) }}" class="btn-icon" title="View"><i class="bi bi-eye"></i></a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="empty-state">
+        <i class="bi bi-camera2"></i>
+        <p data-i18n="no_scans">No scans yet. <a href="{{ url_for('main.index') }}">Scan your first leaf!</a></p>
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const chartData = {{ chart_data | tojson }};
+const topDiseases = {{ top_diseases | tojson }};
+const totalScans = {{ total_scans }};
+const healthyCount = {{ healthy_count }};
+const diseaseCount = {{ disease_count }};
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Confidence Line Chart
+  if (chartData.length > 0) {
+    new Chart(document.getElementById('confidenceChart'), {
+      type: 'line',
+      data: {
+        labels: chartData.map(d => d.date),
+        datasets: [{
+          label: 'Confidence %',
+          data: chartData.map(d => d.confidence),
+          borderColor: '#22c55e',
+          backgroundColor: 'rgba(34,197,94,0.1)',
+          tension: 0.4, fill: true, pointRadius: 3,
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } },
+        scales: { y: { min: 0, max: 100, ticks: { callback: v => v + '%' } } } }
+    });
+  }
+
+  // Donut Chart
+  new Chart(document.getElementById('donutChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Diseases', 'Healthy'],
+      datasets: [{ data: [diseaseCount, healthyCount],
+        backgroundColor: ['#ef4444', '#22c55e'],
+        borderWidth: 0, hoverOffset: 8 }]
+    },
+    options: { responsive: true, plugins: { legend: { position: 'bottom' } },
+      cutout: '65%' }
+  });
+});
+</script>
+{% endblock %}

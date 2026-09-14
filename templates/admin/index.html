@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Admin Panel — CropCare AI{% endblock %}
+{% block content %}
+<section class="admin-section">
+  <div class="dash-container">
+    <div class="admin-header">
+      <h1><i class="bi bi-shield-check"></i> Admin Panel</h1>
+      <div class="admin-nav">
+        <a href="{{ url_for('admin.index') }}" class="admin-tab active">Overview</a>
+        <a href="{{ url_for('admin.users') }}" class="admin-tab">Users</a>
+        <a href="{{ url_for('admin.predictions') }}" class="admin-tab">Predictions</a>
+        <a href="{{ url_for('admin.disease_editor') }}" class="admin-tab">Diseases</a>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card stat-card--blue"><div class="stat-card-icon"><i class="bi bi-people-fill"></i></div>
+        <div class="stat-card-body"><p class="stat-card-label">Total Users</p><h2 class="stat-card-value">{{ total_users }}</h2></div></div>
+      <div class="stat-card stat-card--purple"><div class="stat-card-icon"><i class="bi bi-camera2"></i></div>
+        <div class="stat-card-body"><p class="stat-card-label">Total Scans</p><h2 class="stat-card-value">{{ total_preds }}</h2></div></div>
+      <div class="stat-card stat-card--red"><div class="stat-card-icon"><i class="bi bi-virus2"></i></div>
+        <div class="stat-card-body"><p class="stat-card-label">Disease Detections</p><h2 class="stat-card-value">{{ total_disease }}</h2></div></div>
+      <div class="stat-card stat-card--green"><div class="stat-card-icon"><i class="bi bi-leaf"></i></div>
+        <div class="stat-card-body"><p class="stat-card-label">Healthy</p><h2 class="stat-card-value">{{ total_healthy }}</h2></div></div>
+    </div>
+
+    <div class="dash-charts-grid">
+      <div class="chart-card">
+        <h3>Top 10 Detected Diseases</h3>
+        {% if top_diseases %}
+        <div class="top-list">
+          {% for disease, count in top_diseases %}
+          <div class="top-item">
+            <span class="top-name">{{ disease }}</span>
+            <div class="top-bar-track"><div class="top-bar-fill" style="width:{{ (count / top_diseases[0][1] * 100)|int }}%"></div></div>
+            <span class="top-count">{{ count }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}<p class="text-muted">No data yet.</p>{% endif %}
+      </div>
+
+      <div class="chart-card">
+        <h3>Recent Scans (last 20)</h3>
+        {% if recent_preds %}
+        <div class="table-responsive">
+          <table class="data-table data-table--sm">
+            <thead><tr><th>User</th><th>Crop</th><th>Disease</th><th>Conf.</th><th>Date</th></tr></thead>
+            <tbody>
+              {% for p in recent_preds %}
+              <tr>
+                <td>{{ p.user.name if p.user else 'Guest' }}</td>
+                <td>{{ p.crop }}</td>
+                <td>{{ p.disease }}</td>
+                <td><span class="conf-badge badge--{{ p.confidence_level }}">{{ p.confidence_pct() }}%</span></td>
+                <td class="date-cell">{{ p.created_at.strftime('%d %b') if p.created_at else '—' }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% else %}<p class="text-muted">No scans yet.</p>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

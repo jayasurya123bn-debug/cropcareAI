@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block title %}File Too Large — CropCare AI{% endblock %}
+{% block content %}<section class="error-section"><div class="error-container"><div class="error-code">413</div><h1 class="error-title">File Too Large</h1><p class="error-msg">Your image exceeds the 5 MB limit. Please compress or resize it before uploading.</p><a href="{{ url_for('main.index') }}" class="btn btn-primary"><i class="bi bi-arrow-left-circle"></i> Try Again</a></div></section>{% endblock %}

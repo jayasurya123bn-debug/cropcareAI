@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Create Account — CropCare AI{% endblock %}
+{% block content %}
+<section class="auth-section">
+  <div class="auth-card auth-card--wide">
+    <div class="auth-brand"><span>🌿</span> CropCare AI</div>
+    <h1 class="auth-title" data-i18n="register_title">Create Your Account</h1>
+    <p class="auth-sub" data-i18n="register_sub">Join CropCare AI and start protecting your crops</p>
+
+    <form method="POST" action="{{ url_for('auth.register') }}" class="auth-form" id="registerForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name" data-i18n="label_name">Full Name</label>
+          <div class="input-icon-wrap">
+            <i class="bi bi-person input-icon"></i>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required autocomplete="name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" data-i18n="label_email">Email Address</label>
+          <div class="input-icon-wrap">
+            <i class="bi bi-envelope input-icon"></i>
+            <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required autocomplete="email">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="password" data-i18n="label_password">Password</label>
+          <div class="input-icon-wrap">
+            <i class="bi bi-lock input-icon"></i>
+            <input type="password" id="password" name="password" class="form-input" placeholder="Min. 8 characters" required minlength="8" autocomplete="new-password">
+            <button type="button" class="password-toggle" onclick="togglePassword('password')"><i class="bi bi-eye" id="eyeIcon-password"></i></button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirm_password" data-i18n="label_confirm">Confirm Password</label>
+          <div class="input-icon-wrap">
+            <i class="bi bi-lock-fill input-icon"></i>
+            <input type="password" id="confirm_password" name="confirm_password" class="form-input" placeholder="Repeat password" required autocomplete="new-password">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="preferred_language" data-i18n="label_lang">Preferred Language</label>
+        <div class="input-icon-wrap">
+          <i class="bi bi-translate input-icon"></i>
+          <select id="preferred_language" name="preferred_language" class="form-input form-select">
+            <option value="en" {% if current_lang == 'en' %}selected{% endif %}>English</option>
+            <option value="ta" {% if current_lang == 'ta' %}selected{% endif %}>தமிழ் (Tamil)</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" data-i18n="btn_register">Create Account</button>
+    </form>
+
+    <p class="auth-switch">
+      <span data-i18n="have_account">Already have an account?</span>
+      <a href="{{ url_for('auth.login') }}" data-i18n="link_login">Sign in</a>
+    </p>
+  </div>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script>
+function togglePassword(id) {
+  const inp = document.getElementById(id);
+  const eye = document.getElementById('eyeIcon-' + id);
+  if (inp.type === 'password') { inp.type = 'text'; eye.className = 'bi bi-eye-slash'; }
+  else { inp.type = 'password'; eye.className = 'bi bi-eye'; }
+}
+</script>
+{% endblock %}

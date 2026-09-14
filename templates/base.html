@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="{{ 'ta' if current_lang == 'ta' else 'en' }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CropCare AI — AI-Based Crop Disease Detection and Smart Recommendation System for farmers. Upload a leaf image to detect crop diseases instantly." />
+  <meta name="keywords" content="crop disease detection, plant disease AI, farmer app, agriculture AI, leaf disease, Tamil Nadu farming" />
+  <title>{% block title %}CropCare AI — Crop Disease Detection{% endblock %}</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Tamil:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Chart.js (loaded where needed) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="app-body" data-lang="{{ current_lang }}">
+
+<!-- ── Navigation ──────────────────────────────────────────────────────── -->
+<nav class="navbar" id="main-navbar">
+  <div class="nav-container">
+    <a href="{{ url_for('main.index') }}" class="nav-brand">
+      <span class="brand-icon">🌿</span>
+      <span class="brand-text">CropCare <span class="brand-ai">AI</span></span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="{{ url_for('main.index') }}" class="nav-link {% if request.endpoint == 'main.index' %}active{% endif %}" data-i18n="nav_home">Home</a></li>
+      {% if current_user.is_authenticated %}
+      <li><a href="{{ url_for('main.dashboard') }}" class="nav-link {% if request.endpoint == 'main.dashboard' %}active{% endif %}" data-i18n="nav_dashboard">Dashboard</a></li>
+      <li><a href="{{ url_for('main.history') }}" class="nav-link {% if request.endpoint == 'main.history' %}active{% endif %}" data-i18n="nav_history">History</a></li>
+      {% endif %}
+      <li><a href="{{ url_for('main.about') }}" class="nav-link {% if request.endpoint == 'main.about' %}active{% endif %}" data-i18n="nav_about">About</a></li>
+
+      {% if current_user.is_authenticated and current_user.is_admin %}
+      <li><a href="{{ url_for('admin.index') }}" class="nav-link nav-link--admin">
+        <i class="bi bi-shield-check"></i> Admin
+      </a></li>
+      {% endif %}
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <a href="{{ url_for('auth.set_language', lang='en') }}"
+           class="lang-btn {% if current_lang == 'en' %}active{% endif %}">EN</a>
+        <span class="lang-sep">|</span>
+        <a href="{{ url_for('auth.set_language', lang='ta') }}"
+           class="lang-btn {% if current_lang == 'ta' %}active{% endif %}">தமிழ்</a>
+      </div>
+
+      <!-- Auth -->
+      {% if current_user.is_authenticated %}
+      <div class="nav-user-menu">
+        <button class="user-avatar-btn" id="userMenuBtn">
+          <span class="user-avatar">{{ current_user.name[0].upper() }}</span>
+          <span class="user-name">{{ current_user.name.split()[0] }}</span>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="{{ url_for('main.dashboard') }}"><i class="bi bi-speedometer2"></i> Dashboard</a>
+          <a href="{{ url_for('main.history') }}"><i class="bi bi-clock-history"></i> History</a>
+          <hr class="dropdown-sep">
+          <a href="{{ url_for('auth.logout') }}" class="logout-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </div>
+      </div>
+      {% else %}
+      <a href="{{ url_for('auth.login') }}" class="btn btn-ghost" data-i18n="nav_login">Login</a>
+      <a href="{{ url_for('auth.register') }}" class="btn btn-primary" data-i18n="nav_signup">Sign Up</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<!-- ── Flash Messages ──────────────────────────────────────────────────── -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-container" id="flashContainer">
+  {% for category, message in messages %}
+  <div class="flash flash--{{ category }}" role="alert">
+    <i class="bi {% if category == 'success' %}bi-check-circle-fill{% elif category == 'danger' %}bi-exclamation-triangle-fill{% elif category == 'warning' %}bi-exclamation-circle-fill{% else %}bi-info-circle-fill{% endif %}"></i>
+    <span>{{ message }}</span>
+    <button class="flash-close" onclick="this.parentElement.remove()"><i class="bi bi-x"></i></button>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- ── Main Content ────────────────────────────────────────────────────── -->
+<main class="main-content">
+  {% block content %}{% endblock %}
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────────────────── -->
+<footer class="app-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <span class="brand-icon">🌿</span>
+      <span>CropCare AI</span>
+    </div>
+    <p class="footer-desc">
+      AI-Based Crop Disease Detection & Smart Recommendation System.
+      Built for farmers, by technology.
+    </p>
+    <div class="footer-links">
+      <a href="{{ url_for('main.about') }}">About</a>
+      <a href="{{ url_for('api.api_status') }}">API Status</a>
+    </div>
+    <p class="footer-disclaimer">
+      ⚠️ This tool is for informational guidance only. Always consult a qualified agricultural extension officer for chemical treatment decisions. Follow locally approved pesticide labels.
+    </p>
+    <p class="footer-copy">
+      &copy; 2026 CropCare AI &mdash; AI-Based Crop Disease Detection System.
+      Dataset: PlantVillage (Hughes &amp; Salath&eacute;, 2015).
+    </p>
+  </div>
+</footer>
+
+<!-- ── Scripts ─────────────────────────────────────────────────────────── -->
+<script src="{{ url_for('static', filename='js/translations.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

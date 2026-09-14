@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Disease Database — Admin — CropCare AI{% endblock %}
+{% block content %}
+<section class="admin-section">
+  <div class="dash-container">
+    <div class="admin-header">
+      <h1><i class="bi bi-journal-medical"></i> Disease Database</h1>
+      <div class="admin-nav">
+        <a href="{{ url_for('admin.index') }}" class="admin-tab">Overview</a>
+        <a href="{{ url_for('admin.users') }}" class="admin-tab">Users</a>
+        <a href="{{ url_for('admin.predictions') }}" class="admin-tab">Predictions</a>
+        <a href="{{ url_for('admin.disease_editor') }}" class="admin-tab active">Diseases</a>
+      </div>
+    </div>
+    <p class="text-muted mb-2">Edit disease information in <code>recommendations/disease_data.json</code> and restart the server to apply changes.</p>
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead><tr><th>Class Key</th><th>Crop</th><th>Disease</th><th>Healthy?</th><th>Symptoms</th><th>Prevention</th></tr></thead>
+        <tbody>
+          {% for d in diseases %}
+          <tr>
+            <td><code>{{ d.class_key }}</code></td>
+            <td>{{ d.crop }}</td>
+            <td>{{ d.disease_name }}</td>
+            <td>{% if d.is_healthy %}<span class="badge badge--success">Yes</span>{% else %}<span class="badge badge--danger">No</span>{% endif %}</td>
+            <td>{{ d.symptoms | length }}</td>
+            <td>{{ d.prevention | length }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="6" class="text-center text-muted">No disease data loaded.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

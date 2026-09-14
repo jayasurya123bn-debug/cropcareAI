@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}404 — Page Not Found — CropCare AI{% endblock %}
+{% block content %}
+<section class="error-section">
+  <div class="error-container">
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-msg">The page you're looking for doesn't exist or has been moved.</p>
+    <a href="{{ url_for('main.index') }}" class="btn btn-primary"><i class="bi bi-house-fill"></i> Go Home</a>
+  </div>
+</section>
+{% endblock %}

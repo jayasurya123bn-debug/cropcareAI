@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+{% block title %}
+  {% if lang == 'ta' %}முடிவு — CropCare AI{% else %}Detection Result — CropCare AI{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="result-section">
+  <div class="result-container">
+
+    <!-- Header -->
+    <div class="result-header">
+      <h1 class="result-heading" data-i18n="result_title">
+        {% if lang == 'ta' %}நோய் கண்டறிதல் முடிவு{% else %}Disease Detection Result{% endif %}
+      </h1>
+      {% if result.demo_mode %}
+      <span class="badge badge--warning">
+        <i class="bi bi-info-circle"></i> {% if lang == 'ta' %}டெமோ பயன்முறை{% else %}Demo Mode{% endif %}
+      </span>
+      {% endif %}
+    </div>
+
+    <div class="result-grid">
+
+      <!-- Left: Image -->
+      <div class="result-images">
+        <div class="image-tabs">
+          <button class="img-tab active" id="tabOriginal" onclick="showTab('original')">
+            <i class="bi bi-image"></i>
+            <span data-i18n="tab_original">{% if lang == 'ta' %}அசல்{% else %}Original{% endif %}</span>
+          </button>
+          {% if gradcam_filename %}
+          <button class="img-tab" id="tabGradcam" onclick="showTab('gradcam')">
+            <i class="bi bi-eye"></i>
+            <span data-i18n="tab_gradcam">{% if lang == 'ta' %}AI கவனம் (Grad-CAM){% else %}AI Focus (Grad-CAM){% endif %}</span>
+          </button>
+          {% endif %}
+        </div>
+
+        <div class="img-panel" id="panelOriginal">
+          <img src="{{ url_for('static', filename='uploads/' + image_filename) }}"
+               alt="Uploaded leaf" class="result-img" id="leafImage">
+        </div>
+
+        {% if gradcam_filename %}
+        <div class="img-panel hidden" id="panelGradcam">
+          <img src="{{ url_for('static', filename='uploads/' + gradcam_filename) }}"
+               alt="Grad-CAM heatmap" class="result-img">
+          <p class="gradcam-note"><i class="bi bi-info-circle"></i>
+            <span data-i18n="gradcam_note">
+              {% if lang == 'ta' %}சிவப்பு/வெப்ப பகுதிகள் AI எங்கே கவனம் செலுத்தியது என்பதை காட்டுகின்றன.{% else %}Red/warm regions show where the AI focused its attention.{% endif %}
+            </span>
+          </p>
+        </div>
+        {% endif %}
+
+        <a href="{{ url_for('main.index') }}" class="btn btn-secondary btn-block mt-2">
+          <i class="bi bi-arrow-left-circle"></i>
+          <span data-i18n="btn_scan_another">
+            {% if lang == 'ta' %}மற்றொரு இலையை ஸ்கேன் செய்{% else %}Scan Another Leaf{% endif %}
+          </span>
+        </a>
+      </div>
+
+      <!-- Right: Prediction Card -->
+      <div class="result-details">
+
+        <!-- Disease Status -->
+        <div class="disease-card {% if result.is_healthy %}disease-card--healthy{% else %}disease-card--disease{% endif %}">
+          <div class="disease-status-icon">
+            {% if result.is_healthy %}
+            <i class="bi bi-check-circle-fill"></i>
+            {% else %}
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            {% endif %}
+          </div>
+          <div class="disease-info">
+            <p class="label" data-i18n="result_crop">{% if lang == 'ta' %}பயிர்{% else %}Crop{% endif %}</p>
+            <h2 class="crop-name">{{ recommendations.crop or result.crop }}</h2>
+            <p class="label" data-i18n="result_disease">{% if lang == 'ta' %}நோய்{% else %}Disease{% endif %}</p>
+            <h2 class="disease-name {% if result.is_healthy %}healthy-text{% endif %}">
+              {{ recommendations.disease_name or result.disease }}
+            </h2>
+          </div>
+        </div>
+
+        <!-- Confidence -->
+        <div class="confidence-card">
+          <div class="confidence-header">
+            <span data-i18n="result_confidence">{% if lang == 'ta' %}நம்பகத்தன்மை{% else %}Confidence{% endif %}</span>
+            <span class="confidence-badge badge--{{ result.confidence_level }}">
+              {{ result.confidence_pct }}%
+            </span>
+          </div>
+          <div class="confidence-bar-track">
+            <div class="confidence-bar-fill confidence-bar--{{ result.confidence_level }}"
+                 style="width: {{ result.confidence_pct }}%"
+                 id="confBar"></div>
+          </div>
+          {% if result.confidence_message %}
+          <p class="confidence-msg confidence-msg--{{ result.confidence_level }}">
+            {{ result.confidence_message }}
+          </p>
+          {% endif %}
+        </div>
+
+        <!-- Healthy Message -->
+        {% if result.is_healthy %}
+        <div class="healthy-card">
+          <i class="bi bi-patch-check-fill healthy-icon"></i>
+          <p data-i18n="healthy_msg">
+            {% if lang == 'ta' %}நல்ல செய்தி! உங்கள் பயிர் ஆரோக்கியமாக தெரிகிறது. தொடர்ந்து கண்காணிப்பு மற்றும் நல்ல வேளாண் நடைமுறைகளை தொடருங்கள்.{% else %}Great news! Your crop appears healthy. Continue regular monitoring and good agricultural practices.{% endif %}
+          </p>
+        </div>
+        {% endif %}
+
+        <!-- Actions -->
+        <div class="result-actions">
+          {% if current_user.is_authenticated %}
+          <a href="{{ url_for('main.history') }}" class="btn btn-ghost">
+            <i class="bi bi-clock-history"></i>
+            <span data-i18n="btn_history">{% if lang == 'ta' %}வரலாறு பார்{% else %}View History{% endif %}</span>
+          </a>
+          {% endif %}
+          <button class="btn btn-ghost" onclick="window.print()">
+            <i class="bi bi-printer"></i>
+            <span data-i18n="btn_print">{% if lang == 'ta' %}அச்சிடு{% else %}Print{% endif %}</span>
+          </button>
+        </div>
+
+      </div><!-- .result-details -->
+    </div><!-- .result-grid -->
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- FULL DISEASE / CROP REPORT (shown below the grid)         -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+
+    {% if recommendations %}
+
+    <!-- ── Disease / Health Report Card ────────────────────────── -->
+    <div class="report-section">
+      <div class="report-header">
+        <i class="bi bi-file-earmark-medical-fill report-header-icon"></i>
+        <div>
+          <h2 class="report-title" data-i18n="{% if result.is_healthy %}healthy_report_title{% else %}report_title{% endif %}">
+            {% if result.is_healthy %}
+              {% if lang == 'ta' %}பயிர் ஆரோக்கிய அறிக்கை{% else %}Crop Health Report{% endif %}
+            {% else %}
+              {% if lang == 'ta' %}நோய் அறிக்கை{% else %}Disease Report{% endif %}
+            {% endif %}
+          </h2>
+          <p class="report-subtitle">
+            <span data-i18n="result_crop">{% if lang == 'ta' %}பயிர்{% else %}Crop{% endif %}</span>: <strong>{{ recommendations.crop or result.crop }}</strong> &nbsp;|&nbsp;
+            <span data-i18n="result_disease">{% if result.is_healthy %}{% if lang == 'ta' %}நிலை{% else %}Status{% endif %}{% else %}{% if lang == 'ta' %}நோய்{% else %}Disease{% endif %}{% endif %}</span>: <strong>{{ recommendations.disease_name or result.disease }}</strong> &nbsp;|&nbsp;
+            <span data-i18n="result_confidence">{% if lang == 'ta' %}நம்பகத்தன்மை{% else %}Confidence{% endif %}</span>: <strong>{{ result.confidence_pct }}%</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- Symptoms / Observations -->
+      <div class="report-block">
+        <h3 class="report-block-title">
+          <i class="bi bi-{% if result.is_healthy %}check-circle-fill text-success{% else %}virus2{% endif %}"></i>
+          <span data-i18n="{% if result.is_healthy %}healthy_observations{% else %}rec_symptoms{% endif %}">
+            {% if result.is_healthy %}
+              {% if lang == 'ta' %}ஆரோக்கிய அவதானிப்புகள்{% else %}Health Observations{% endif %}
+            {% else %}
+              {% if lang == 'ta' %}அறிகுறிகள்{% else %}Symptoms{% endif %}
+            {% endif %}
+          </span>
+        </h3>
+        <ul class="report-list">
+          {% for s in recommendations.symptoms %}
+          <li><i class="bi bi-dot"></i> {{ s }}</li>
+          {% else %}
+          <li data-i18n="no_data">
+            {% if lang == 'ta' %}தரவு இல்லை.{% else %}No data available.{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Prevention / Maintenance -->
+      <div class="report-block">
+        <h3 class="report-block-title">
+          <i class="bi bi-shield-check"></i>
+          <span data-i18n="{% if result.is_healthy %}healthy_care{% else %}rec_prevention{% endif %}">
+            {% if result.is_healthy %}
+              {% if lang == 'ta' %}பராமரிப்பு மற்றும் தடுப்பு வழிகாட்டுதல்கள்{% else %}Maintenance &amp; Preventive Care{% endif %}
+            {% else %}
+              {% if lang == 'ta' %}தடுப்பு நடவடிக்கைகள்{% else %}Prevention{% endif %}
+            {% endif %}
+          </span>
+        </h3>
+        <ul class="report-list">
+          {% for p in recommendations.prevention %}
+          <li><i class="bi bi-dot"></i> {{ p }}</li>
+          {% else %}
+          <li data-i18n="no_data">
+            {% if lang == 'ta' %}தரவு இல்லை.{% else %}No data available.{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div><!-- .report-section -->
+
+    <!-- ── 6-Step Actionable Guide ──────────────────────────────── -->
+    <div class="steps-section">
+      <div class="steps-header">
+        <i class="bi bi-list-ol steps-header-icon"></i>
+        <div>
+          <h2 class="steps-title" data-i18n="{% if result.is_healthy %}healthy_steps_title{% else %}steps_title{% endif %}">
+            {% if result.is_healthy %}
+              {% if lang == 'ta' %}ஆரோக்கியமான பயிர் பராமரிப்புக்கான 6 படிகள்{% else %}6 Steps for Healthy Crop Maintenance{% endif %}
+            {% else %}
+              {% if lang == 'ta' %}இந்த நோயை எவ்வாறு அகற்றுவது (6 படிகள்){% else %}How to Remove This Disease (6 Steps){% endif %}
+            {% endif %}
+          </h2>
+          <p class="steps-subtitle" data-i18n="{% if result.is_healthy %}healthy_steps_subtitle{% else %}steps_subtitle{% endif %}">
+            {% if result.is_healthy %}
+              {% if lang == 'ta' %}சிறந்த வளர்ச்சியை பராமரிக்கவும் நோய்த்தொற்றுகளைத் தடுக்கவும் இந்த 6 படிகளைப் பின்பற்றுங்கள்{% else %}Follow these 6 steps to maintain optimal growth and prevent infections{% endif %}
+            {% else %}
+              {% if lang == 'ta' %}உங்கள் பயிரில் இருந்து நோயை சிகிச்சை செய்து அகற்ற இந்த 6 படிகளை பின்பற்றுங்கள்{% else %}Follow these 6 actionable steps to treat and eliminate the disease from your crop{% endif %}
+            {% endif %}
+          </p>
+        </div>
+      </div>
+
+      <div class="steps-grid">
+        {% for step in recommendations.steps %}
+        <div class="step-item">
+          <div class="step-badge">{{ step.number }}</div>
+          <div class="step-content">
+            <h4 class="step-label">{{ step.title }}</h4>
+            <p class="step-desc">{{ step.desc }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% if not result.is_healthy %}
+      <!-- Disclaimer -->
+      <div class="disclaimer-box">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <span data-i18n="chemical_disclaimer">
+          {% if lang == 'ta' %}எந்த இரசாயன சிகிச்சையும் பயன்படுத்துவதற்கு முன்பு எப்போதும் உள்ளூரில் அங்கீகரிக்கப்பட்ட பூச்சிக்கொல்லி லேபிள்களை பின்பற்றவும் மற்றும் வேளாண் நீட்டிப்பு அதிகாரியை அணுகவும்.{% else %}Always follow locally approved pesticide labels and consult an agricultural extension officer before applying any chemical treatment.{% endif %}
+        </span>
+      </div>
+      {% endif %}
+    </div><!-- .steps-section -->
+
+    <!-- ── Monitoring Tips ───────────────────────────────────────── -->
+    {% if recommendations.monitoring %}
+    <div class="monitoring-section">
+      <h3 class="monitoring-title">
+        <i class="bi bi-binoculars-fill"></i>
+        <span data-i18n="rec_monitoring">
+          {% if lang == 'ta' %}கண்காணிப்பு மற்றும் பராமரிப்பு{% else %}Monitoring &amp; Follow-up{% endif %}
+        </span>
+      </h3>
+      <div class="monitoring-grid">
+        {% for m in recommendations.monitoring %}
+        <div class="monitoring-card">
+          <i class="bi bi-check2-circle monitoring-icon"></i>
+          <span>{{ m }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% endif %}<!-- end if recommendations -->
+
+  </div><!-- .result-container -->
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function showTab(tab) {
+  document.getElementById('panelOriginal').classList.toggle('hidden', tab !== 'original');
+  const gc = document.getElementById('panelGradcam');
+  if (gc) gc.classList.toggle('hidden', tab !== 'gradcam');
+  document.getElementById('tabOriginal').classList.toggle('active', tab === 'original');
+  const tabGc = document.getElementById('tabGradcam');
+  if (tabGc) tabGc.classList.toggle('active', tab === 'gradcam');
+}
+
+// Animate confidence bar on load
+document.addEventListener('DOMContentLoaded', () => {
+  const bar = document.getElementById('confBar');
+  if (bar) {
+    const target = bar.style.width;
+    bar.style.width = '0%';
+    bar.style.transition = 'width 1.2s cubic-bezier(0.4,0,0.2,1)';
+    setTimeout(() => { bar.style.width = target; }, 200);
+  }
+
+  // Animate step items in sequence
+  const steps = document.querySelectorAll('.step-item');
+  steps.forEach((s, i) => {
+    s.style.opacity = '0';
+    s.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+      s.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      s.style.opacity = '1';
+      s.style.transform = 'translateY(0)';
+    }, 400 + i * 120);
+  });
+
+  // Animate report blocks
+  document.querySelectorAll('.report-block, .monitoring-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-15px)';
+    setTimeout(() => {
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      el.style.opacity = '1';
+      el.style.transform = 'translateX(0)';
+    }, 300 + i * 100);
+  });
+});
+</script>
+{% endblock %}
