@@ -24,13 +24,20 @@ def create_app():
 
     # ── Core Config ────────────────────────────────────────────────────────
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-change-in-production')
-    db_url = os.getenv('DATABASE_URL', 'sqlite:///cropcare.db')
-    if db_url.startswith('postgres://'):
-        db_url = db_url.replace('postgres://', 'postgresql://', 1)
-    app.config['SQLALCHEMY_DATABASE_URI'] = db_url
+
+    is_vercel = bool(os.getenv('VERCEL'))
+    if is_vercel:
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/cropcare.db'
+        app.config['UPLOAD_FOLDER'] = '/tmp/uploads'
+    else:
+        db_url = os.getenv('DATABASE_URL', 'sqlite:///cropcare.db')
+        if db_url.startswith('postgres://'):
+            db_url = db_url.replace('postgres://', 'postgresql://', 1)
+        app.config['SQLALCHEMY_DATABASE_URI'] = db_url
+        app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', os.path.join('static', 'uploads'))
+
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['MAX_CONTENT_LENGTH'] = int(os.getenv('MAX_CONTENT_LENGTH', 5 * 1024 * 1024))  # 5 MB
-    app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', os.path.join('static', 'uploads'))
     app.config['MODEL_PATH'] = os.getenv('MODEL_PATH', os.path.join('models', 'crop_disease_model.keras'))
     app.config['CLASS_NAMES_PATH'] = os.getenv('CLASS_NAMES_PATH', os.path.join('models', 'class_names.json'))
     app.config['CONFIDENCE_HIGH'] = float(os.getenv('CONFIDENCE_HIGH', 0.80))
@@ -39,8 +46,9 @@ def create_app():
 
     # ── Ensure required directories exist ─────────────────────────────────
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-    os.makedirs('models', exist_ok=True)
-    os.makedirs('results', exist_ok=True)
+    if not is_vercel:
+        os.makedirs('models', exist_ok=True)
+        os.makedirs('results', exist_ok=True)
 
     # ── Database ───────────────────────────────────────────────────────────
     from database.database import db, init_db
