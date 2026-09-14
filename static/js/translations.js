@@ -7,7 +7,8 @@ const TRANSLATIONS = {
   en: {
     // Nav
     nav_home: 'Home', nav_community: 'Community', nav_dashboard: 'Dashboard', nav_history: 'History',
-    nav_about: 'About', nav_login: 'Login', nav_signup: 'Sign Up',
+    nav_about: 'About', nav_login: 'Login', nav_signup: 'Sign Up', nav_logout: 'Logout',
+    mobile_auth_prompt: 'Sign in to save scan history & join farmers',
 
     // Hero
     hero_badge: 'AI-Powered Plant Analysis',
@@ -114,7 +115,8 @@ const TRANSLATIONS = {
   ta: {
     // Nav
     nav_home: 'முகப்பு', nav_community: 'சமூகம்', nav_dashboard: 'டாஷ்போர்டு', nav_history: 'வரலாறு',
-    nav_about: 'பற்றி', nav_login: 'உள்நுழைவு', nav_signup: 'பதிவு செய்',
+    nav_about: 'பற்றி', nav_login: 'உள்நுழைவு', nav_signup: 'பதிவு செய்', nav_logout: 'வெளியேறு',
+    mobile_auth_prompt: 'வரலாற்றைச் சேமிக்கவும் விவசாயிகளுடன் இணையவும் உள்நுழையுங்கள்',
 
     // Hero
     hero_badge: 'AI-இயக்கப்படும் தாவர பகுப்பாய்வு',

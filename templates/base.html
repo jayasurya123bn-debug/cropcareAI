@@ -31,10 +31,24 @@
       <span class="brand-text">CropCare <span class="brand-ai">AI</span></span>
     </a>
 
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-      <i class="bi bi-list"></i>
-    </button>
+    <!-- Mobile Quick Actions Bar (Visible only on mobile header) -->
+    <div class="nav-mobile-quick mobile-only">
+      {% if not current_user.is_authenticated %}
+      <a href="{{ url_for('auth.login') }}" class="btn-mobile-quick-login" aria-label="Login">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span data-i18n="nav_login">Login</span>
+      </a>
+      {% else %}
+      <a href="{{ url_for('main.dashboard') }}" class="btn-mobile-quick-avatar" aria-label="Dashboard">
+        <span>{{ current_user.name[0].upper() }}</span>
+      </a>
+      {% endif %}
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="bi bi-list" id="navToggleIcon"></i>
+      </button>
+    </div>
 
+    <!-- Main Navigation Links (Desktop + Mobile Drawer) -->
     <ul class="nav-links" id="navLinks">
       <li><a href="{{ url_for('main.index') }}" class="nav-link {% if request.endpoint == 'main.index' %}active{% endif %}" data-i18n="nav_home">Home</a></li>
       <li><a href="{{ url_for('main.community') }}" class="nav-link {% if request.endpoint in ('main.community', 'main.app_community') %}active{% endif %}" data-i18n="nav_community">Community</a></li>
@@ -49,9 +63,51 @@
         <i class="bi bi-shield-check"></i> Admin
       </a></li>
       {% endif %}
+
+      <!-- Mobile-Only Drawer Items: Auth & Language -->
+      <li class="nav-divider mobile-only"></li>
+
+      {% if current_user.is_authenticated %}
+      <li class="mobile-only mobile-user-info-card">
+        <div class="user-avatar-lg">{{ current_user.name[0].upper() }}</div>
+        <div class="mobile-user-meta">
+          <strong class="mobile-user-name">{{ current_user.name }}</strong>
+          <span class="mobile-user-email">{{ current_user.email }}</span>
+        </div>
+      </li>
+      <li class="mobile-only">
+        <a href="{{ url_for('auth.logout') }}" class="nav-link nav-link--logout">
+          <i class="bi bi-box-arrow-right"></i> <span data-i18n="nav_logout">Logout</span>
+        </a>
+      </li>
+      {% else %}
+      <li class="mobile-only mobile-auth-card">
+        <p class="mobile-auth-intro" data-i18n="mobile_auth_prompt">Sign in to save scan history & join farmers</p>
+        <div class="mobile-auth-btn-group">
+          <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-block mobile-menu-login-btn">
+            <i class="bi bi-box-arrow-in-right"></i> <span data-i18n="nav_login">Login</span>
+          </a>
+          <a href="{{ url_for('auth.register') }}" class="btn btn-secondary btn-block mobile-menu-reg-btn">
+            <i class="bi bi-person-plus"></i> <span data-i18n="nav_signup">Sign Up</span>
+          </a>
+        </div>
+      </li>
+      {% endif %}
+
+      <li class="mobile-only mobile-lang-drawer-row">
+        <span class="mobile-lang-heading"><i class="bi bi-globe"></i> Language:</span>
+        <div class="lang-switcher">
+          <a href="{{ url_for('auth.set_language', lang='en') }}"
+             class="lang-btn {% if current_lang == 'en' %}active{% endif %}">EN</a>
+          <span class="lang-sep">|</span>
+          <a href="{{ url_for('auth.set_language', lang='ta') }}"
+             class="lang-btn {% if current_lang == 'ta' %}active{% endif %}">தமிழ்</a>
+        </div>
+      </li>
     </ul>
 
-    <div class="nav-actions">
+    <!-- Desktop Navigation Actions -->
+    <div class="nav-actions desktop-only">
       <!-- Language Switcher -->
       <div class="lang-switcher">
         <a href="{{ url_for('auth.set_language', lang='en') }}"

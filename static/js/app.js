@@ -19,11 +19,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Mobile Nav Toggle ─────────────────────────────────────────────────
-  const navToggle = document.getElementById('navToggle');
-  const navLinks  = document.getElementById('navLinks');
+  const navToggle     = document.getElementById('navToggle');
+  const navLinks      = document.getElementById('navLinks');
+  const navToggleIcon = document.getElementById('navToggleIcon');
+
   if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+      if (navToggleIcon) {
+        navToggleIcon.className = isOpen ? 'bi bi-x-lg' : 'bi bi-list';
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        if (navToggleIcon) navToggleIcon.className = 'bi bi-list';
+      }
+    });
+
+    // Close when clicking a nav link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        if (navToggleIcon) navToggleIcon.className = 'bi bi-list';
+      });
     });
   }
 
